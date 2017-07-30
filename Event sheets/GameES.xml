@@ -1295,7 +1295,7 @@
                         <condition id="-8" name="Compare two values" sid="814951306720999" type="System">
                             <param id="0" name="First value">Level</param>
                             <param id="1" name="Comparison">0</param>
-                            <param id="2" name="Second value">1</param>
+                            <param id="2" name="Second value">10</param>
                         </condition>
                     </conditions>
                     <actions>
