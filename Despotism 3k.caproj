@@ -160,13 +160,41 @@
             </instance-variables>
             <texture original-source="C:\Users\Petra\Desktop\SpriteFont_Minecraftia_Regular_8_1111_10x13.png" />
         </object-type>
+        <object-type name="VictoryText" sid="820699961748221">
+            <plugin id="Spritefont2" />
+            <instance-variables>
+                <instance-variable name="type" sid="988835507955674" type="string" />
+            </instance-variables>
+            <texture original-source="C:\Users\Petra\Desktop\SpriteFont_Minecraftia_Regular_8_1111_10x13.png" />
+        </object-type>
+        <object-type name="LossText" sid="650191385780498">
+            <plugin id="Spritefont2" />
+            <instance-variables>
+                <instance-variable name="type" sid="463301676746808" type="string" />
+            </instance-variables>
+            <texture original-source="C:\Users\Petra\Desktop\SpriteFont_Minecraftia_Regular_8_1111_10x13.png" />
+        </object-type>
+        <object-type name="NewGame" sid="278375062244444">
+            <plugin id="Button" />
+        </object-type>
+        <object-type name="TimeText" sid="497647615746006">
+            <plugin id="Spritefont2" />
+            <instance-variables>
+                <instance-variable name="type" sid="321367933786313" type="string" />
+            </instance-variables>
+            <texture original-source="C:\Users\Petra\Desktop\SpriteFont_Minecraftia_Regular_8_1111_10x13.png" />
+        </object-type>
     </object-folder>
     <families />
     <layout-folder>
         <layout>Game.xml</layout>
+        <layout>Victory.xml</layout>
+        <layout>Loss.xml</layout>
     </layout-folder>
     <event-folder>
         <event-sheet>GameES.xml</event-sheet>
+        <event-sheet>VictoryES.xml</event-sheet>
+        <event-sheet>LossES.xml</event-sheet>
     </event-folder>
     <global-instances>
         <global-instance type="Function" uid="4" />

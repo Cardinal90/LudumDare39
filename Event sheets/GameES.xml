@@ -3,6 +3,8 @@
     <!--All the 'name' attributes are ignored by Construct 2 - they are there for readability only.-->
     <name>GameES</name>
     <events>
+        <variable constant="0" name="LevelStartTime" sid="103055519668562" static="0" type="number">0</variable>
+        <variable constant="0" name="TotalTime" sid="897253730388986" static="0" type="number">0</variable>
         <variable constant="0" name="const_e7_lessEnergy" sid="252962220196944" static="0" type="number">2</variable>
         <variable constant="0" name="const_e6_energyFactor" sid="682078786162702" static="0" type="number">2</variable>
         <variable constant="0" name="const_e5_moreReactorFood" sid="722448047141731" static="0" type="number">2</variable>
@@ -42,6 +44,7 @@
         <variable constant="0" name="HumansOnPower" sid="991374803763341" static="0" type="number">0</variable>
         <variable constant="0" name="HumansOnFood" sid="771265016086797" static="0" type="number">0</variable>
         <variable constant="0" name="TotalHumans" sid="646385495297222" static="0" type="number">0</variable>
+        <variable constant="0" name="BasePowerDecreaseRate" sid="274253536309432" static="0" type="number">0</variable>
         <variable constant="0" name="PowerDecreaseRate" sid="953250552380124" static="0" type="number">0.2</variable>
         <variable constant="0" name="CurrentPower" sid="355028372069490" static="0" type="number">50</variable>
         <variable constant="0" name="MaxPower" sid="570153560704578" static="0" type="number">100</variable>
@@ -101,6 +104,14 @@
                     <param id="1" name="Value">9</param>
                     <param id="2" name="Axis">0</param>
                 </action>
+                <action id="-9" name="Set value" sid="189020535082764" type="System">
+                    <param id="0" name="Variable">LevelStartTime</param>
+                    <param id="1" name="Value">time</param>
+                </action>
+                <action id="-9" name="Set value" sid="337262632056269" type="System">
+                    <param id="0" name="Variable">BasePowerDecreaseRate</param>
+                    <param id="1" name="Value">PowerDecreaseRate</param>
+                </action>
             </actions>
             <sub-events>
                 <event-block sid="231692729932514">
@@ -152,8 +163,27 @@
                     <param id="0" name="Variable">SexProgress</param>
                     <param id="1" name="Value">SexProgress + HumansInIncubator/2*PollPeriod</param>
                 </action>
+                <action id="-9" name="Set value" sid="655442269167919" type="System">
+                    <param id="0" name="Variable">TotalTime</param>
+                    <param id="1" name="Value">TotalTime + PollPeriod</param>
+                </action>
             </actions>
             <sub-events>
+                <event-block sid="478487672839048">
+                    <conditions>
+                        <condition id="-8" name="Compare two values" sid="672325562486825" type="System">
+                            <param id="0" name="First value">floor(time)</param>
+                            <param id="1" name="Comparison">4</param>
+                            <param id="2" name="Second value">LevelStartTime+300</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-9" name="Set value" sid="712342213375302" type="System">
+                            <param id="0" name="Variable">PowerDecreaseRate</param>
+                            <param id="1" name="Value">BasePowerDecreaseRate*(1 + 0.1*floor((time-LevelStartTime)/300))</param>
+                        </action>
+                    </actions>
+                </event-block>
                 <event-block sid="656506123389000">
                     <conditions>
                         <condition id="-8" name="Compare two values" sid="695628390301450" type="System">
@@ -455,7 +485,7 @@
                                         </action>
                                         <action id="-9" name="Set value" sid="737700690472832" type="System">
                                             <param id="0" name="Variable">CurrentPower</param>
-                                            <param id="1" name="Value">CurrentPower + ReactorEnergy</param>
+                                            <param id="1" name="Value">min(CurrentPower + ReactorEnergy, MaxPower)</param>
                                         </action>
                                     </actions>
                                     <sub-events>
@@ -1172,7 +1202,7 @@
                         </action>
                         <action id="-9" name="Set value" sid="622251242203305" type="System">
                             <param id="0" name="Variable">CurrentPower</param>
-                            <param id="1" name="Value">CurrentPower + PowerPackSize*c1</param>
+                            <param id="1" name="Value">min(CurrentPower + PowerPackSize*c1, MaxPower)</param>
                         </action>
                     </actions>
                 </event-block>
@@ -1255,8 +1285,25 @@
                         </action>
                     </actions>
                 </event-block>
-                <variable constant="0" name="oldLevel" sid="597067673879754" static="0" type="number">0</variable>
-                <variable constant="0" name="oldPower" sid="854903317756875" static="0" type="number">0</variable>
+                <event-block sid="100247592090520">
+                    <conditions>
+                        <condition id="-8" name="Compare two values" sid="751957690310700" type="System">
+                            <param id="0" name="First value">CurrentPower</param>
+                            <param id="1" name="Comparison">5</param>
+                            <param id="2" name="Second value">MaxPower</param>
+                        </condition>
+                        <condition id="-8" name="Compare two values" sid="814951306720999" type="System">
+                            <param id="0" name="First value">Level</param>
+                            <param id="1" name="Comparison">0</param>
+                            <param id="2" name="Second value">1</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-2" name="Go to layout" sid="672535480531215" type="System">
+                            <param id="0" name="Layout">Victory</param>
+                        </action>
+                    </actions>
+                </event-block>
                 <event-block sid="595163769419781">
                     <conditions>
                         <condition id="-8" name="Compare two values" sid="403038756838775" type="System">
@@ -1332,19 +1379,8 @@
                         </condition>
                     </conditions>
                     <actions>
-                        <action disabled="1" id="-9" name="Set value" sid="646444267576854" type="System">
-                            <param id="0" name="Variable">oldLevel</param>
-                            <param id="1" name="Value">Level</param>
-                        </action>
-                        <action id="-21" name="Reset global variables" sid="722005630530441" type="System" />
-                        <action disabled="1" id="-9" name="Set value" sid="369197081833211" type="System">
-                            <param id="0" name="Variable">Level</param>
-                            <param id="1" name="Value">oldLevel</param>
-                        </action>
-                        <action id="-26" name="Restart layout" sid="709094946908464" type="System" />
-                        <action disabled="1" id="0" name="Call function" sid="107221089141087" type="Function">
-                            <param id="0" name="Name">&quot;setLevelVariables&quot;</param>
-                            <param id="1" name="Parameter {n}"></param>
+                        <action id="-2" name="Go to layout" sid="277252100745621" type="System">
+                            <param id="0" name="Layout">Loss</param>
                         </action>
                     </actions>
                 </event-block>
@@ -2747,6 +2783,15 @@
             </conditions>
             <actions />
             <sub-events>
+                <event-block sid="795735935834888">
+                    <conditions />
+                    <actions>
+                        <action id="-9" name="Set value" sid="405382226811358" type="System">
+                            <param id="0" name="Variable">LevelStartTime</param>
+                            <param id="1" name="Value">floor(time)</param>
+                        </action>
+                    </actions>
+                </event-block>
                 <event-block sid="201996214093706">
                     <conditions>
                         <condition id="-8" name="Compare two values" sid="207222598493154" type="System">
@@ -2952,7 +2997,7 @@
                         </action>
                         <action id="-9" name="Set value" sid="616661251653993" type="System">
                             <param id="0" name="Variable">PowerDecreaseRate</param>
-                            <param id="1" name="Value">6.4</param>
+                            <param id="1" name="Value">5.5</param>
                         </action>
                         <action id="-9" name="Set value" sid="791499343363124" type="System">
                             <param id="0" name="Variable">MaxTotalHumans</param>
@@ -2983,7 +3028,7 @@
                         </action>
                         <action id="-9" name="Set value" sid="124879250400873" type="System">
                             <param id="0" name="Variable">PowerDecreaseRate</param>
-                            <param id="1" name="Value">8.1</param>
+                            <param id="1" name="Value">7</param>
                         </action>
                         <action id="-9" name="Set value" sid="302161268981871" type="System">
                             <param id="0" name="Variable">MaxTotalHumans</param>
@@ -3014,7 +3059,7 @@
                         </action>
                         <action id="-9" name="Set value" sid="550878215183926" type="System">
                             <param id="0" name="Variable">PowerDecreaseRate</param>
-                            <param id="1" name="Value">10</param>
+                            <param id="1" name="Value">9</param>
                         </action>
                         <action id="-9" name="Set value" sid="399722961139531" type="System">
                             <param id="0" name="Variable">MaxTotalHumans</param>
@@ -3248,6 +3293,15 @@
                     <actions>
                         <action id="0" name="Set text" sid="495988730506929" type="EventText">
                             <param id="0" name="Text">&quot;Celibacy.Humans don&apos;t want to reproduce&quot;</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="633947140366277">
+                    <conditions />
+                    <actions>
+                        <action id="-9" name="Set value" sid="391778100409625" type="System">
+                            <param id="0" name="Variable">BasePowerDecreaseRate</param>
+                            <param id="1" name="Value">PowerDecreaseRate</param>
                         </action>
                     </actions>
                 </event-block>

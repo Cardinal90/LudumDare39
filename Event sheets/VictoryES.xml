@@ -1,0 +1,33 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<c2eventsheet>
+    <!--All the 'name' attributes are ignored by Construct 2 - they are there for readability only.-->
+    <name>VictoryES</name>
+    <events>
+        <variable constant="0" name="seconds" sid="724372733730875" static="0" type="number">0</variable>
+        <event-block sid="279795890175715">
+            <conditions>
+                <condition id="-2" name="On start of layout" sid="867040560986636" type="System" />
+            </conditions>
+            <actions>
+                <action id="-9" name="Set value" sid="522129644871527" type="System">
+                    <param id="0" name="Variable">seconds</param>
+                    <param id="1" name="Value">floor(TotalTime)</param>
+                </action>
+                <action id="0" name="Set text" sid="729923753334297" type="TimeText">
+                    <param id="0" name="Text">&quot;Your time is &quot; &amp; floor(seconds/60) &amp; &quot;:&quot; &amp; seconds % 60</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="331809244804089">
+            <conditions>
+                <condition id="0" name="On clicked" sid="180849765042891" type="NewGame" />
+            </conditions>
+            <actions>
+                <action id="-21" name="Reset global variables" sid="597305501948992" type="System" />
+                <action id="-2" name="Go to layout" sid="722663010866142" type="System">
+                    <param id="0" name="Layout">Game</param>
+                </action>
+            </actions>
+        </event-block>
+    </events>
+</c2eventsheet>
