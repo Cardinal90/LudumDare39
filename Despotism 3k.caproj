@@ -14,6 +14,7 @@
         <plugin author="Scirra" id="Button" version="1">Button</plugin>
         <plugin author="Scirra" id="Dictionary" version="1">Dictionary</plugin>
         <plugin author="Scirra" id="Function" version="1">Function</plugin>
+        <plugin author="Scirra" id="Spritefont2" version="1">Sprite font</plugin>
         <plugin author="Scirra" id="Text" version="1">Text</plugin>
         <plugin author="Scirra" id="TiledBg" version="1">Tiled Background</plugin>
     </used-plugins>
@@ -138,6 +139,16 @@
         </object-type>
         <object-type name="Pause" sid="176522367413867">
             <plugin id="Button" />
+        </object-type>
+        <object-type name="Total" sid="904281089393888">
+            <plugin id="Text" />
+        </object-type>
+        <object-type name="SpriteFont" sid="416718107620223">
+            <plugin id="Spritefont2" />
+            <instance-variables>
+                <instance-variable name="type" sid="171402629235141" type="string" />
+            </instance-variables>
+            <texture original-source="C:\Users\Petra\Desktop\SpriteFont_Minecraftia_Regular_8_1111_10x13.png" />
         </object-type>
     </object-folder>
     <families />

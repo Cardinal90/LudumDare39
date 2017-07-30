@@ -3,6 +3,7 @@
     <!--All the 'name' attributes are ignored by Construct 2 - they are there for readability only.-->
     <name>GameES</name>
     <events>
+        <variable constant="0" name="MaxTotalHumans" sid="992032336223624" static="0" type="number">10</variable>
         <variable constant="0" name="Paused" sid="627778721127929" static="0" type="number">0</variable>
         <variable constant="0" name="PollPeriod" sid="643092914056692" static="0" type="number">0.1</variable>
         <variable constant="0" name="Level" sid="630328255063367" static="0" type="number">1</variable>
@@ -928,16 +929,16 @@
                             <param id="0" name="Variable">Paused</param>
                             <param id="1" name="Value">1</param>
                         </action>
-                        <action id="3" name="Set enabled" sid="796483450859559" type="AddToFood">
+                        <action id="3" name="Set enabled" sid="534945552670370" type="AddToStation">
+                            <param id="0" name="Mode">0</param>
+                        </action>
+                        <action id="3" name="Set enabled" sid="362851198159141" type="AddToFood">
                             <param id="0" name="Mode">0</param>
                         </action>
                         <action id="3" name="Set enabled" sid="371537561568963" type="AddToIncubator">
                             <param id="0" name="Mode">0</param>
                         </action>
                         <action id="3" name="Set enabled" sid="129692674323861" type="AddToMeat">
-                            <param id="0" name="Mode">0</param>
-                        </action>
-                        <action id="3" name="Set enabled" sid="534945552670370" type="AddToStation">
                             <param id="0" name="Mode">0</param>
                         </action>
                         <action id="3" name="Set enabled" sid="746250216164992" type="RemoveFromFood">
@@ -965,6 +966,9 @@
                             <param id="0" name="Variable">Paused</param>
                             <param id="1" name="Value">0</param>
                         </action>
+                        <action id="3" name="Set enabled" sid="872271661024259" type="AddToStation">
+                            <param id="0" name="Mode">1</param>
+                        </action>
                         <action id="3" name="Set enabled" sid="887100611479186" type="AddToFood">
                             <param id="0" name="Mode">1</param>
                         </action>
@@ -974,16 +978,13 @@
                         <action id="3" name="Set enabled" sid="740091002840163" type="AddToMeat">
                             <param id="0" name="Mode">1</param>
                         </action>
-                        <action id="3" name="Set enabled" sid="872271661024259" type="AddToStation">
+                        <action id="3" name="Set enabled" sid="619644430702411" type="RemoveFromStation">
                             <param id="0" name="Mode">1</param>
                         </action>
                         <action id="3" name="Set enabled" sid="619443866558161" type="RemoveFromFood">
                             <param id="0" name="Mode">1</param>
                         </action>
                         <action id="3" name="Set enabled" sid="561940238848340" type="RemoveFromIncubator">
-                            <param id="0" name="Mode">1</param>
-                        </action>
-                        <action id="3" name="Set enabled" sid="619644430702411" type="RemoveFromStation">
                             <param id="0" name="Mode">1</param>
                         </action>
                     </actions>
@@ -1889,7 +1890,132 @@
                 <action id="0" name="Set text" sid="139604171005305" type="Level">
                     <param id="0" name="Text">Level</param>
                 </action>
+                <action id="0" name="Set text" sid="679396239505440" type="Total">
+                    <param id="0" name="Text">TotalHumans &amp; &quot;/&quot; &amp; MaxTotalHumans</param>
+                </action>
             </actions>
+            <sub-events>
+                <event-block sid="996970792674352">
+                    <conditions>
+                        <condition id="-14" name="Pick by unique ID" sid="993658768548028" type="SpriteFont">
+                            <param id="0" name="Unique ID">25</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="0" name="Set text" sid="614571736895381" type="SpriteFont">
+                            <param id="0" name="Text">Level</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="544346934105801">
+                    <conditions>
+                        <condition id="-14" name="Pick by unique ID" sid="525024549822213" type="SpriteFont">
+                            <param id="0" name="Unique ID">26</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="0" name="Set text" sid="267930876471108" type="SpriteFont">
+                            <param id="0" name="Text">round(CurrentPower) &amp; &quot;/&quot; &amp; MaxPower</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="570360745308841">
+                    <conditions>
+                        <condition id="-14" name="Pick by unique ID" sid="858922837087736" type="SpriteFont">
+                            <param id="0" name="Unique ID">27</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="0" name="Set text" sid="574106054742683" type="SpriteFont">
+                            <param id="0" name="Text">CurrentFood</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="892918529717869">
+                    <conditions>
+                        <condition id="-14" name="Pick by unique ID" sid="688170221121719" type="SpriteFont">
+                            <param id="0" name="Unique ID">28</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="0" name="Set text" sid="807234480413494" type="SpriteFont">
+                            <param id="0" name="Text">MealPeriod - MealTimer</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="454442994972652">
+                    <conditions>
+                        <condition id="-14" name="Pick by unique ID" sid="934759124485851" type="SpriteFont">
+                            <param id="0" name="Unique ID">29</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="0" name="Set text" sid="532064497474953" type="SpriteFont">
+                            <param id="0" name="Text">HumansInPool</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="235092293470213">
+                    <conditions>
+                        <condition id="-14" name="Pick by unique ID" sid="911257128706273" type="SpriteFont">
+                            <param id="0" name="Unique ID">30</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="0" name="Set text" sid="902754151784290" type="SpriteFont">
+                            <param id="0" name="Text">TotalHumans &amp; &quot;/&quot; &amp; MaxTotalHumans</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="235189436811372">
+                    <conditions>
+                        <condition id="-14" name="Pick by unique ID" sid="285388434203620" type="SpriteFont">
+                            <param id="0" name="Unique ID">31</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="0" name="Set text" sid="420187200361706" type="SpriteFont">
+                            <param id="0" name="Text">HumansOnPower &amp; &quot;/10&quot;</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="109059556146506">
+                    <conditions>
+                        <condition id="-14" name="Pick by unique ID" sid="752528141915243" type="SpriteFont">
+                            <param id="0" name="Unique ID">32</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="0" name="Set text" sid="335477749290258" type="SpriteFont">
+                            <param id="0" name="Text">HumansOnFood &amp; &quot;/10&quot;</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="189272280739754">
+                    <conditions>
+                        <condition id="-14" name="Pick by unique ID" sid="578322518308748" type="SpriteFont">
+                            <param id="0" name="Unique ID">33</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="0" name="Set text" sid="993559169258789" type="SpriteFont">
+                            <param id="0" name="Text">HumansInIncubator &amp; &quot;/10&quot;</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="339360684314680">
+                    <conditions>
+                        <condition id="-14" name="Pick by unique ID" sid="652963852313930" type="SpriteFont">
+                            <param id="0" name="Unique ID">34</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="0" name="Set text" sid="813455461739929" type="SpriteFont">
+                            <param id="0" name="Text">HumansOnMeat &amp; &quot;/10&quot;</param>
+                        </action>
+                    </actions>
+                </event-block>
+            </sub-events>
         </event-block>
         <event-block sid="120190501038426">
             <conditions>
