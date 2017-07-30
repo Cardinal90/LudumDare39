@@ -3,6 +3,7 @@
     <!--All the 'name' attributes are ignored by Construct 2 - they are there for readability only.-->
     <name>GameES</name>
     <events>
+        <variable constant="0" name="Paused" sid="627778721127929" static="0" type="number">0</variable>
         <variable constant="0" name="PollPeriod" sid="643092914056692" static="0" type="number">0.1</variable>
         <variable constant="0" name="Level" sid="630328255063367" static="0" type="number">1</variable>
         <variable constant="0" name="ReactorFood" sid="945748746295537" static="0" type="number">4</variable>
@@ -66,6 +67,11 @@
             <conditions>
                 <condition id="-6" name="Every X seconds" sid="783940869493538" type="System">
                     <param id="0" name="Interval (seconds)">PollPeriod</param>
+                </condition>
+                <condition id="-8" name="Compare two values" sid="657235832310031" type="System">
+                    <param id="0" name="First value">Paused</param>
+                    <param id="1" name="Comparison">0</param>
+                    <param id="2" name="Second value">0</param>
                 </condition>
             </conditions>
             <actions>
@@ -730,166 +736,259 @@
                 </event-block>
             </sub-events>
         </event-block>
-        <event-block sid="935196186056746">
+        <event-block sid="741959999572747">
             <conditions>
-                <condition id="-8" name="Compare two values" sid="635230398990511" type="System">
-                    <param id="0" name="First value">HumansInPool</param>
-                    <param id="1" name="Comparison">3</param>
-                    <param id="2" name="Second value">0</param>
+                <condition id="-14" name="Compare variable" sid="589583240017933" type="System">
+                    <param id="0" name="Variable">Paused</param>
+                    <param id="1" name="Comparison">0</param>
+                    <param id="2" name="Value">0</param>
                 </condition>
             </conditions>
-            <actions>
-                <action id="3" name="Set enabled" sid="903666138726140" type="AddToFood">
-                    <param id="0" name="Mode">0</param>
-                </action>
-                <action id="3" name="Set enabled" sid="267270404717137" type="AddToStation">
-                    <param id="0" name="Mode">0</param>
-                </action>
-                <action id="3" name="Set enabled" sid="861568752738105" type="AddToMeat">
-                    <param id="0" name="Mode">0</param>
-                </action>
-            </actions>
+            <actions />
+            <sub-events>
+                <event-block sid="935196186056746">
+                    <conditions>
+                        <condition id="-8" name="Compare two values" sid="635230398990511" type="System">
+                            <param id="0" name="First value">HumansInPool</param>
+                            <param id="1" name="Comparison">3</param>
+                            <param id="2" name="Second value">0</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="3" name="Set enabled" sid="903666138726140" type="AddToFood">
+                            <param id="0" name="Mode">0</param>
+                        </action>
+                        <action id="3" name="Set enabled" sid="267270404717137" type="AddToStation">
+                            <param id="0" name="Mode">0</param>
+                        </action>
+                        <action id="3" name="Set enabled" sid="861568752738105" type="AddToMeat">
+                            <param id="0" name="Mode">0</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="898072427172518">
+                    <conditions>
+                        <condition id="-22" name="Else" sid="596220569452900" type="System" />
+                    </conditions>
+                    <actions>
+                        <action id="3" name="Set enabled" sid="609792296624903" type="AddToFood">
+                            <param id="0" name="Mode">1</param>
+                        </action>
+                        <action id="3" name="Set enabled" sid="705084382562191" type="AddToStation">
+                            <param id="0" name="Mode">1</param>
+                        </action>
+                        <action id="3" name="Set enabled" sid="594250740798473" type="AddToMeat">
+                            <param id="0" name="Mode">1</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="815280105601173">
+                    <conditions>
+                        <condition id="-8" name="Compare two values" sid="819264312449546" type="System">
+                            <param id="0" name="First value">HumansInPool</param>
+                            <param id="1" name="Comparison">3</param>
+                            <param id="2" name="Second value">1</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="3" name="Set enabled" sid="820985168303851" type="AddToIncubator">
+                            <param id="0" name="Mode">0</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="858253339618631">
+                    <conditions>
+                        <condition id="-22" name="Else" sid="729406403339505" type="System" />
+                    </conditions>
+                    <actions>
+                        <action id="3" name="Set enabled" sid="253584176413465" type="AddToIncubator">
+                            <param id="0" name="Mode">1</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="840813948304873">
+                    <conditions>
+                        <condition id="-8" name="Compare two values" sid="721308381109668" type="System">
+                            <param id="0" name="First value">HumansOnPower</param>
+                            <param id="1" name="Comparison">5</param>
+                            <param id="2" name="Second value">10</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="3" name="Set enabled" sid="541443056694430" type="AddToStation">
+                            <param id="0" name="Mode">0</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="214520800427135">
+                    <conditions>
+                        <condition id="-22" name="Else" sid="406781512652942" type="System" />
+                    </conditions>
+                    <actions>
+                        <action id="3" name="Set enabled" sid="414341134036376" type="AddToStation">
+                            <param id="0" name="Mode">1</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="985801227873415">
+                    <conditions>
+                        <condition id="-8" name="Compare two values" sid="264178513898356" type="System">
+                            <param id="0" name="First value">HumansOnFood</param>
+                            <param id="1" name="Comparison">5</param>
+                            <param id="2" name="Second value">10</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="3" name="Set enabled" sid="455466074222830" type="AddToFood">
+                            <param id="0" name="Mode">0</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="790266203462465">
+                    <conditions>
+                        <condition id="-22" name="Else" sid="440579720699405" type="System" />
+                    </conditions>
+                    <actions>
+                        <action id="3" name="Set enabled" sid="284964703368311" type="AddToFood">
+                            <param id="0" name="Mode">1</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="458665659428861">
+                    <conditions>
+                        <condition id="-8" name="Compare two values" sid="512751340010081" type="System">
+                            <param id="0" name="First value">HumansOnMeat</param>
+                            <param id="1" name="Comparison">5</param>
+                            <param id="2" name="Second value">10</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="3" name="Set enabled" sid="991569729568944" type="AddToMeat">
+                            <param id="0" name="Mode">0</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="221220945165960">
+                    <conditions>
+                        <condition id="-22" name="Else" sid="236565737144957" type="System" />
+                    </conditions>
+                    <actions>
+                        <action id="3" name="Set enabled" sid="476062240719155" type="AddToMeat">
+                            <param id="0" name="Mode">1</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="990981679083286">
+                    <conditions>
+                        <condition id="-8" name="Compare two values" sid="332427734810014" type="System">
+                            <param id="0" name="First value">HumansInIncubator</param>
+                            <param id="1" name="Comparison">2</param>
+                            <param id="2" name="Second value">10</param>
+                        </condition>
+                        <condition id="-8" name="Compare two values" sid="278333571893138" type="System">
+                            <param id="0" name="First value">HumansInPool</param>
+                            <param id="1" name="Comparison">4</param>
+                            <param id="2" name="Second value">1</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="3" name="Set enabled" sid="149927912634656" type="AddToIncubator">
+                            <param id="0" name="Mode">1</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="341761689167839">
+                    <conditions>
+                        <condition id="-22" name="Else" sid="384958726946305" type="System" />
+                    </conditions>
+                    <actions>
+                        <action id="3" name="Set enabled" sid="487243475090479" type="AddToIncubator">
+                            <param id="0" name="Mode">0</param>
+                        </action>
+                    </actions>
+                </event-block>
+            </sub-events>
         </event-block>
-        <event-block sid="898072427172518">
+        <event-block sid="971244139308515">
             <conditions>
-                <condition id="-22" name="Else" sid="596220569452900" type="System" />
+                <condition id="0" name="On clicked" sid="330428192615425" type="Pause" />
             </conditions>
-            <actions>
-                <action id="3" name="Set enabled" sid="609792296624903" type="AddToFood">
-                    <param id="0" name="Mode">1</param>
-                </action>
-                <action id="3" name="Set enabled" sid="705084382562191" type="AddToStation">
-                    <param id="0" name="Mode">1</param>
-                </action>
-                <action id="3" name="Set enabled" sid="594250740798473" type="AddToMeat">
-                    <param id="0" name="Mode">1</param>
-                </action>
-            </actions>
-        </event-block>
-        <event-block sid="815280105601173">
-            <conditions>
-                <condition id="-8" name="Compare two values" sid="819264312449546" type="System">
-                    <param id="0" name="First value">HumansInPool</param>
-                    <param id="1" name="Comparison">3</param>
-                    <param id="2" name="Second value">1</param>
-                </condition>
-            </conditions>
-            <actions>
-                <action id="3" name="Set enabled" sid="820985168303851" type="AddToIncubator">
-                    <param id="0" name="Mode">0</param>
-                </action>
-            </actions>
-        </event-block>
-        <event-block sid="858253339618631">
-            <conditions>
-                <condition id="-22" name="Else" sid="729406403339505" type="System" />
-            </conditions>
-            <actions>
-                <action id="3" name="Set enabled" sid="253584176413465" type="AddToIncubator">
-                    <param id="0" name="Mode">1</param>
-                </action>
-            </actions>
-        </event-block>
-        <event-block sid="840813948304873">
-            <conditions>
-                <condition id="-8" name="Compare two values" sid="721308381109668" type="System">
-                    <param id="0" name="First value">HumansOnPower</param>
-                    <param id="1" name="Comparison">5</param>
-                    <param id="2" name="Second value">10</param>
-                </condition>
-            </conditions>
-            <actions>
-                <action id="3" name="Set enabled" sid="541443056694430" type="AddToStation">
-                    <param id="0" name="Mode">0</param>
-                </action>
-            </actions>
-        </event-block>
-        <event-block sid="214520800427135">
-            <conditions>
-                <condition id="-22" name="Else" sid="406781512652942" type="System" />
-            </conditions>
-            <actions>
-                <action id="3" name="Set enabled" sid="414341134036376" type="AddToStation">
-                    <param id="0" name="Mode">1</param>
-                </action>
-            </actions>
-        </event-block>
-        <event-block sid="985801227873415">
-            <conditions>
-                <condition id="-8" name="Compare two values" sid="264178513898356" type="System">
-                    <param id="0" name="First value">HumansOnFood</param>
-                    <param id="1" name="Comparison">5</param>
-                    <param id="2" name="Second value">10</param>
-                </condition>
-            </conditions>
-            <actions>
-                <action id="3" name="Set enabled" sid="455466074222830" type="AddToFood">
-                    <param id="0" name="Mode">0</param>
-                </action>
-            </actions>
-        </event-block>
-        <event-block sid="790266203462465">
-            <conditions>
-                <condition id="-22" name="Else" sid="440579720699405" type="System" />
-            </conditions>
-            <actions>
-                <action id="3" name="Set enabled" sid="284964703368311" type="AddToFood">
-                    <param id="0" name="Mode">1</param>
-                </action>
-            </actions>
-        </event-block>
-        <event-block sid="458665659428861">
-            <conditions>
-                <condition id="-8" name="Compare two values" sid="512751340010081" type="System">
-                    <param id="0" name="First value">HumansOnMeat</param>
-                    <param id="1" name="Comparison">5</param>
-                    <param id="2" name="Second value">10</param>
-                </condition>
-            </conditions>
-            <actions>
-                <action id="3" name="Set enabled" sid="991569729568944" type="AddToMeat">
-                    <param id="0" name="Mode">0</param>
-                </action>
-            </actions>
-        </event-block>
-        <event-block sid="221220945165960">
-            <conditions>
-                <condition id="-22" name="Else" sid="236565737144957" type="System" />
-            </conditions>
-            <actions>
-                <action id="3" name="Set enabled" sid="476062240719155" type="AddToMeat">
-                    <param id="0" name="Mode">1</param>
-                </action>
-            </actions>
-        </event-block>
-        <event-block sid="990981679083286">
-            <conditions>
-                <condition id="-8" name="Compare two values" sid="332427734810014" type="System">
-                    <param id="0" name="First value">HumansInIncubator</param>
-                    <param id="1" name="Comparison">2</param>
-                    <param id="2" name="Second value">10</param>
-                </condition>
-                <condition id="-8" name="Compare two values" sid="278333571893138" type="System">
-                    <param id="0" name="First value">HumansInPool</param>
-                    <param id="1" name="Comparison">4</param>
-                    <param id="2" name="Second value">1</param>
-                </condition>
-            </conditions>
-            <actions>
-                <action id="3" name="Set enabled" sid="149927912634656" type="AddToIncubator">
-                    <param id="0" name="Mode">1</param>
-                </action>
-            </actions>
-        </event-block>
-        <event-block sid="341761689167839">
-            <conditions>
-                <condition id="-22" name="Else" sid="384958726946305" type="System" />
-            </conditions>
-            <actions>
-                <action id="3" name="Set enabled" sid="487243475090479" type="AddToIncubator">
-                    <param id="0" name="Mode">0</param>
-                </action>
-            </actions>
+            <actions />
+            <sub-events>
+                <event-block sid="182047088285197">
+                    <conditions>
+                        <condition id="-8" name="Compare two values" sid="544117614439639" type="System">
+                            <param id="0" name="First value">Paused</param>
+                            <param id="1" name="Comparison">0</param>
+                            <param id="2" name="Second value">0</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-9" name="Set value" sid="510417141180085" type="System">
+                            <param id="0" name="Variable">Paused</param>
+                            <param id="1" name="Value">1</param>
+                        </action>
+                        <action id="3" name="Set enabled" sid="796483450859559" type="AddToFood">
+                            <param id="0" name="Mode">0</param>
+                        </action>
+                        <action id="3" name="Set enabled" sid="371537561568963" type="AddToIncubator">
+                            <param id="0" name="Mode">0</param>
+                        </action>
+                        <action id="3" name="Set enabled" sid="129692674323861" type="AddToMeat">
+                            <param id="0" name="Mode">0</param>
+                        </action>
+                        <action id="3" name="Set enabled" sid="534945552670370" type="AddToStation">
+                            <param id="0" name="Mode">0</param>
+                        </action>
+                        <action id="3" name="Set enabled" sid="746250216164992" type="RemoveFromFood">
+                            <param id="0" name="Mode">0</param>
+                        </action>
+                        <action id="3" name="Set enabled" sid="577914162647387" type="RemoveFromIncubator">
+                            <param id="0" name="Mode">0</param>
+                        </action>
+                        <action id="3" name="Set enabled" sid="990972545982747" type="RemoveFromStation">
+                            <param id="0" name="Mode">0</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="410925186976457">
+                    <conditions>
+                        <condition id="-22" name="Else" sid="960065607943382" type="System" />
+                        <condition id="-8" name="Compare two values" sid="935639765274957" type="System">
+                            <param id="0" name="First value">Paused</param>
+                            <param id="1" name="Comparison">0</param>
+                            <param id="2" name="Second value">1</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-9" name="Set value" sid="761367227895229" type="System">
+                            <param id="0" name="Variable">Paused</param>
+                            <param id="1" name="Value">0</param>
+                        </action>
+                        <action id="3" name="Set enabled" sid="887100611479186" type="AddToFood">
+                            <param id="0" name="Mode">1</param>
+                        </action>
+                        <action id="3" name="Set enabled" sid="644315167332090" type="AddToIncubator">
+                            <param id="0" name="Mode">1</param>
+                        </action>
+                        <action id="3" name="Set enabled" sid="740091002840163" type="AddToMeat">
+                            <param id="0" name="Mode">1</param>
+                        </action>
+                        <action id="3" name="Set enabled" sid="872271661024259" type="AddToStation">
+                            <param id="0" name="Mode">1</param>
+                        </action>
+                        <action id="3" name="Set enabled" sid="619443866558161" type="RemoveFromFood">
+                            <param id="0" name="Mode">1</param>
+                        </action>
+                        <action id="3" name="Set enabled" sid="561940238848340" type="RemoveFromIncubator">
+                            <param id="0" name="Mode">1</param>
+                        </action>
+                        <action id="3" name="Set enabled" sid="619644430702411" type="RemoveFromStation">
+                            <param id="0" name="Mode">1</param>
+                        </action>
+                    </actions>
+                </event-block>
+            </sub-events>
         </event-block>
         <event-block sid="765080348653524">
             <conditions>

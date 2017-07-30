@@ -136,6 +136,9 @@
         <object-type name="Level" sid="675604671340470">
             <plugin id="Text" />
         </object-type>
+        <object-type name="Pause" sid="176522367413867">
+            <plugin id="Button" />
+        </object-type>
     </object-folder>
     <families />
     <layout-folder>
