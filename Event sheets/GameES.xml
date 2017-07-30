@@ -705,6 +705,47 @@
                         </action>
                     </actions>
                 </event-block>
+                <event-block sid="325340110415919">
+                    <conditions>
+                        <condition id="-8" name="Compare two values" sid="224769731357610" type="System">
+                            <param id="0" name="First value">CurrentFood</param>
+                            <param id="1" name="Comparison">5</param>
+                            <param id="2" name="Second value">MaxFood</param>
+                        </condition>
+                    </conditions>
+                    <actions />
+                    <sub-events>
+                        <event-block sid="202186218093150">
+                            <conditions>
+                                <condition id="-10" name="For" sid="600987102574839" type="System">
+                                    <param id="0" name="Name">&quot;&quot;</param>
+                                    <param id="1" name="Start index">1</param>
+                                    <param id="2" name="End index">HumansOnFood</param>
+                                </condition>
+                                <condition id="-8" name="Compare two values" sid="504611407452760" type="System">
+                                    <param id="0" name="First value">HumansOnFood</param>
+                                    <param id="1" name="Comparison">4</param>
+                                    <param id="2" name="Second value">0</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="0" name="Call function" sid="639772496398263" type="Function">
+                                    <param id="0" name="Name">&quot;removeFromFood&quot;</param>
+                                    <param id="1" name="Parameter {n}"></param>
+                                </action>
+                            </actions>
+                        </event-block>
+                        <event-block sid="926902919295925">
+                            <conditions />
+                            <actions>
+                                <action id="0" name="Call function" sid="277948155031771" type="Function">
+                                    <param id="0" name="Name">&quot;refreshInterface&quot;</param>
+                                    <param id="1" name="Parameter {n}"></param>
+                                </action>
+                            </actions>
+                        </event-block>
+                    </sub-events>
+                </event-block>
                 <event-block sid="155658000924459">
                     <conditions>
                         <condition id="-8" name="Compare two values" sid="139106588309988" type="System">
@@ -877,12 +918,17 @@
                         </action>
                     </actions>
                 </event-block>
-                <event-block sid="985801227873415">
+                <event-block any="1" sid="985801227873415">
                     <conditions>
                         <condition id="-8" name="Compare two values" sid="264178513898356" type="System">
                             <param id="0" name="First value">HumansOnFood</param>
                             <param id="1" name="Comparison">5</param>
                             <param id="2" name="Second value">10</param>
+                        </condition>
+                        <condition id="-8" name="Compare two values" sid="756052030570367" type="System">
+                            <param id="0" name="First value">CurrentFood</param>
+                            <param id="1" name="Comparison">5</param>
+                            <param id="2" name="Second value">MaxFood</param>
                         </condition>
                     </conditions>
                     <actions>
@@ -1087,9 +1133,9 @@
                         </action>
                     </actions>
                 </event-block>
-                <event-block sid="375275628555038">
+                <event-block sid="997181153554280">
                     <conditions>
-                        <condition id="-8" name="Compare two values" sid="817681818870099" type="System">
+                        <condition id="-8" name="Compare two values" sid="398737087832489" type="System">
                             <param id="0" name="First value">TotalHumans</param>
                             <param id="1" name="Comparison">5</param>
                             <param id="2" name="Second value">MaxTotalHumans</param>
@@ -1097,30 +1143,30 @@
                     </conditions>
                     <actions />
                     <sub-events>
-                        <event-block sid="566306909626389">
+                        <event-block sid="484925412207613">
                             <conditions>
-                                <condition id="-10" name="For" sid="647238223116673" type="System">
+                                <condition id="-10" name="For" sid="815171277536602" type="System">
                                     <param id="0" name="Name">&quot;&quot;</param>
                                     <param id="1" name="Start index">1</param>
                                     <param id="2" name="End index">HumansInIncubator</param>
                                 </condition>
-                                <condition id="-8" name="Compare two values" sid="209796832423994" type="System">
+                                <condition id="-8" name="Compare two values" sid="108627655903848" type="System">
                                     <param id="0" name="First value">HumansInIncubator</param>
                                     <param id="1" name="Comparison">4</param>
                                     <param id="2" name="Second value">0</param>
                                 </condition>
                             </conditions>
                             <actions>
-                                <action id="0" name="Call function" sid="662847752631171" type="Function">
+                                <action id="0" name="Call function" sid="525143881625050" type="Function">
                                     <param id="0" name="Name">&quot;removeFromIncubator&quot;</param>
                                     <param id="1" name="Parameter {n}"></param>
                                 </action>
                             </actions>
                         </event-block>
-                        <event-block sid="788811383955216">
+                        <event-block sid="575141981728272">
                             <conditions />
                             <actions>
-                                <action id="0" name="Call function" sid="684429672034957" type="Function">
+                                <action id="0" name="Call function" sid="472499051483624" type="Function">
                                     <param id="0" name="Name">&quot;refreshInterface&quot;</param>
                                     <param id="1" name="Parameter {n}"></param>
                                 </action>
