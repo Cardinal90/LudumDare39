@@ -3,30 +3,31 @@
     <!--All the 'name' attributes are ignored by Construct 2 - they are there for readability only.-->
     <name>GameES</name>
     <events>
+        <variable constant="0" name="MaxFood" sid="447757704399321" static="0" type="number">30</variable>
         <variable constant="0" name="MaxTotalHumans" sid="992032336223624" static="0" type="number">10</variable>
         <variable constant="0" name="Paused" sid="627778721127929" static="0" type="number">0</variable>
         <variable constant="0" name="PollPeriod" sid="643092914056692" static="0" type="number">0.1</variable>
         <variable constant="0" name="Level" sid="630328255063367" static="0" type="number">1</variable>
         <variable constant="0" name="ReactorFood" sid="945748746295537" static="0" type="number">4</variable>
         <variable constant="0" name="ReactorEnergy" sid="437757224612626" static="0" type="number">10</variable>
-        <variable constant="0" name="RecycleTime" sid="704228434020878" static="0" type="number">6</variable>
+        <variable constant="0" name="RecycleTime" sid="704228434020878" static="0" type="number">3</variable>
         <variable constant="0" name="HumansOnMeat" sid="542527272569780" static="0" type="number">0</variable>
         <variable constant="0" name="EnergyCriticalPercent" sid="142044899466351" static="0" type="number">50</variable>
-        <variable constant="0" name="EnergyRestoreTime" sid="366637706885717" static="0" type="number">90</variable>
-        <variable constant="0" name="EnergyLossTime" sid="912981578626112" static="0" type="number">51</variable>
-        <variable constant="0" name="FoodPeriod" sid="635433541201237" static="0" type="number">12</variable>
+        <variable constant="0" name="EnergyRestoreTime" sid="366637706885717" static="0" type="number">45</variable>
+        <variable constant="0" name="EnergyLossTime" sid="912981578626112" static="0" type="number">27</variable>
+        <variable constant="0" name="FoodPeriod" sid="635433541201237" static="0" type="number">6</variable>
         <variable constant="0" name="FoodPackSize" sid="820702574747859" static="0" type="number">1</variable>
         <variable constant="0" name="FoodProgress" sid="375590142947925" static="0" type="number">0</variable>
-        <variable constant="0" name="PowerPeriod" sid="655955046137242" static="0" type="number">14</variable>
+        <variable constant="0" name="PowerPeriod" sid="655955046137242" static="0" type="number">7</variable>
         <variable constant="0" name="PowerProgress" sid="689437499423992" static="0" type="number">0</variable>
         <variable constant="0" name="PowerPackSize" sid="390897322904986" static="0" type="number">5</variable>
-        <variable constant="0" name="SexPeriod" sid="840601849546412" static="0" type="number">30</variable>
+        <variable constant="0" name="SexPeriod" sid="840601849546412" static="0" type="number">15</variable>
         <variable constant="0" name="HumansInPool" sid="421526390314118" static="0" type="number">0</variable>
         <variable constant="0" name="HumansInIncubator" sid="446915179872655" static="0" type="number">0</variable>
         <variable constant="0" name="SexProgress" sid="883730947416257" static="0" type="number">0</variable>
         <variable constant="0" name="StartHumans" sid="289641665746965" static="0" type="number">5</variable>
         <variable constant="0" name="MealTimer" sid="907359041053981" static="0" type="number">0</variable>
-        <variable constant="0" name="MealPeriod" sid="556387669764688" static="0" type="number">60</variable>
+        <variable constant="0" name="MealPeriod" sid="556387669764688" static="0" type="number">30</variable>
         <variable constant="0" name="CurrentFood" sid="789628061466012" static="0" type="number">30</variable>
         <variable constant="0" name="HumansOnPower" sid="991374803763341" static="0" type="number">0</variable>
         <variable constant="0" name="HumansOnFood" sid="771265016086797" static="0" type="number">0</variable>
@@ -369,7 +370,7 @@
                                         </action>
                                         <action id="-9" name="Set value" sid="827687958426993" type="System">
                                             <param id="0" name="Variable">CurrentFood</param>
-                                            <param id="1" name="Value">CurrentFood + ReactorFood</param>
+                                            <param id="1" name="Value">min(CurrentFood + ReactorFood, MaxFood)</param>
                                         </action>
                                         <action id="-9" name="Set value" sid="737700690472832" type="System">
                                             <param id="0" name="Variable">CurrentPower</param>
@@ -700,7 +701,7 @@
                         </action>
                         <action id="-9" name="Set value" sid="663516680811604" type="System">
                             <param id="0" name="Variable">CurrentFood</param>
-                            <param id="1" name="Value">CurrentFood + FoodPackSize*c1</param>
+                            <param id="1" name="Value">min(CurrentFood + FoodPackSize*c1, MaxFood)</param>
                         </action>
                     </actions>
                 </event-block>
@@ -1914,8 +1915,8 @@
                                         <action id="-3" name="Create object" sid="122499419767709" type="System">
                                             <param id="0" name="Object to create">ProgressGreen</param>
                                             <param id="1" name="Layer">1</param>
-                                            <param id="2" name="X">200</param>
-                                            <param id="3" name="Y">10 + i*3</param>
+                                            <param id="2" name="X">185</param>
+                                            <param id="3" name="Y">2 + i*3</param>
                                         </action>
                                         <action id="-5" name="Set width" sid="299676034581297" type="ProgressGreen">
                                             <param id="0" name="Width">50*Human.energy/MaxHumanEnergy</param>
@@ -1930,8 +1931,8 @@
                                         <action id="-3" name="Create object" sid="185828064354055" type="System">
                                             <param id="0" name="Object to create">ProgressRed</param>
                                             <param id="1" name="Layer">1</param>
-                                            <param id="2" name="X">200</param>
-                                            <param id="3" name="Y">10 + i*3</param>
+                                            <param id="2" name="X">185</param>
+                                            <param id="3" name="Y">2 + i*3</param>
                                         </action>
                                         <action id="-5" name="Set width" sid="197321676329101" type="ProgressRed">
                                             <param id="0" name="Width">50*Human.energy/MaxHumanEnergy</param>
@@ -2030,7 +2031,7 @@
                     </conditions>
                     <actions>
                         <action id="0" name="Set text" sid="574106054742683" type="SpriteFont">
-                            <param id="0" name="Text">CurrentFood</param>
+                            <param id="0" name="Text">CurrentFood &amp; &quot;/&quot; &amp; MaxFood</param>
                         </action>
                     </actions>
                 </event-block>
@@ -2168,7 +2169,11 @@
                         </action>
                         <action id="-9" name="Set value" sid="935502762778419" type="System">
                             <param id="0" name="Variable">MaxTotalHumans</param>
-                            <param id="1" name="Value">20</param>
+                            <param id="1" name="Value">15</param>
+                        </action>
+                        <action id="-9" name="Set value" sid="637823265680250" type="System">
+                            <param id="0" name="Variable">MaxFood</param>
+                            <param id="1" name="Value">45</param>
                         </action>
                     </actions>
                 </event-block>
@@ -2195,7 +2200,11 @@
                         </action>
                         <action id="-9" name="Set value" sid="263745068304085" type="System">
                             <param id="0" name="Variable">MaxTotalHumans</param>
-                            <param id="1" name="Value">30</param>
+                            <param id="1" name="Value">20</param>
+                        </action>
+                        <action id="-9" name="Set value" sid="312859222005773" type="System">
+                            <param id="0" name="Variable">MaxFood</param>
+                            <param id="1" name="Value">60</param>
                         </action>
                     </actions>
                 </event-block>
@@ -2222,7 +2231,11 @@
                         </action>
                         <action id="-9" name="Set value" sid="113642975633965" type="System">
                             <param id="0" name="Variable">MaxTotalHumans</param>
-                            <param id="1" name="Value">35</param>
+                            <param id="1" name="Value">25</param>
+                        </action>
+                        <action id="-9" name="Set value" sid="140267635999420" type="System">
+                            <param id="0" name="Variable">MaxFood</param>
+                            <param id="1" name="Value">75</param>
                         </action>
                     </actions>
                 </event-block>
@@ -2249,7 +2262,11 @@
                         </action>
                         <action id="-9" name="Set value" sid="922419909120671" type="System">
                             <param id="0" name="Variable">MaxTotalHumans</param>
-                            <param id="1" name="Value">40</param>
+                            <param id="1" name="Value">30</param>
+                        </action>
+                        <action id="-9" name="Set value" sid="503771234141713" type="System">
+                            <param id="0" name="Variable">MaxFood</param>
+                            <param id="1" name="Value">90</param>
                         </action>
                     </actions>
                 </event-block>
@@ -2276,7 +2293,11 @@
                         </action>
                         <action id="-9" name="Set value" sid="789459022207079" type="System">
                             <param id="0" name="Variable">MaxTotalHumans</param>
-                            <param id="1" name="Value">45</param>
+                            <param id="1" name="Value">40</param>
+                        </action>
+                        <action id="-9" name="Set value" sid="514564843942153" type="System">
+                            <param id="0" name="Variable">MaxFood</param>
+                            <param id="1" name="Value">120</param>
                         </action>
                     </actions>
                 </event-block>
@@ -2305,6 +2326,10 @@
                             <param id="0" name="Variable">MaxTotalHumans</param>
                             <param id="1" name="Value">50</param>
                         </action>
+                        <action id="-9" name="Set value" sid="943461832561844" type="System">
+                            <param id="0" name="Variable">MaxFood</param>
+                            <param id="1" name="Value">150</param>
+                        </action>
                     </actions>
                 </event-block>
                 <event-block sid="686603085128532">
@@ -2330,7 +2355,11 @@
                         </action>
                         <action id="-9" name="Set value" sid="791499343363124" type="System">
                             <param id="0" name="Variable">MaxTotalHumans</param>
-                            <param id="1" name="Value">55</param>
+                            <param id="1" name="Value">60</param>
+                        </action>
+                        <action id="-9" name="Set value" sid="754072488660768" type="System">
+                            <param id="0" name="Variable">MaxFood</param>
+                            <param id="1" name="Value">180</param>
                         </action>
                     </actions>
                 </event-block>
@@ -2357,7 +2386,11 @@
                         </action>
                         <action id="-9" name="Set value" sid="302161268981871" type="System">
                             <param id="0" name="Variable">MaxTotalHumans</param>
-                            <param id="1" name="Value">60</param>
+                            <param id="1" name="Value">80</param>
+                        </action>
+                        <action id="-9" name="Set value" sid="109409543486019" type="System">
+                            <param id="0" name="Variable">MaxFood</param>
+                            <param id="1" name="Value">240</param>
                         </action>
                     </actions>
                 </event-block>
@@ -2384,7 +2417,11 @@
                         </action>
                         <action id="-9" name="Set value" sid="399722961139531" type="System">
                             <param id="0" name="Variable">MaxTotalHumans</param>
-                            <param id="1" name="Value">70</param>
+                            <param id="1" name="Value">100</param>
+                        </action>
+                        <action id="-9" name="Set value" sid="490985795390923" type="System">
+                            <param id="0" name="Variable">MaxFood</param>
+                            <param id="1" name="Value">300</param>
                         </action>
                     </actions>
                 </event-block>
