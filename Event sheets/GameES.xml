@@ -98,6 +98,51 @@
                 </action>
             </actions>
             <sub-events>
+                <event-block sid="656506123389000">
+                    <conditions>
+                        <condition id="-8" name="Compare two values" sid="695628390301450" type="System">
+                            <param id="0" name="First value">HumansOnPower</param>
+                            <param id="1" name="Comparison">0</param>
+                            <param id="2" name="Second value">0</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-9" name="Set value" sid="947694207581938" type="System">
+                            <param id="0" name="Variable">PowerProgress</param>
+                            <param id="1" name="Value">0</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="285641478853013">
+                    <conditions>
+                        <condition id="-8" name="Compare two values" sid="408528781406311" type="System">
+                            <param id="0" name="First value">HumansOnFood</param>
+                            <param id="1" name="Comparison">0</param>
+                            <param id="2" name="Second value">0</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-9" name="Set value" sid="887388503205788" type="System">
+                            <param id="0" name="Variable">FoodProgress</param>
+                            <param id="1" name="Value">0</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="266997656453503">
+                    <conditions>
+                        <condition id="-8" name="Compare two values" sid="487846126133440" type="System">
+                            <param id="0" name="First value">HumansInIncubator</param>
+                            <param id="1" name="Comparison">0</param>
+                            <param id="2" name="Second value">0</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-9" name="Set value" sid="923367431794455" type="System">
+                            <param id="0" name="Variable">SexProgress</param>
+                            <param id="1" name="Value">0</param>
+                        </action>
+                    </actions>
+                </event-block>
                 <event-block sid="836766927120372">
                     <conditions>
                         <condition id="-7" name="Compare instance variable" sid="113782024761222" type="Human">
@@ -891,6 +936,11 @@
                             <param id="1" name="Comparison">4</param>
                             <param id="2" name="Second value">1</param>
                         </condition>
+                        <condition id="-8" name="Compare two values" sid="155305172052476" type="System">
+                            <param id="0" name="First value">TotalHumans</param>
+                            <param id="1" name="Comparison">2</param>
+                            <param id="2" name="Second value">MaxTotalHumans</param>
+                        </condition>
                     </conditions>
                     <actions>
                         <action id="3" name="Set enabled" sid="149927912634656" type="AddToIncubator">
@@ -997,34 +1047,87 @@
                     <param id="0" name="Name">&quot;createHuman&quot;</param>
                 </condition>
             </conditions>
-            <actions>
-                <action id="-3" name="Create object" sid="127830091884380" type="System">
-                    <param id="0" name="Object to create">Human</param>
-                    <param id="1" name="Layer">0</param>
-                    <param id="2" name="X">0</param>
-                    <param id="3" name="Y">0</param>
-                </action>
-                <action id="-10" name="Set value" sid="333665089338315" type="Human">
-                    <param id="0" name="Instance variable">group</param>
-                    <param id="1" name="Value">&quot;pool&quot;</param>
-                </action>
-                <action id="-10" name="Set value" sid="207122111091538" type="Human">
-                    <param id="0" name="Instance variable">energy</param>
-                    <param id="1" name="Value">MaxHumanEnergy</param>
-                </action>
-                <action id="-9" name="Set value" sid="437679462204197" type="System">
-                    <param id="0" name="Variable">TotalHumans</param>
-                    <param id="1" name="Value">TotalHumans + 1</param>
-                </action>
-                <action id="-9" name="Set value" sid="338566503571728" type="System">
-                    <param id="0" name="Variable">HumansInPool</param>
-                    <param id="1" name="Value">HumansInPool + 1</param>
-                </action>
-                <action id="0" name="Call function" sid="784066394206836" type="Function">
-                    <param id="0" name="Name">&quot;refreshInterface&quot;</param>
-                    <param id="1" name="Parameter {n}"></param>
-                </action>
-            </actions>
+            <actions />
+            <sub-events>
+                <event-block sid="254577836363995">
+                    <conditions>
+                        <condition id="-8" name="Compare two values" sid="797740432992733" type="System">
+                            <param id="0" name="First value">TotalHumans</param>
+                            <param id="1" name="Comparison">2</param>
+                            <param id="2" name="Second value">MaxTotalHumans</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-3" name="Create object" sid="127830091884380" type="System">
+                            <param id="0" name="Object to create">Human</param>
+                            <param id="1" name="Layer">0</param>
+                            <param id="2" name="X">0</param>
+                            <param id="3" name="Y">0</param>
+                        </action>
+                        <action id="-10" name="Set value" sid="333665089338315" type="Human">
+                            <param id="0" name="Instance variable">group</param>
+                            <param id="1" name="Value">&quot;pool&quot;</param>
+                        </action>
+                        <action id="-10" name="Set value" sid="207122111091538" type="Human">
+                            <param id="0" name="Instance variable">energy</param>
+                            <param id="1" name="Value">MaxHumanEnergy</param>
+                        </action>
+                        <action id="-9" name="Set value" sid="437679462204197" type="System">
+                            <param id="0" name="Variable">TotalHumans</param>
+                            <param id="1" name="Value">TotalHumans + 1</param>
+                        </action>
+                        <action id="-9" name="Set value" sid="338566503571728" type="System">
+                            <param id="0" name="Variable">HumansInPool</param>
+                            <param id="1" name="Value">HumansInPool + 1</param>
+                        </action>
+                        <action id="0" name="Call function" sid="784066394206836" type="Function">
+                            <param id="0" name="Name">&quot;refreshInterface&quot;</param>
+                            <param id="1" name="Parameter {n}"></param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="375275628555038">
+                    <conditions>
+                        <condition id="-8" name="Compare two values" sid="817681818870099" type="System">
+                            <param id="0" name="First value">TotalHumans</param>
+                            <param id="1" name="Comparison">5</param>
+                            <param id="2" name="Second value">MaxTotalHumans</param>
+                        </condition>
+                    </conditions>
+                    <actions />
+                    <sub-events>
+                        <event-block sid="566306909626389">
+                            <conditions>
+                                <condition id="-10" name="For" sid="647238223116673" type="System">
+                                    <param id="0" name="Name">&quot;&quot;</param>
+                                    <param id="1" name="Start index">1</param>
+                                    <param id="2" name="End index">HumansInIncubator</param>
+                                </condition>
+                                <condition id="-8" name="Compare two values" sid="209796832423994" type="System">
+                                    <param id="0" name="First value">HumansInIncubator</param>
+                                    <param id="1" name="Comparison">4</param>
+                                    <param id="2" name="Second value">0</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="0" name="Call function" sid="662847752631171" type="Function">
+                                    <param id="0" name="Name">&quot;removeFromIncubator&quot;</param>
+                                    <param id="1" name="Parameter {n}"></param>
+                                </action>
+                            </actions>
+                        </event-block>
+                        <event-block sid="788811383955216">
+                            <conditions />
+                            <actions>
+                                <action id="0" name="Call function" sid="684429672034957" type="Function">
+                                    <param id="0" name="Name">&quot;refreshInterface&quot;</param>
+                                    <param id="1" name="Parameter {n}"></param>
+                                </action>
+                            </actions>
+                        </event-block>
+                    </sub-events>
+                </event-block>
+            </sub-events>
         </event-block>
         <event-block sid="159738775562736">
             <conditions>
@@ -2063,6 +2166,10 @@
                             <param id="0" name="Variable">PowerDecreaseRate</param>
                             <param id="1" name="Value">0.4</param>
                         </action>
+                        <action id="-9" name="Set value" sid="935502762778419" type="System">
+                            <param id="0" name="Variable">MaxTotalHumans</param>
+                            <param id="1" name="Value">20</param>
+                        </action>
                     </actions>
                 </event-block>
                 <event-block sid="240636163455761">
@@ -2085,6 +2192,10 @@
                         <action id="-9" name="Set value" sid="760030031694458" type="System">
                             <param id="0" name="Variable">PowerDecreaseRate</param>
                             <param id="1" name="Value">0.8</param>
+                        </action>
+                        <action id="-9" name="Set value" sid="263745068304085" type="System">
+                            <param id="0" name="Variable">MaxTotalHumans</param>
+                            <param id="1" name="Value">30</param>
                         </action>
                     </actions>
                 </event-block>
@@ -2109,6 +2220,10 @@
                             <param id="0" name="Variable">PowerDecreaseRate</param>
                             <param id="1" name="Value">1.6</param>
                         </action>
+                        <action id="-9" name="Set value" sid="113642975633965" type="System">
+                            <param id="0" name="Variable">MaxTotalHumans</param>
+                            <param id="1" name="Value">35</param>
+                        </action>
                     </actions>
                 </event-block>
                 <event-block sid="528494386031023">
@@ -2131,6 +2246,10 @@
                         <action id="-9" name="Set value" sid="479675584823758" type="System">
                             <param id="0" name="Variable">PowerDecreaseRate</param>
                             <param id="1" name="Value">2</param>
+                        </action>
+                        <action id="-9" name="Set value" sid="922419909120671" type="System">
+                            <param id="0" name="Variable">MaxTotalHumans</param>
+                            <param id="1" name="Value">40</param>
                         </action>
                     </actions>
                 </event-block>
@@ -2155,6 +2274,10 @@
                             <param id="0" name="Variable">PowerDecreaseRate</param>
                             <param id="1" name="Value">2.4</param>
                         </action>
+                        <action id="-9" name="Set value" sid="789459022207079" type="System">
+                            <param id="0" name="Variable">MaxTotalHumans</param>
+                            <param id="1" name="Value">45</param>
+                        </action>
                     </actions>
                 </event-block>
                 <event-block sid="886205776345594">
@@ -2177,6 +2300,10 @@
                         <action id="-9" name="Set value" sid="715459202865000" type="System">
                             <param id="0" name="Variable">PowerDecreaseRate</param>
                             <param id="1" name="Value">4</param>
+                        </action>
+                        <action id="-9" name="Set value" sid="356096551717599" type="System">
+                            <param id="0" name="Variable">MaxTotalHumans</param>
+                            <param id="1" name="Value">50</param>
                         </action>
                     </actions>
                 </event-block>
@@ -2201,6 +2328,10 @@
                             <param id="0" name="Variable">PowerDecreaseRate</param>
                             <param id="1" name="Value">6.4</param>
                         </action>
+                        <action id="-9" name="Set value" sid="791499343363124" type="System">
+                            <param id="0" name="Variable">MaxTotalHumans</param>
+                            <param id="1" name="Value">55</param>
+                        </action>
                     </actions>
                 </event-block>
                 <event-block sid="675582626816157">
@@ -2224,6 +2355,10 @@
                             <param id="0" name="Variable">PowerDecreaseRate</param>
                             <param id="1" name="Value">8.1</param>
                         </action>
+                        <action id="-9" name="Set value" sid="302161268981871" type="System">
+                            <param id="0" name="Variable">MaxTotalHumans</param>
+                            <param id="1" name="Value">60</param>
+                        </action>
                     </actions>
                 </event-block>
                 <event-block sid="651417190189603">
@@ -2246,6 +2381,10 @@
                         <action id="-9" name="Set value" sid="550878215183926" type="System">
                             <param id="0" name="Variable">PowerDecreaseRate</param>
                             <param id="1" name="Value">10</param>
+                        </action>
+                        <action id="-9" name="Set value" sid="399722961139531" type="System">
+                            <param id="0" name="Variable">MaxTotalHumans</param>
+                            <param id="1" name="Value">70</param>
                         </action>
                     </actions>
                 </event-block>
