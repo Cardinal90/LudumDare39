@@ -106,9 +106,6 @@
             </instance-variables>
             <texture />
         </object-type>
-        <object-type global="1" name="GroupArray" sid="642707116502807">
-            <plugin id="Arr" />
-        </object-type>
         <object-type name="ProgressRed" sid="959336714724269">
             <plugin id="TiledBg" />
             <instance-variables>

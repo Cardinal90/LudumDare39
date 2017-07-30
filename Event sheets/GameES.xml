@@ -106,7 +106,7 @@
                 </action>
                 <action id="-9" name="Set value" sid="189020535082764" type="System">
                     <param id="0" name="Variable">LevelStartTime</param>
-                    <param id="1" name="Value">time</param>
+                    <param id="1" name="Value">TotalTime</param>
                 </action>
                 <action id="-9" name="Set value" sid="337262632056269" type="System">
                     <param id="0" name="Variable">BasePowerDecreaseRate</param>
@@ -180,7 +180,7 @@
                     <actions>
                         <action id="-9" name="Set value" sid="712342213375302" type="System">
                             <param id="0" name="Variable">PowerDecreaseRate</param>
-                            <param id="1" name="Value">BasePowerDecreaseRate*(1 + 0.1*floor((time-LevelStartTime)/300))</param>
+                            <param id="1" name="Value">BasePowerDecreaseRate*(1 + 0.1*floor((TotalTime-LevelStartTime)/300))</param>
                         </action>
                     </actions>
                 </event-block>
@@ -2177,7 +2177,6 @@
             </conditions>
             <actions />
             <sub-events>
-                <variable constant="0" name="count" sid="862964352077103" static="0" type="number">0</variable>
                 <variable constant="0" name="i" sid="866368132295763" static="0" type="number">0</variable>
                 <event-block sid="807744789498247">
                     <conditions>
@@ -2788,7 +2787,7 @@
                     <actions>
                         <action id="-9" name="Set value" sid="405382226811358" type="System">
                             <param id="0" name="Variable">LevelStartTime</param>
-                            <param id="1" name="Value">floor(time)</param>
+                            <param id="1" name="Value">floor(TotalTime)</param>
                         </action>
                     </actions>
                 </event-block>
