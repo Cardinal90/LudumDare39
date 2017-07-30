@@ -150,6 +150,16 @@
             </instance-variables>
             <texture original-source="C:\Users\Petra\Desktop\SpriteFont_Minecraftia_Regular_8_1111_10x13.png" />
         </object-type>
+        <object-type global="1" name="Array" sid="600385380073777">
+            <plugin id="Arr" />
+        </object-type>
+        <object-type name="EventText" sid="797018831796711">
+            <plugin id="Spritefont2" />
+            <instance-variables>
+                <instance-variable name="type" sid="632310299517101" type="string" />
+            </instance-variables>
+            <texture original-source="C:\Users\Petra\Desktop\SpriteFont_Minecraftia_Regular_8_1111_10x13.png" />
+        </object-type>
     </object-folder>
     <families />
     <layout-folder>

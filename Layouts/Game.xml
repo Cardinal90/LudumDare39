@@ -938,7 +938,41 @@
             <use-render-cells>0</use-render-cells>
             <blend-mode>0</blend-mode>
             <effect-fallback>0</effect-fallback>
-            <instances />
+            <instances>
+                <instance type="EventText" uid="35">
+                    <properties>
+                        <character-width>10</character-width>
+                        <character-height>13</character-height>
+                        <character-set>ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789.,;:?!-_~#&quot;&apos;&amp;()[]|`\/@°+=*$£€&lt;&gt;</character-set>
+                        <text></text>
+                        <scale>1</scale>
+                        <initial-visibility>Visible</initial-visibility>
+                        <horizontal-alignment>Left</horizontal-alignment>
+                        <vertical-alignment>Top</vertical-alignment>
+                        <hotspot>Top-left</hotspot>
+                        <wrapping>Word</wrapping>
+                        <character-spacing>0</character-spacing>
+                        <line-height>0</line-height>
+                    </properties>
+                    <instance-variables>
+                        <type></type>
+                    </instance-variables>
+                    <blend-mode>0</blend-mode>
+                    <effect-fallback>0</effect-fallback>
+                    <world>
+                        <x>3.300453186</x>
+                        <y>105.011993408</y>
+                        <z>0</z>
+                        <width>236.241165161</width>
+                        <height>58.14465332</height>
+                        <depth>0</depth>
+                        <hotspotX>0</hotspotX>
+                        <hotspotY>0</hotspotY>
+                        <angle>0</angle>
+                        <opacity>1</opacity>
+                    </world>
+                </instance>
+            </instances>
             <effects />
         </layer>
     </layers>
@@ -952,6 +986,13 @@
             </instance-variables>
         </instance>
         <instance type="GroupArray" uid="16">
+            <properties>
+                <width>0</width>
+                <height>1</height>
+                <depth>1</depth>
+            </properties>
+        </instance>
+        <instance type="Array" uid="36">
             <properties>
                 <width>0</width>
                 <height>1</height>
