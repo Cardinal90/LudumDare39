@@ -8,9 +8,10 @@
         <variable constant="0" name="const_e5_moreReactorFood" sid="722448047141731" static="0" type="number">2</variable>
         <variable constant="0" name="const_e4_morePower" sid="667945157286478" static="0" type="number">1.5</variable>
         <variable constant="0" name="Event3Progress" sid="732785712079784" static="0" type="number">0</variable>
-        <variable constant="0" name="const_e3_rebellion" sid="198708327692075" static="0" type="number">5</variable>
+        <variable constant="0" name="Event3Max" sid="198708327692075" static="0" type="number">0</variable>
+        <variable constant="0" name="const_e3_rebellion" sid="823143733649799" static="0" type="number">0.33</variable>
         <variable constant="0" name="Event1Progress" sid="847801524006727" static="0" type="number">0</variable>
-        <variable constant="0" name="const_e1_epidemic" sid="312666540840634" static="0" type="number">5</variable>
+        <variable constant="0" name="const_e1_epidemic" sid="312666540840634" static="0" type="number">20</variable>
         <variable constant="0" name="CurrentEvent" sid="325789756886883" static="0" type="number">0</variable>
         <variable constant="0" name="MaxFood" sid="447757704399321" static="0" type="number">30</variable>
         <variable constant="0" name="MaxTotalHumans" sid="992032336223624" static="0" type="number">10</variable>
@@ -55,12 +56,12 @@
                     <param id="0" name="Name">&quot;refreshInterface&quot;</param>
                     <param id="1" name="Parameter {n}"></param>
                 </action>
-                <action id="5" name="Push" sid="796162842349565" type="Array">
+                <action disabled="1" id="5" name="Push" sid="796162842349565" type="Array">
                     <param id="0" name="Where">0</param>
                     <param id="1" name="Value">1</param>
                     <param id="2" name="Axis">0</param>
                 </action>
-                <action id="5" name="Push" sid="863915239953424" type="Array">
+                <action disabled="1" id="5" name="Push" sid="863915239953424" type="Array">
                     <param id="0" name="Where">0</param>
                     <param id="1" name="Value">2</param>
                     <param id="2" name="Axis">0</param>
@@ -70,32 +71,32 @@
                     <param id="1" name="Value">3</param>
                     <param id="2" name="Axis">0</param>
                 </action>
-                <action id="5" name="Push" sid="670540318559703" type="Array">
+                <action disabled="1" id="5" name="Push" sid="670540318559703" type="Array">
                     <param id="0" name="Where">0</param>
                     <param id="1" name="Value">4</param>
                     <param id="2" name="Axis">0</param>
                 </action>
-                <action id="5" name="Push" sid="355122080732816" type="Array">
+                <action disabled="1" id="5" name="Push" sid="355122080732816" type="Array">
                     <param id="0" name="Where">0</param>
                     <param id="1" name="Value">5</param>
                     <param id="2" name="Axis">0</param>
                 </action>
-                <action id="5" name="Push" sid="919027722975340" type="Array">
+                <action disabled="1" id="5" name="Push" sid="919027722975340" type="Array">
                     <param id="0" name="Where">0</param>
                     <param id="1" name="Value">6</param>
                     <param id="2" name="Axis">0</param>
                 </action>
-                <action id="5" name="Push" sid="999792764718469" type="Array">
+                <action disabled="1" id="5" name="Push" sid="999792764718469" type="Array">
                     <param id="0" name="Where">0</param>
                     <param id="1" name="Value">7</param>
                     <param id="2" name="Axis">0</param>
                 </action>
-                <action id="5" name="Push" sid="741983372065353" type="Array">
+                <action disabled="1" id="5" name="Push" sid="741983372065353" type="Array">
                     <param id="0" name="Where">0</param>
                     <param id="1" name="Value">8</param>
                     <param id="2" name="Axis">0</param>
                 </action>
-                <action id="5" name="Push" sid="817515361909834" type="Array">
+                <action disabled="1" id="5" name="Push" sid="817515361909834" type="Array">
                     <param id="0" name="Where">0</param>
                     <param id="1" name="Value">9</param>
                     <param id="2" name="Axis">0</param>
@@ -955,7 +956,7 @@
                                 <condition id="-8" name="Compare two values" sid="874309068063562" type="System">
                                     <param id="0" name="First value">Event3Progress</param>
                                     <param id="1" name="Comparison">2</param>
-                                    <param id="2" name="Second value">const_e3_rebellion</param>
+                                    <param id="2" name="Second value">Event3Max</param>
                                 </condition>
                             </conditions>
                             <actions />
@@ -2710,7 +2711,7 @@
                         <condition id="-8" name="Compare two values" sid="480938917652139" type="System">
                             <param id="0" name="First value">Event3Progress</param>
                             <param id="1" name="Comparison">5</param>
-                            <param id="2" name="Second value">const_e3_rebellion</param>
+                            <param id="2" name="Second value">Event3Max</param>
                         </condition>
                     </conditions>
                     <actions>
@@ -3072,6 +3073,10 @@
                             <param id="0" name="Variable">ReactorEnergy</param>
                             <param id="1" name="Value">ReactorEnergy*const_e7_lessEnergy</param>
                         </action>
+                        <action id="-9" name="Set value" sid="382783346030481" type="System">
+                            <param id="0" name="Variable">PowerDecreaseRate</param>
+                            <param id="1" name="Value">PowerDecreaseRate*const_e7_lessEnergy</param>
+                        </action>
                     </actions>
                 </event-block>
                 <variable constant="0" name="rand" sid="621076573128872" static="0" type="number">0</variable>
@@ -3133,8 +3138,12 @@
                         </condition>
                     </conditions>
                     <actions>
+                        <action id="-9" name="Set value" sid="656209964538112" type="System">
+                            <param id="0" name="Variable">Event3Max</param>
+                            <param id="1" name="Value">min(floor(TotalHumans*const_e3_rebellion), 10)</param>
+                        </action>
                         <action id="0" name="Set text" sid="178521057999215" type="EventText">
-                            <param id="0" name="Text">&quot;Rebellion! Send &quot; &amp; const_e3_rebellion &amp; &quot; humans into the bioreactor to force others to work&quot;</param>
+                            <param id="0" name="Text">&quot;Rebellion! Send &quot; &amp; Event3Max &amp; &quot; humans into the bioreactor to force others to work&quot;</param>
                         </action>
                     </actions>
                 </event-block>
@@ -3207,6 +3216,10 @@
                         <action id="-9" name="Set value" sid="727976927802321" type="System">
                             <param id="0" name="Variable">ReactorEnergy</param>
                             <param id="1" name="Value">ReactorEnergy/const_e7_lessEnergy</param>
+                        </action>
+                        <action id="-9" name="Set value" sid="419505925089929" type="System">
+                            <param id="0" name="Variable">PowerDecreaseRate</param>
+                            <param id="1" name="Value">PowerDecreaseRate/const_e7_lessEnergy</param>
                         </action>
                     </actions>
                 </event-block>
