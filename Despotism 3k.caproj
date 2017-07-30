@@ -1,0 +1,162 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<c2project>
+    <name>Despotism 3k</name>
+    <description></description>
+    <version>1.0.0.0</version>
+    <author></author>
+    <author-email></author-email>
+    <author-website>http://</author-website>
+    <app-id>com.mycompany.myapp</app-id>
+    <unique-id>36hpvgrzjhrl7</unique-id>
+    <saved-with-version>24400</saved-with-version>
+    <used-plugins>
+        <plugin author="Scirra" id="Arr" version="1">Array</plugin>
+        <plugin author="Scirra" id="Button" version="1">Button</plugin>
+        <plugin author="Scirra" id="Dictionary" version="1">Dictionary</plugin>
+        <plugin author="Scirra" id="Function" version="1">Function</plugin>
+        <plugin author="Scirra" id="Text" version="1">Text</plugin>
+        <plugin author="Scirra" id="TiledBg" version="1">Tiled Background</plugin>
+    </used-plugins>
+    <used-behaviors />
+    <used-effects />
+    <configurations>
+        <configuration exporter-descname="HTML5" exporter-id="html5" name="HTML5" />
+    </configurations>
+    <window-size>
+        <width>300</width>
+        <height>168</height>
+    </window-size>
+    <pixel-rounding>0</pixel-rounding>
+    <preview-effects>0</preview-effects>
+    <first-layout>Game</first-layout>
+    <use-loader-layout>0</use-loader-layout>
+    <configuration-settings>
+        <prop name="Clear background">Yes</prop>
+        <prop name="Downscaling">Medium quality</prop>
+        <prop name="Enable WebGL">On</prop>
+        <prop name="Fullscreen in browser">Letterbox scale</prop>
+        <prop name="Fullscreen scaling">High quality</prop>
+        <prop name="Loader style">Progress bar only</prop>
+        <prop name="Orientations">Any</prop>
+        <prop name="Pause on unfocus">No</prop>
+        <prop name="Physics engine">Box2D asm.js</prop>
+        <prop name="Preload sounds">Yes</prop>
+        <prop name="Preview browser">Chrome</prop>
+        <prop name="Sampling">Point</prop>
+        <prop name="Use high-DPI display">Yes</prop>
+    </configuration-settings>
+    <object-folder>
+        <object-type global="1" name="Human" sid="684961741194898">
+            <plugin id="Dictionary" />
+            <instance-variables>
+                <instance-variable name="id" sid="406394276430296" type="number" />
+                <instance-variable name="group" sid="267434774880815" type="string" />
+                <instance-variable name="energy" sid="403669927392286" type="number" />
+                <instance-variable name="recycleProgress" sid="846642416655289" type="number" />
+            </instance-variables>
+        </object-type>
+        <object-type name="AddToStation" sid="703612858078322">
+            <plugin id="Button" />
+        </object-type>
+        <object-type name="Function" sid="494952190933108">
+            <plugin id="Function" />
+        </object-type>
+        <object-type name="Power" sid="503632669725560">
+            <plugin id="Text" />
+        </object-type>
+        <object-type name="RemoveFromStation" sid="765353201592342">
+            <plugin id="Button" />
+        </object-type>
+        <object-type name="AddToFood" sid="614944129445431">
+            <plugin id="Button" />
+        </object-type>
+        <object-type name="RemoveFromFood" sid="221558415804647">
+            <plugin id="Button" />
+        </object-type>
+        <object-type name="HumansOnPower" sid="397427079773052">
+            <plugin id="Text" />
+        </object-type>
+        <object-type name="HumansOnFood" sid="740927826507478">
+            <plugin id="Text" />
+        </object-type>
+        <object-type name="Food" sid="394827593938884">
+            <plugin id="Text" />
+        </object-type>
+        <object-type name="FoodTimer" sid="637237235526338">
+            <plugin id="Text" />
+        </object-type>
+        <object-type name="RemoveFromIncubator" sid="497564906779982">
+            <plugin id="Button" />
+        </object-type>
+        <object-type name="AddToIncubator" sid="607763935982317">
+            <plugin id="Button" />
+        </object-type>
+        <object-type name="HumansInIncubator" sid="599963956811176">
+            <plugin id="Text" />
+        </object-type>
+        <object-type name="HumansInPool" sid="445147207215507">
+            <plugin id="Text" />
+        </object-type>
+        <object-type name="ProgressGreen" sid="601537676931968">
+            <plugin id="TiledBg" />
+            <instance-variables>
+                <instance-variable name="humanId" sid="976776217415482" type="number" />
+                <instance-variable name="group" sid="262738666404625" type="string" />
+            </instance-variables>
+            <texture />
+        </object-type>
+        <object-type global="1" name="GroupArray" sid="642707116502807">
+            <plugin id="Arr" />
+        </object-type>
+        <object-type name="ProgressRed" sid="959336714724269">
+            <plugin id="TiledBg" />
+            <instance-variables>
+                <instance-variable name="humanId" sid="473563829417426" type="number" />
+                <instance-variable name="group" sid="660694818878999" type="string" />
+            </instance-variables>
+            <texture />
+        </object-type>
+        <object-type name="AddToMeat" sid="114956898957938">
+            <plugin id="Button" />
+        </object-type>
+        <object-type name="HumansOnMeat" sid="442593958507100">
+            <plugin id="Text" />
+        </object-type>
+        <object-type name="ProgressPurple" sid="281174574054904">
+            <plugin id="TiledBg" />
+            <instance-variables>
+                <instance-variable name="humanId" sid="177765344364105" type="number" />
+                <instance-variable name="group" sid="929242425028949" type="string" />
+            </instance-variables>
+            <texture />
+        </object-type>
+        <object-type name="console" sid="229060615486615">
+            <plugin id="Text" />
+        </object-type>
+        <object-type name="Level" sid="675604671340470">
+            <plugin id="Text" />
+        </object-type>
+    </object-folder>
+    <families />
+    <layout-folder>
+        <layout>Game.xml</layout>
+    </layout-folder>
+    <event-folder>
+        <event-sheet>GameES.xml</event-sheet>
+    </event-folder>
+    <global-instances>
+        <global-instance type="Function" uid="4" />
+    </global-instances>
+    <sounds-folder />
+    <music-folder />
+    <files-folder>
+        <file-folder name="Icons">
+            <file name="icon-16.png" />
+            <file name="icon-32.png" />
+            <file name="icon-114.png" />
+            <file name="icon-128.png" />
+            <file name="icon-256.png" />
+            <file name="loading-logo.png" />
+        </file-folder>
+    </files-folder>
+</c2project>
