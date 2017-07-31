@@ -119,15 +119,6 @@
                     <param id="0" name="Variable">BasePowerDecreaseRate</param>
                     <param id="1" name="Value">PowerDecreaseRate</param>
                 </action>
-                <action id="-3" name="Create object" sid="483541107670735" type="System">
-                    <param id="0" name="Object to create">Badge</param>
-                    <param id="1" name="Layer">0</param>
-                    <param id="2" name="X">60</param>
-                    <param id="3" name="Y">120</param>
-                </action>
-                <action behavior="8Direction" id="10" name="Set vector Y" sid="384167872146713" type="Badge">
-                    <param id="0" name="Vector Y">-1000</param>
-                </action>
                 <action id="2" name="Stop" sid="688009739552898" type="MinusPowerButton" />
                 <action id="2" name="Stop" sid="301855606526160" type="MinusIncubatorButton" />
                 <action id="2" name="Stop" sid="105277592777712" type="MinusFoodButton" />
@@ -483,6 +474,10 @@
                             </conditions>
                             <actions>
                                 <action id="-9" name="Destroy" sid="959948161170929" type="Human" />
+                                <action id="0" name="Call function" sid="285918900941073" type="Function">
+                                    <param id="0" name="Name">&quot;createBadge&quot;</param>
+                                    <param id="1" name="Parameter {n}">&quot;reactor&quot;{###}0</param>
+                                </action>
                             </actions>
                             <sub-events>
                                 <event-block sid="166673314063059">
@@ -585,6 +580,10 @@
                                                 </condition>
                                             </conditions>
                                             <actions>
+                                                <action id="-10" name="Set value" sid="457173203151265" type="Human">
+                                                    <param id="0" name="Instance variable">oldGroup</param>
+                                                    <param id="1" name="Value">Human.group</param>
+                                                </action>
                                                 <action id="-10" name="Set value" sid="400617390873290" type="Human">
                                                     <param id="0" name="Instance variable">group</param>
                                                     <param id="1" name="Value">&quot;hungry&quot;</param>
@@ -816,6 +815,10 @@
                                         </condition>
                                     </conditions>
                                     <actions>
+                                        <action id="-10" name="Set value" sid="460128748676936" type="Human">
+                                            <param id="0" name="Instance variable">oldGroup</param>
+                                            <param id="1" name="Value">Human.group</param>
+                                        </action>
                                         <action id="-10" name="Set value" sid="164548685329735" type="Human">
                                             <param id="0" name="Instance variable">group</param>
                                             <param id="1" name="Value">&quot;hungry&quot;</param>
@@ -1187,6 +1190,10 @@
                             <param id="0" name="Variable">SexProgress</param>
                             <param id="1" name="Value">SexProgress - SexPeriod*c1</param>
                         </action>
+                        <action id="0" name="Call function" sid="352586503709300" type="Function">
+                            <param id="0" name="Name">&quot;createBadge&quot;</param>
+                            <param id="1" name="Parameter {n}">&quot;sex&quot;{###}c1*1</param>
+                        </action>
                     </actions>
                     <sub-events>
                         <event-block sid="655277760541372">
@@ -1254,7 +1261,28 @@
                             <param id="0" name="Variable">CurrentFood</param>
                             <param id="1" name="Value">min(CurrentFood + FoodPackSize*c1, MaxFood)</param>
                         </action>
+                        <action id="0" name="Call function" sid="993161274073853" type="Function">
+                            <param id="0" name="Name">&quot;createBadge&quot;</param>
+                            <param id="1" name="Parameter {n}">&quot;food&quot;{###}c1*FoodPackSize</param>
+                        </action>
                     </actions>
+                    <sub-events>
+                        <event-block sid="844961261702593">
+                            <conditions>
+                                <condition id="-14" name="Compare variable" sid="302520543873495" type="System">
+                                    <param id="0" name="Variable">CurrentFood</param>
+                                    <param id="1" name="Comparison">5</param>
+                                    <param id="2" name="Value">MaxFood</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="0" name="Call function" sid="860603317517897" type="Function">
+                                    <param id="0" name="Name">&quot;flashGood2&quot;</param>
+                                    <param id="1" name="Parameter {n}">57</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                    </sub-events>
                 </event-block>
                 <event-block sid="325340110415919">
                     <conditions>
@@ -1411,6 +1439,187 @@
                         </action>
                     </actions>
                 </event-block>
+                <event-block sid="663182984680585">
+                    <conditions>
+                        <condition id="-14" name="Compare variable" sid="552221052647723" type="System">
+                            <param id="0" name="Variable">CurrentFood</param>
+                            <param id="1" name="Comparison">2</param>
+                            <param id="2" name="Value">TotalHumans</param>
+                        </condition>
+                    </conditions>
+                    <actions />
+                    <sub-events>
+                        <event-block sid="233114648884887">
+                            <conditions>
+                                <condition id="-14" name="Pick by unique ID" sid="577295879022295" type="SpriteFont">
+                                    <param id="0" name="Unique ID">57</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="-28" name="Set effect parameter" sid="862382531419537" type="SpriteFont">
+                                    <param id="0" name="Effect">&quot;SetColor&quot;</param>
+                                    <param id="1" name="Parameter index">0</param>
+                                    <param id="2" name="Value">75</param>
+                                </action>
+                                <action id="-28" name="Set effect parameter" sid="405635005178427" type="SpriteFont">
+                                    <param id="0" name="Effect">&quot;SetColor&quot;</param>
+                                    <param id="1" name="Parameter index">1</param>
+                                    <param id="2" name="Value">15</param>
+                                </action>
+                                <action id="-28" name="Set effect parameter" sid="963946559901508" type="SpriteFont">
+                                    <param id="0" name="Effect">&quot;SetColor&quot;</param>
+                                    <param id="1" name="Parameter index">2</param>
+                                    <param id="2" name="Value">36</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                    </sub-events>
+                </event-block>
+                <event-block sid="496974310495654">
+                    <conditions>
+                        <condition id="-22" name="Else" sid="239761609185946" type="System" />
+                    </conditions>
+                    <actions />
+                    <sub-events>
+                        <event-block sid="507362466646873">
+                            <conditions>
+                                <condition id="-14" name="Pick by unique ID" sid="314026993338068" type="SpriteFont">
+                                    <param id="0" name="Unique ID">57</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="-28" name="Set effect parameter" sid="409091994002271" type="SpriteFont">
+                                    <param id="0" name="Effect">&quot;SetColor&quot;</param>
+                                    <param id="1" name="Parameter index">0</param>
+                                    <param id="2" name="Value">84</param>
+                                </action>
+                                <action id="-28" name="Set effect parameter" sid="828476413798752" type="SpriteFont">
+                                    <param id="0" name="Effect">&quot;SetColor&quot;</param>
+                                    <param id="1" name="Parameter index">1</param>
+                                    <param id="2" name="Value">76.5</param>
+                                </action>
+                                <action id="-28" name="Set effect parameter" sid="421533244373598" type="SpriteFont">
+                                    <param id="0" name="Effect">&quot;SetColor&quot;</param>
+                                    <param id="1" name="Parameter index">2</param>
+                                    <param id="2" name="Value">55</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                    </sub-events>
+                </event-block>
+                <event-block any="1" sid="994612255476097">
+                    <conditions>
+                        <condition id="-21" name="Is between values" sid="367786622460586" type="System">
+                            <param id="0" name="Value">MealPeriod - MealTimer</param>
+                            <param id="1" name="Lower bound">0</param>
+                            <param id="2" name="Upper bound">0.5</param>
+                        </condition>
+                        <condition id="-21" name="Is between values" sid="449226743087149" type="System">
+                            <param id="0" name="Value">MealPeriod - MealTimer</param>
+                            <param id="1" name="Lower bound">1</param>
+                            <param id="2" name="Upper bound">1.5</param>
+                        </condition>
+                        <condition id="-21" name="Is between values" sid="145289760797777" type="System">
+                            <param id="0" name="Value">MealPeriod - MealTimer</param>
+                            <param id="1" name="Lower bound">2</param>
+                            <param id="2" name="Upper bound">2.5</param>
+                        </condition>
+                        <condition id="-21" name="Is between values" sid="833963148429130" type="System">
+                            <param id="0" name="Value">MealPeriod - MealTimer</param>
+                            <param id="1" name="Lower bound">3</param>
+                            <param id="2" name="Upper bound">3.5</param>
+                        </condition>
+                        <condition id="-21" name="Is between values" sid="395026239875308" type="System">
+                            <param id="0" name="Value">MealPeriod - MealTimer</param>
+                            <param id="1" name="Lower bound">4</param>
+                            <param id="2" name="Upper bound">4.5</param>
+                        </condition>
+                    </conditions>
+                    <actions />
+                    <sub-events>
+                        <event-block sid="314224376863958">
+                            <conditions>
+                                <condition id="-14" name="Pick by unique ID" sid="505782895485323" type="SpriteFont">
+                                    <param id="0" name="Unique ID">58</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="-28" name="Set effect parameter" sid="180214785691609" type="SpriteFont">
+                                    <param id="0" name="Effect">&quot;SetColor&quot;</param>
+                                    <param id="1" name="Parameter index">0</param>
+                                    <param id="2" name="Value">75</param>
+                                </action>
+                                <action id="-28" name="Set effect parameter" sid="969014380936792" type="SpriteFont">
+                                    <param id="0" name="Effect">&quot;SetColor&quot;</param>
+                                    <param id="1" name="Parameter index">1</param>
+                                    <param id="2" name="Value">15</param>
+                                </action>
+                                <action id="-28" name="Set effect parameter" sid="417797415593549" type="SpriteFont">
+                                    <param id="0" name="Effect">&quot;SetColor&quot;</param>
+                                    <param id="1" name="Parameter index">2</param>
+                                    <param id="2" name="Value">36</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                    </sub-events>
+                </event-block>
+                <event-block sid="248422992521139">
+                    <conditions>
+                        <condition id="-22" name="Else" sid="719898182019189" type="System" />
+                    </conditions>
+                    <actions />
+                    <sub-events>
+                        <event-block sid="246291195658634">
+                            <conditions>
+                                <condition id="-14" name="Pick by unique ID" sid="537000082792582" type="SpriteFont">
+                                    <param id="0" name="Unique ID">58</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="-28" name="Set effect parameter" sid="216254305711791" type="SpriteFont">
+                                    <param id="0" name="Effect">&quot;SetColor&quot;</param>
+                                    <param id="1" name="Parameter index">0</param>
+                                    <param id="2" name="Value">84</param>
+                                </action>
+                                <action id="-28" name="Set effect parameter" sid="824839647230042" type="SpriteFont">
+                                    <param id="0" name="Effect">&quot;SetColor&quot;</param>
+                                    <param id="1" name="Parameter index">1</param>
+                                    <param id="2" name="Value">76.5</param>
+                                </action>
+                                <action id="-28" name="Set effect parameter" sid="464335586990288" type="SpriteFont">
+                                    <param id="0" name="Effect">&quot;SetColor&quot;</param>
+                                    <param id="1" name="Parameter index">2</param>
+                                    <param id="2" name="Value">55</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                    </sub-events>
+                </event-block>
+                <event-block sid="675229053502699">
+                    <conditions />
+                    <actions>
+                        <action id="-9" name="Set value" sid="170932021163447" type="System">
+                            <param id="0" name="Variable">deathsPool</param>
+                            <param id="1" name="Value">0</param>
+                        </action>
+                        <action id="-9" name="Set value" sid="265189033162948" type="System">
+                            <param id="0" name="Variable">deathsPower</param>
+                            <param id="1" name="Value">0</param>
+                        </action>
+                        <action id="-9" name="Set value" sid="771817428021204" type="System">
+                            <param id="0" name="Variable">deathsReactor</param>
+                            <param id="1" name="Value">0</param>
+                        </action>
+                        <action id="-9" name="Set value" sid="145906002756952" type="System">
+                            <param id="0" name="Variable">deathsIncubator</param>
+                            <param id="1" name="Value">0</param>
+                        </action>
+                        <action id="-9" name="Set value" sid="457354348836119" type="System">
+                            <param id="0" name="Variable">deathsFood</param>
+                            <param id="1" name="Value">0</param>
+                        </action>
+                    </actions>
+                </event-block>
             </sub-events>
         </event-block>
         <event-block sid="741959999572747">
@@ -1432,15 +1641,6 @@
                         </condition>
                     </conditions>
                     <actions>
-                        <action id="3" name="Set enabled" sid="903666138726140" type="AddToFood">
-                            <param id="0" name="Mode">0</param>
-                        </action>
-                        <action id="3" name="Set enabled" sid="267270404717137" type="AddToStation">
-                            <param id="0" name="Mode">0</param>
-                        </action>
-                        <action id="3" name="Set enabled" sid="861568752738105" type="AddToMeat">
-                            <param id="0" name="Mode">0</param>
-                        </action>
                         <action id="-9" name="Set value" sid="855595205902209" type="System">
                             <param id="0" name="Variable">PlusFoodDisabled</param>
                             <param id="1" name="Value">1</param>
@@ -1460,15 +1660,6 @@
                         <condition id="-22" name="Else" sid="596220569452900" type="System" />
                     </conditions>
                     <actions>
-                        <action id="3" name="Set enabled" sid="609792296624903" type="AddToFood">
-                            <param id="0" name="Mode">1</param>
-                        </action>
-                        <action id="3" name="Set enabled" sid="705084382562191" type="AddToStation">
-                            <param id="0" name="Mode">1</param>
-                        </action>
-                        <action id="3" name="Set enabled" sid="594250740798473" type="AddToMeat">
-                            <param id="0" name="Mode">1</param>
-                        </action>
                         <action id="-9" name="Set value" sid="147774681354603" type="System">
                             <param id="0" name="Variable">PlusFoodDisabled</param>
                             <param id="1" name="Value">0</param>
@@ -1492,9 +1683,6 @@
                         </condition>
                     </conditions>
                     <actions>
-                        <action id="3" name="Set enabled" sid="820985168303851" type="AddToIncubator">
-                            <param id="0" name="Mode">0</param>
-                        </action>
                         <action id="-9" name="Set value" sid="219318123851080" type="System">
                             <param id="0" name="Variable">PlusIncubatorDisabled</param>
                             <param id="1" name="Value">1</param>
@@ -1506,9 +1694,6 @@
                         <condition id="-22" name="Else" sid="729406403339505" type="System" />
                     </conditions>
                     <actions>
-                        <action id="3" name="Set enabled" sid="253584176413465" type="AddToIncubator">
-                            <param id="0" name="Mode">1</param>
-                        </action>
                         <action id="-9" name="Set value" sid="640123583872734" type="System">
                             <param id="0" name="Variable">PlusIncubatorDisabled</param>
                             <param id="1" name="Value">0</param>
@@ -1524,9 +1709,6 @@
                         </condition>
                     </conditions>
                     <actions>
-                        <action id="3" name="Set enabled" sid="541443056694430" type="AddToStation">
-                            <param id="0" name="Mode">0</param>
-                        </action>
                         <action id="-9" name="Set value" sid="971327998165606" type="System">
                             <param id="0" name="Variable">PlusPowerDisabled</param>
                             <param id="1" name="Value">1</param>
@@ -1538,9 +1720,6 @@
                         <condition id="-22" name="Else" sid="406781512652942" type="System" />
                     </conditions>
                     <actions>
-                        <action id="3" name="Set enabled" sid="414341134036376" type="AddToStation">
-                            <param id="0" name="Mode">1</param>
-                        </action>
                         <action id="-9" name="Set value" sid="123276336078390" type="System">
                             <param id="0" name="Variable">PlusPowerDisabled</param>
                             <param id="1" name="Value">0</param>
@@ -1566,9 +1745,6 @@
                         </condition>
                     </conditions>
                     <actions>
-                        <action id="3" name="Set enabled" sid="455466074222830" type="AddToFood">
-                            <param id="0" name="Mode">0</param>
-                        </action>
                         <action id="-9" name="Set value" sid="787667067216812" type="System">
                             <param id="0" name="Variable">PlusFoodDisabled</param>
                             <param id="1" name="Value">1</param>
@@ -1580,9 +1756,6 @@
                         <condition id="-22" name="Else" sid="440579720699405" type="System" />
                     </conditions>
                     <actions>
-                        <action id="3" name="Set enabled" sid="284964703368311" type="AddToFood">
-                            <param id="0" name="Mode">1</param>
-                        </action>
                         <action id="-9" name="Set value" sid="415618752000068" type="System">
                             <param id="0" name="Variable">PlusFoodDisabled</param>
                             <param id="1" name="Value">0</param>
@@ -1603,9 +1776,6 @@
                         </condition>
                     </conditions>
                     <actions>
-                        <action id="3" name="Set enabled" sid="991569729568944" type="AddToMeat">
-                            <param id="0" name="Mode">0</param>
-                        </action>
                         <action id="-9" name="Set value" sid="863773824663579" type="System">
                             <param id="0" name="Variable">PlusReactorDisabled</param>
                             <param id="1" name="Value">1</param>
@@ -1617,9 +1787,6 @@
                         <condition id="-22" name="Else" sid="236565737144957" type="System" />
                     </conditions>
                     <actions>
-                        <action id="3" name="Set enabled" sid="476062240719155" type="AddToMeat">
-                            <param id="0" name="Mode">1</param>
-                        </action>
                         <action id="-9" name="Set value" sid="828702784766663" type="System">
                             <param id="0" name="Variable">PlusReactorDisabled</param>
                             <param id="1" name="Value">0</param>
@@ -1645,9 +1812,6 @@
                         </condition>
                     </conditions>
                     <actions>
-                        <action id="3" name="Set enabled" sid="149927912634656" type="AddToIncubator">
-                            <param id="0" name="Mode">1</param>
-                        </action>
                         <action id="-9" name="Set value" sid="188260293330641" type="System">
                             <param id="0" name="Variable">PlusIncubatorDisabled</param>
                             <param id="1" name="Value">0</param>
@@ -1659,9 +1823,6 @@
                         <condition id="-22" name="Else" sid="384958726946305" type="System" />
                     </conditions>
                     <actions>
-                        <action id="3" name="Set enabled" sid="487243475090479" type="AddToIncubator">
-                            <param id="0" name="Mode">0</param>
-                        </action>
                         <action id="-9" name="Set value" sid="540372968119434" type="System">
                             <param id="0" name="Variable">PlusIncubatorDisabled</param>
                             <param id="1" name="Value">1</param>
@@ -1688,27 +1849,6 @@
                         <action id="-9" name="Set value" sid="510417141180085" type="System">
                             <param id="0" name="Variable">Paused</param>
                             <param id="1" name="Value">1</param>
-                        </action>
-                        <action id="3" name="Set enabled" sid="534945552670370" type="AddToStation">
-                            <param id="0" name="Mode">0</param>
-                        </action>
-                        <action id="3" name="Set enabled" sid="362851198159141" type="AddToFood">
-                            <param id="0" name="Mode">0</param>
-                        </action>
-                        <action id="3" name="Set enabled" sid="371537561568963" type="AddToIncubator">
-                            <param id="0" name="Mode">0</param>
-                        </action>
-                        <action id="3" name="Set enabled" sid="129692674323861" type="AddToMeat">
-                            <param id="0" name="Mode">0</param>
-                        </action>
-                        <action id="3" name="Set enabled" sid="746250216164992" type="RemoveFromFood">
-                            <param id="0" name="Mode">0</param>
-                        </action>
-                        <action id="3" name="Set enabled" sid="577914162647387" type="RemoveFromIncubator">
-                            <param id="0" name="Mode">0</param>
-                        </action>
-                        <action id="3" name="Set enabled" sid="990972545982747" type="RemoveFromStation">
-                            <param id="0" name="Mode">0</param>
                         </action>
                         <action id="-9" name="Set value" sid="152264875592091" type="System">
                             <param id="0" name="Variable">PlusPowerDisabled</param>
@@ -1753,27 +1893,6 @@
                         <action id="-9" name="Set value" sid="761367227895229" type="System">
                             <param id="0" name="Variable">Paused</param>
                             <param id="1" name="Value">0</param>
-                        </action>
-                        <action id="3" name="Set enabled" sid="872271661024259" type="AddToStation">
-                            <param id="0" name="Mode">1</param>
-                        </action>
-                        <action id="3" name="Set enabled" sid="887100611479186" type="AddToFood">
-                            <param id="0" name="Mode">1</param>
-                        </action>
-                        <action id="3" name="Set enabled" sid="644315167332090" type="AddToIncubator">
-                            <param id="0" name="Mode">1</param>
-                        </action>
-                        <action id="3" name="Set enabled" sid="740091002840163" type="AddToMeat">
-                            <param id="0" name="Mode">1</param>
-                        </action>
-                        <action id="3" name="Set enabled" sid="619644430702411" type="RemoveFromStation">
-                            <param id="0" name="Mode">1</param>
-                        </action>
-                        <action id="3" name="Set enabled" sid="619443866558161" type="RemoveFromFood">
-                            <param id="0" name="Mode">1</param>
-                        </action>
-                        <action id="3" name="Set enabled" sid="561940238848340" type="RemoveFromIncubator">
-                            <param id="0" name="Mode">1</param>
                         </action>
                         <action id="-9" name="Set value" sid="845158709594184" type="System">
                             <param id="0" name="Variable">PlusPowerDisabled</param>
@@ -1860,7 +1979,12 @@
                             <param id="2" name="Second value">MaxTotalHumans</param>
                         </condition>
                     </conditions>
-                    <actions />
+                    <actions>
+                        <action id="0" name="Call function" sid="841966650476507" type="Function">
+                            <param id="0" name="Name">&quot;flashGood1&quot;</param>
+                            <param id="1" name="Parameter {n}">56</param>
+                        </action>
+                    </actions>
                     <sub-events>
                         <event-block sid="484925412207613">
                             <conditions>
@@ -1934,6 +2058,23 @@
                                     <param id="1" name="Value">HumansInPool - 1</param>
                                 </action>
                             </actions>
+                            <sub-events>
+                                <event-block sid="552465067107697">
+                                    <conditions>
+                                        <condition id="-14" name="Compare variable" sid="466450209347365" type="System">
+                                            <param id="0" name="Variable">HumansOnPower</param>
+                                            <param id="1" name="Comparison">0</param>
+                                            <param id="2" name="Value">10</param>
+                                        </condition>
+                                    </conditions>
+                                    <actions>
+                                        <action id="0" name="Call function" sid="454702856148335" type="Function">
+                                            <param id="0" name="Name">&quot;flashGood3&quot;</param>
+                                            <param id="1" name="Parameter {n}">60</param>
+                                        </action>
+                                    </actions>
+                                </event-block>
+                            </sub-events>
                         </event-block>
                     </sub-events>
                 </event-block>
@@ -1945,6 +2086,11 @@
                     <param id="0" name="Mouse button">0</param>
                     <param id="1" name="Click type">0</param>
                     <param id="2" name="Object clicked">PlusPowerButton</param>
+                </condition>
+                <condition id="-14" name="Compare variable" sid="319793853567794" type="System">
+                    <param id="0" name="Variable">PlusPowerDisabled</param>
+                    <param id="1" name="Comparison">0</param>
+                    <param id="2" name="Value">0</param>
                 </condition>
             </conditions>
             <actions>
@@ -2009,6 +2155,11 @@
                     <param id="1" name="Click type">0</param>
                     <param id="2" name="Object clicked">MinusPowerButton</param>
                 </condition>
+                <condition id="-14" name="Compare variable" sid="208065482151783" type="System">
+                    <param id="0" name="Variable">MinusPowerDisabled</param>
+                    <param id="1" name="Comparison">0</param>
+                    <param id="2" name="Value">0</param>
+                </condition>
             </conditions>
             <actions>
                 <action id="0" name="Call function" sid="307524564378584" type="Function">
@@ -2060,6 +2211,23 @@
                                     <param id="1" name="Value">HumansInPool - 1</param>
                                 </action>
                             </actions>
+                            <sub-events>
+                                <event-block sid="880622053480809">
+                                    <conditions>
+                                        <condition id="-14" name="Compare variable" sid="576126965947374" type="System">
+                                            <param id="0" name="Variable">HumansOnFood</param>
+                                            <param id="1" name="Comparison">0</param>
+                                            <param id="2" name="Value">10</param>
+                                        </condition>
+                                    </conditions>
+                                    <actions>
+                                        <action id="0" name="Call function" sid="985968697604205" type="Function">
+                                            <param id="0" name="Name">&quot;flashGood3&quot;</param>
+                                            <param id="1" name="Parameter {n}">62</param>
+                                        </action>
+                                    </actions>
+                                </event-block>
+                            </sub-events>
                         </event-block>
                     </sub-events>
                 </event-block>
@@ -2071,6 +2239,11 @@
                     <param id="0" name="Mouse button">0</param>
                     <param id="1" name="Click type">0</param>
                     <param id="2" name="Object clicked">PlusFoodButton</param>
+                </condition>
+                <condition id="-14" name="Compare variable" sid="909748221452204" type="System">
+                    <param id="0" name="Variable">PlusFoodDisabled</param>
+                    <param id="1" name="Comparison">0</param>
+                    <param id="2" name="Value">0</param>
                 </condition>
             </conditions>
             <actions>
@@ -2135,6 +2308,11 @@
                     <param id="1" name="Click type">0</param>
                     <param id="2" name="Object clicked">MinusFoodButton</param>
                 </condition>
+                <condition id="-14" name="Compare variable" sid="542547779550687" type="System">
+                    <param id="0" name="Variable">MinusFoodDisabled</param>
+                    <param id="1" name="Comparison">0</param>
+                    <param id="2" name="Value">0</param>
+                </condition>
             </conditions>
             <actions>
                 <action id="0" name="Call function" sid="819923659749758" type="Function">
@@ -2186,6 +2364,23 @@
                                     <param id="1" name="Value">HumansInPool - 1</param>
                                 </action>
                             </actions>
+                            <sub-events>
+                                <event-block sid="633981901398756">
+                                    <conditions>
+                                        <condition id="-14" name="Compare variable" sid="942077101160137" type="System">
+                                            <param id="0" name="Variable">HumansInIncubator</param>
+                                            <param id="1" name="Comparison">0</param>
+                                            <param id="2" name="Value">10</param>
+                                        </condition>
+                                    </conditions>
+                                    <actions>
+                                        <action id="0" name="Call function" sid="130515478157780" type="Function">
+                                            <param id="0" name="Name">&quot;flashGood3&quot;</param>
+                                            <param id="1" name="Parameter {n}">61</param>
+                                        </action>
+                                    </actions>
+                                </event-block>
+                            </sub-events>
                         </event-block>
                     </sub-events>
                 </event-block>
@@ -2197,6 +2392,11 @@
                     <param id="0" name="Mouse button">0</param>
                     <param id="1" name="Click type">0</param>
                     <param id="2" name="Object clicked">PlusIncubatorButton</param>
+                </condition>
+                <condition id="-14" name="Compare variable" sid="736151493463560" type="System">
+                    <param id="0" name="Variable">PlusIncubatorDisabled</param>
+                    <param id="1" name="Comparison">0</param>
+                    <param id="2" name="Value">0</param>
                 </condition>
             </conditions>
             <actions>
@@ -2265,6 +2465,11 @@
                     <param id="1" name="Click type">0</param>
                     <param id="2" name="Object clicked">MinusIncubatorButton</param>
                 </condition>
+                <condition id="-14" name="Compare variable" sid="132226418750000" type="System">
+                    <param id="0" name="Variable">MinusIncubatorDisabled</param>
+                    <param id="1" name="Comparison">0</param>
+                    <param id="2" name="Value">0</param>
+                </condition>
             </conditions>
             <actions>
                 <action id="0" name="Call function" sid="772822685988571" type="Function">
@@ -2320,6 +2525,23 @@
                                     <param id="1" name="Value">HumansInPool - 1</param>
                                 </action>
                             </actions>
+                            <sub-events>
+                                <event-block sid="900319724772608">
+                                    <conditions>
+                                        <condition id="-14" name="Compare variable" sid="632898496150189" type="System">
+                                            <param id="0" name="Variable">HumansOnMeat</param>
+                                            <param id="1" name="Comparison">0</param>
+                                            <param id="2" name="Value">10</param>
+                                        </condition>
+                                    </conditions>
+                                    <actions>
+                                        <action id="0" name="Call function" sid="261597526426597" type="Function">
+                                            <param id="0" name="Name">&quot;flashGood3&quot;</param>
+                                            <param id="1" name="Parameter {n}">63</param>
+                                        </action>
+                                    </actions>
+                                </event-block>
+                            </sub-events>
                         </event-block>
                     </sub-events>
                 </event-block>
@@ -2331,6 +2553,11 @@
                     <param id="0" name="Mouse button">0</param>
                     <param id="1" name="Click type">0</param>
                     <param id="2" name="Object clicked">PlusReactorButton</param>
+                </condition>
+                <condition id="-14" name="Compare variable" sid="281850829996510" type="System">
+                    <param id="0" name="Variable">PlusReactorDisabled</param>
+                    <param id="1" name="Comparison">0</param>
+                    <param id="2" name="Value">0</param>
                 </condition>
             </conditions>
             <actions>
@@ -3583,6 +3810,11 @@
                 </event-block>
             </sub-events>
         </event-block>
+        <variable constant="0" name="deathsPool" sid="969924260102306" static="0" type="number">0</variable>
+        <variable constant="0" name="deathsPower" sid="136984494526231" static="0" type="number">0</variable>
+        <variable constant="0" name="deathsFood" sid="946625448437273" static="0" type="number">0</variable>
+        <variable constant="0" name="deathsIncubator" sid="283421001427111" static="0" type="number">0</variable>
+        <variable constant="0" name="deathsReactor" sid="492945574347286" static="0" type="number">0</variable>
         <event-block sid="421843576277644">
             <conditions>
                 <condition id="0" name="On function" sid="330999596139097" type="Function">
@@ -3591,7 +3823,7 @@
             </conditions>
             <actions />
             <sub-events>
-                <event-block disabled="1" sid="910849231310690">
+                <event-block sid="910849231310690">
                     <conditions>
                         <condition id="1" name="Compare parameter" sid="481271815575596" type="Function">
                             <param id="0" name="Index">0</param>
@@ -3602,17 +3834,362 @@
                     <actions>
                         <action id="-3" name="Create object" sid="224129132227465" type="System">
                             <param id="0" name="Object to create">Badge</param>
-                            <param id="1" name="Layer">0</param>
-                            <param id="2" name="X">10</param>
-                            <param id="3" name="Y">100</param>
+                            <param id="1" name="Layer">&quot;Animations&quot;</param>
+                            <param id="2" name="X">510</param>
+                            <param id="3" name="Y">200</param>
                         </action>
                         <action id="0" name="Set text" sid="691273658888264" type="Badge">
                             <param id="0" name="Text">&quot;+&quot; &amp; Function.Param(1)</param>
                         </action>
-                        <action behavior="8Direction" id="10" name="Set vector Y" sid="167763688448218" type="Badge">
-                            <param id="0" name="Vector Y">-1000</param>
+                        <action id="-28" name="Set effect parameter" sid="654530947765436" type="Badge">
+                            <param id="0" name="Effect">&quot;SetColor&quot;</param>
+                            <param id="1" name="Parameter index">0</param>
+                            <param id="2" name="Value">50</param>
+                        </action>
+                        <action id="-28" name="Set effect parameter" sid="986802793676126" type="Badge">
+                            <param id="0" name="Effect">&quot;SetColor&quot;</param>
+                            <param id="1" name="Parameter index">1</param>
+                            <param id="2" name="Value">87</param>
+                        </action>
+                        <action id="-28" name="Set effect parameter" sid="844052977891789" type="Badge">
+                            <param id="0" name="Effect">&quot;SetColor&quot;</param>
+                            <param id="1" name="Parameter index">2</param>
+                            <param id="2" name="Value">96</param>
+                        </action>
+                        <action behavior="LiteTween" id="3" name="Set target" sid="968430755027647" type="Badge">
+                            <param id="0" name="Target is">0</param>
+                            <param id="1" name="Relativity">1</param>
+                            <param id="2" name="Value">0</param>
+                        </action>
+                        <action behavior="LiteTween" id="3" name="Set target" sid="370486005900323" type="Badge">
+                            <param id="0" name="Target is">1</param>
+                            <param id="1" name="Relativity">1</param>
+                            <param id="2" name="Value">-50</param>
                         </action>
                     </actions>
+                </event-block>
+                <event-block sid="133145537988539">
+                    <conditions>
+                        <condition id="1" name="Compare parameter" sid="255203213255261" type="Function">
+                            <param id="0" name="Index">0</param>
+                            <param id="1" name="Comparison">0</param>
+                            <param id="2" name="Value">&quot;sex&quot;</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-3" name="Create object" sid="904885081403848" type="System">
+                            <param id="0" name="Object to create">Badge</param>
+                            <param id="1" name="Layer">&quot;Animations&quot;</param>
+                            <param id="2" name="X">740</param>
+                            <param id="3" name="Y">200</param>
+                        </action>
+                        <action id="0" name="Set text" sid="785060164549818" type="Badge">
+                            <param id="0" name="Text">&quot;+&quot; &amp; Function.Param(1)</param>
+                        </action>
+                        <action id="-28" name="Set effect parameter" sid="129404325205935" type="Badge">
+                            <param id="0" name="Effect">&quot;SetColor&quot;</param>
+                            <param id="1" name="Parameter index">0</param>
+                            <param id="2" name="Value">95</param>
+                        </action>
+                        <action id="-28" name="Set effect parameter" sid="425682053940637" type="Badge">
+                            <param id="0" name="Effect">&quot;SetColor&quot;</param>
+                            <param id="1" name="Parameter index">1</param>
+                            <param id="2" name="Value">56</param>
+                        </action>
+                        <action id="-28" name="Set effect parameter" sid="473697374262900" type="Badge">
+                            <param id="0" name="Effect">&quot;SetColor&quot;</param>
+                            <param id="1" name="Parameter index">2</param>
+                            <param id="2" name="Value">63</param>
+                        </action>
+                        <action behavior="LiteTween" id="3" name="Set target" sid="800498828314468" type="Badge">
+                            <param id="0" name="Target is">0</param>
+                            <param id="1" name="Relativity">1</param>
+                            <param id="2" name="Value">0</param>
+                        </action>
+                        <action behavior="LiteTween" id="3" name="Set target" sid="789141691474617" type="Badge">
+                            <param id="0" name="Target is">1</param>
+                            <param id="1" name="Relativity">1</param>
+                            <param id="2" name="Value">-50</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="629883499856016">
+                    <conditions>
+                        <condition id="1" name="Compare parameter" sid="406017720078144" type="Function">
+                            <param id="0" name="Index">0</param>
+                            <param id="1" name="Comparison">0</param>
+                            <param id="2" name="Value">&quot;food&quot;</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-3" name="Create object" sid="318717314139212" type="System">
+                            <param id="0" name="Object to create">Badge</param>
+                            <param id="1" name="Layer">&quot;Animations&quot;</param>
+                            <param id="2" name="X">980</param>
+                            <param id="3" name="Y">200</param>
+                        </action>
+                        <action id="0" name="Set text" sid="246865572683901" type="Badge">
+                            <param id="0" name="Text">&quot;+&quot; &amp; Function.Param(1)</param>
+                        </action>
+                        <action id="-28" name="Set effect parameter" sid="970900342484686" type="Badge">
+                            <param id="0" name="Effect">&quot;SetColor&quot;</param>
+                            <param id="1" name="Parameter index">0</param>
+                            <param id="2" name="Value">84</param>
+                        </action>
+                        <action id="-28" name="Set effect parameter" sid="227900316634819" type="Badge">
+                            <param id="0" name="Effect">&quot;SetColor&quot;</param>
+                            <param id="1" name="Parameter index">1</param>
+                            <param id="2" name="Value">76.5</param>
+                        </action>
+                        <action id="-28" name="Set effect parameter" sid="571102796426385" type="Badge">
+                            <param id="0" name="Effect">&quot;SetColor&quot;</param>
+                            <param id="1" name="Parameter index">2</param>
+                            <param id="2" name="Value">55</param>
+                        </action>
+                        <action behavior="LiteTween" id="3" name="Set target" sid="305580290638236" type="Badge">
+                            <param id="0" name="Target is">0</param>
+                            <param id="1" name="Relativity">1</param>
+                            <param id="2" name="Value">0</param>
+                        </action>
+                        <action behavior="LiteTween" id="3" name="Set target" sid="449191817639242" type="Badge">
+                            <param id="0" name="Target is">1</param>
+                            <param id="1" name="Relativity">1</param>
+                            <param id="2" name="Value">-50</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="573645522377014">
+                    <conditions>
+                        <condition id="1" name="Compare parameter" sid="936512913397080" type="Function">
+                            <param id="0" name="Index">0</param>
+                            <param id="1" name="Comparison">0</param>
+                            <param id="2" name="Value">&quot;reactor&quot;</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-3" name="Create object" sid="607733118996125" type="System">
+                            <param id="0" name="Object to create">Badge</param>
+                            <param id="1" name="Layer">&quot;Animations&quot;</param>
+                            <param id="2" name="X">1200</param>
+                            <param id="3" name="Y">200</param>
+                        </action>
+                        <action id="-28" name="Set effect parameter" sid="539488723952593" type="Badge">
+                            <param id="0" name="Effect">&quot;SetColor&quot;</param>
+                            <param id="1" name="Parameter index">0</param>
+                            <param id="2" name="Value">50</param>
+                        </action>
+                        <action id="-28" name="Set effect parameter" sid="444461691316012" type="Badge">
+                            <param id="0" name="Effect">&quot;SetColor&quot;</param>
+                            <param id="1" name="Parameter index">1</param>
+                            <param id="2" name="Value">87</param>
+                        </action>
+                        <action id="-28" name="Set effect parameter" sid="901912981882688" type="Badge">
+                            <param id="0" name="Effect">&quot;SetColor&quot;</param>
+                            <param id="1" name="Parameter index">2</param>
+                            <param id="2" name="Value">96</param>
+                        </action>
+                        <action behavior="LiteTween" id="3" name="Set target" sid="906045659514724" type="Badge">
+                            <param id="0" name="Target is">0</param>
+                            <param id="1" name="Relativity">1</param>
+                            <param id="2" name="Value">0</param>
+                        </action>
+                        <action behavior="LiteTween" id="3" name="Set target" sid="556353162821750" type="Badge">
+                            <param id="0" name="Target is">1</param>
+                            <param id="1" name="Relativity">1</param>
+                            <param id="2" name="Value">-50</param>
+                        </action>
+                        <action id="0" name="Set text" sid="238815889731392" type="Badge">
+                            <param id="0" name="Text">&quot;+&quot; &amp; ReactorEnergy</param>
+                        </action>
+                        <action disabled="1" id="-16" name="Wait" sid="312904872794962" type="System">
+                            <param id="0" name="Seconds">0.2</param>
+                        </action>
+                        <action id="-3" name="Create object" sid="306600700995829" type="System">
+                            <param id="0" name="Object to create">Badge</param>
+                            <param id="1" name="Layer">&quot;Animations&quot;</param>
+                            <param id="2" name="X">1300</param>
+                            <param id="3" name="Y">200</param>
+                        </action>
+                        <action id="-28" name="Set effect parameter" sid="591780670334580" type="Badge">
+                            <param id="0" name="Effect">&quot;SetColor&quot;</param>
+                            <param id="1" name="Parameter index">0</param>
+                            <param id="2" name="Value">84</param>
+                        </action>
+                        <action id="-28" name="Set effect parameter" sid="789440300242412" type="Badge">
+                            <param id="0" name="Effect">&quot;SetColor&quot;</param>
+                            <param id="1" name="Parameter index">1</param>
+                            <param id="2" name="Value">76.5</param>
+                        </action>
+                        <action id="-28" name="Set effect parameter" sid="521626443765433" type="Badge">
+                            <param id="0" name="Effect">&quot;SetColor&quot;</param>
+                            <param id="1" name="Parameter index">2</param>
+                            <param id="2" name="Value">55</param>
+                        </action>
+                        <action behavior="LiteTween" id="3" name="Set target" sid="759581688969274" type="Badge">
+                            <param id="0" name="Target is">0</param>
+                            <param id="1" name="Relativity">1</param>
+                            <param id="2" name="Value">0</param>
+                        </action>
+                        <action behavior="LiteTween" id="3" name="Set target" sid="729677921661956" type="Badge">
+                            <param id="0" name="Target is">1</param>
+                            <param id="1" name="Relativity">1</param>
+                            <param id="2" name="Value">-50</param>
+                        </action>
+                        <action id="0" name="Set text" sid="596429439918047" type="Badge">
+                            <param id="0" name="Text">&quot;+&quot; &amp; ReactorFood</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="329962621598565">
+                    <conditions>
+                        <condition id="1" name="Compare parameter" sid="453516233267438" type="Function">
+                            <param id="0" name="Index">0</param>
+                            <param id="1" name="Comparison">0</param>
+                            <param id="2" name="Value">&quot;death&quot;</param>
+                        </condition>
+                    </conditions>
+                    <actions />
+                    <sub-events>
+                        <event-block sid="299544274477948">
+                            <conditions>
+                                <condition id="1" name="Compare parameter" sid="976042989393114" type="Function">
+                                    <param id="0" name="Index">1</param>
+                                    <param id="1" name="Comparison">0</param>
+                                    <param id="2" name="Value">&quot;pool&quot;</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="-9" name="Set value" sid="151433423355725" type="System">
+                                    <param id="0" name="Variable">deathsPool</param>
+                                    <param id="1" name="Value">deathsPool + 1</param>
+                                </action>
+                                <action id="-3" name="Create object" sid="748767824539264" type="System">
+                                    <param id="0" name="Object to create">Death</param>
+                                    <param id="1" name="Layer">&quot;Animations&quot;</param>
+                                    <param id="2" name="X">260</param>
+                                    <param id="3" name="Y">195+ deathsPool*5</param>
+                                </action>
+                                <action behavior="LiteTween" id="3" name="Set target" sid="582945691624381" type="Death">
+                                    <param id="0" name="Target is">0</param>
+                                    <param id="1" name="Relativity">1</param>
+                                    <param id="2" name="Value">0</param>
+                                </action>
+                                <action behavior="LiteTween" id="3" name="Set target" sid="644007185954891" type="Death">
+                                    <param id="0" name="Target is">1</param>
+                                    <param id="1" name="Relativity">1</param>
+                                    <param id="2" name="Value">-50</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                        <event-block sid="292202556393780">
+                            <conditions>
+                                <condition id="1" name="Compare parameter" sid="816902571888092" type="Function">
+                                    <param id="0" name="Index">1</param>
+                                    <param id="1" name="Comparison">0</param>
+                                    <param id="2" name="Value">&quot;power&quot;</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="-3" name="Create object" sid="828558769263961" type="System">
+                                    <param id="0" name="Object to create">Death</param>
+                                    <param id="1" name="Layer">&quot;Animations&quot;</param>
+                                    <param id="2" name="X">510</param>
+                                    <param id="3" name="Y">195+ deathsPower*5</param>
+                                </action>
+                                <action behavior="LiteTween" id="3" name="Set target" sid="944335199848546" type="Death">
+                                    <param id="0" name="Target is">0</param>
+                                    <param id="1" name="Relativity">1</param>
+                                    <param id="2" name="Value">0</param>
+                                </action>
+                                <action behavior="LiteTween" id="3" name="Set target" sid="359798627298253" type="Death">
+                                    <param id="0" name="Target is">1</param>
+                                    <param id="1" name="Relativity">1</param>
+                                    <param id="2" name="Value">-50</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                        <event-block sid="692363611767499">
+                            <conditions>
+                                <condition id="1" name="Compare parameter" sid="642597889135599" type="Function">
+                                    <param id="0" name="Index">1</param>
+                                    <param id="1" name="Comparison">0</param>
+                                    <param id="2" name="Value">&quot;sex&quot;</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="-3" name="Create object" sid="977168311739450" type="System">
+                                    <param id="0" name="Object to create">Death</param>
+                                    <param id="1" name="Layer">&quot;Animations&quot;</param>
+                                    <param id="2" name="X">740</param>
+                                    <param id="3" name="Y">195+ deathsIncubator*5</param>
+                                </action>
+                                <action behavior="LiteTween" id="3" name="Set target" sid="547436422426393" type="Death">
+                                    <param id="0" name="Target is">0</param>
+                                    <param id="1" name="Relativity">1</param>
+                                    <param id="2" name="Value">0</param>
+                                </action>
+                                <action behavior="LiteTween" id="3" name="Set target" sid="971271703324146" type="Death">
+                                    <param id="0" name="Target is">1</param>
+                                    <param id="1" name="Relativity">1</param>
+                                    <param id="2" name="Value">-50</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                        <event-block sid="959318680700194">
+                            <conditions>
+                                <condition id="1" name="Compare parameter" sid="582292095783782" type="Function">
+                                    <param id="0" name="Index">1</param>
+                                    <param id="1" name="Comparison">0</param>
+                                    <param id="2" name="Value">&quot;food&quot;</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="-3" name="Create object" sid="238317699752593" type="System">
+                                    <param id="0" name="Object to create">Death</param>
+                                    <param id="1" name="Layer">&quot;Animations&quot;</param>
+                                    <param id="2" name="X">980</param>
+                                    <param id="3" name="Y">195+ deathsFood*5</param>
+                                </action>
+                                <action behavior="LiteTween" id="3" name="Set target" sid="119300395713148" type="Death">
+                                    <param id="0" name="Target is">0</param>
+                                    <param id="1" name="Relativity">1</param>
+                                    <param id="2" name="Value">0</param>
+                                </action>
+                                <action behavior="LiteTween" id="3" name="Set target" sid="359498084439231" type="Death">
+                                    <param id="0" name="Target is">1</param>
+                                    <param id="1" name="Relativity">1</param>
+                                    <param id="2" name="Value">-50</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                        <event-block sid="204877368230734">
+                            <conditions>
+                                <condition id="1" name="Compare parameter" sid="689275891245018" type="Function">
+                                    <param id="0" name="Index">1</param>
+                                    <param id="1" name="Comparison">0</param>
+                                    <param id="2" name="Value">&quot;meat&quot;</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="-3" name="Create object" sid="732585826399614" type="System">
+                                    <param id="0" name="Object to create">Death</param>
+                                    <param id="1" name="Layer">&quot;Animations&quot;</param>
+                                    <param id="2" name="X">1270</param>
+                                    <param id="3" name="Y">195+ deathsReactor*5</param>
+                                </action>
+                                <action behavior="LiteTween" id="3" name="Set target" sid="231156547720175" type="Death">
+                                    <param id="0" name="Target is">0</param>
+                                    <param id="1" name="Relativity">1</param>
+                                    <param id="2" name="Value">0</param>
+                                </action>
+                                <action behavior="LiteTween" id="3" name="Set target" sid="889066355099009" type="Death">
+                                    <param id="0" name="Target is">1</param>
+                                    <param id="1" name="Relativity">1</param>
+                                    <param id="2" name="Value">-50</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                    </sub-events>
                 </event-block>
             </sub-events>
         </event-block>
@@ -3780,6 +4357,133 @@
                 </action>
             </actions>
         </event-block>
+        <event-block sid="740013582592579">
+            <conditions />
+            <actions>
+                <action id="0" name="Set cursor style" sid="637527796480968" type="Mouse">
+                    <param id="0" name="Cursor style">0</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="641711114280581">
+            <conditions>
+                <condition id="7" name="Cursor is over object" sid="557429134405503" type="Mouse">
+                    <param id="0" name="Object">MinusFoodButton</param>
+                </condition>
+                <condition id="-14" name="Compare variable" sid="245026178841768" type="System">
+                    <param id="0" name="Variable">MinusFoodDisabled</param>
+                    <param id="1" name="Comparison">0</param>
+                    <param id="2" name="Value">0</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="0" name="Set cursor style" sid="417327598347451" type="Mouse">
+                    <param id="0" name="Cursor style">1</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="658678246469023">
+            <conditions>
+                <condition id="7" name="Cursor is over object" sid="523030290991549" type="Mouse">
+                    <param id="0" name="Object">MinusIncubatorButton</param>
+                </condition>
+                <condition id="-14" name="Compare variable" sid="219070648853576" type="System">
+                    <param id="0" name="Variable">MinusIncubatorDisabled</param>
+                    <param id="1" name="Comparison">0</param>
+                    <param id="2" name="Value">0</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="0" name="Set cursor style" sid="678741294624174" type="Mouse">
+                    <param id="0" name="Cursor style">1</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="387641848081754">
+            <conditions>
+                <condition id="7" name="Cursor is over object" sid="845885986278761" type="Mouse">
+                    <param id="0" name="Object">MinusPowerButton</param>
+                </condition>
+                <condition id="-14" name="Compare variable" sid="879135267739180" type="System">
+                    <param id="0" name="Variable">MinusPowerDisabled</param>
+                    <param id="1" name="Comparison">0</param>
+                    <param id="2" name="Value">0</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="0" name="Set cursor style" sid="278463308682189" type="Mouse">
+                    <param id="0" name="Cursor style">1</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="671374484651558">
+            <conditions>
+                <condition id="7" name="Cursor is over object" sid="947041969665682" type="Mouse">
+                    <param id="0" name="Object">PlusFoodButton</param>
+                </condition>
+                <condition id="-14" name="Compare variable" sid="268923429285395" type="System">
+                    <param id="0" name="Variable">PlusFoodDisabled</param>
+                    <param id="1" name="Comparison">0</param>
+                    <param id="2" name="Value">0</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="0" name="Set cursor style" sid="812851631171685" type="Mouse">
+                    <param id="0" name="Cursor style">1</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="238728655172801">
+            <conditions>
+                <condition id="7" name="Cursor is over object" sid="542900906420889" type="Mouse">
+                    <param id="0" name="Object">PlusIncubatorButton</param>
+                </condition>
+                <condition id="-14" name="Compare variable" sid="758512821845366" type="System">
+                    <param id="0" name="Variable">PlusIncubatorDisabled</param>
+                    <param id="1" name="Comparison">0</param>
+                    <param id="2" name="Value">0</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="0" name="Set cursor style" sid="380918235040639" type="Mouse">
+                    <param id="0" name="Cursor style">1</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="128338273902327">
+            <conditions>
+                <condition id="7" name="Cursor is over object" sid="349379132654803" type="Mouse">
+                    <param id="0" name="Object">PlusPowerButton</param>
+                </condition>
+                <condition id="-14" name="Compare variable" sid="494049947695153" type="System">
+                    <param id="0" name="Variable">PlusPowerDisabled</param>
+                    <param id="1" name="Comparison">0</param>
+                    <param id="2" name="Value">0</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="0" name="Set cursor style" sid="287757489315936" type="Mouse">
+                    <param id="0" name="Cursor style">1</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="869931919108904">
+            <conditions>
+                <condition id="7" name="Cursor is over object" sid="646567759312712" type="Mouse">
+                    <param id="0" name="Object">PlusReactorButton</param>
+                </condition>
+                <condition id="-14" name="Compare variable" sid="662198094972166" type="System">
+                    <param id="0" name="Variable">PlusReactorDisabled</param>
+                    <param id="1" name="Comparison">0</param>
+                    <param id="2" name="Value">0</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="0" name="Set cursor style" sid="131328781162730" type="Mouse">
+                    <param id="0" name="Cursor style">1</param>
+                </action>
+            </actions>
+        </event-block>
         <event-block sid="247938730812487">
             <conditions>
                 <condition id="3" name="On button released" sid="390930186926178" type="Mouse">
@@ -3905,6 +4609,298 @@
                     <actions>
                         <action id="5" name="Set frame" sid="532417214731080" type="MinusPowerButton">
                             <param id="0" name="Frame number">1</param>
+                        </action>
+                    </actions>
+                </event-block>
+            </sub-events>
+        </event-block>
+        <event-block sid="292207254714193">
+            <conditions>
+                <condition id="-19" name="On destroyed" sid="827851522790554" type="Human" />
+            </conditions>
+            <actions />
+            <sub-events>
+                <event-block sid="478790727532554">
+                    <conditions>
+                        <condition id="-7" name="Compare instance variable" sid="860425950668081" type="Human">
+                            <param id="0" name="Instance variable">group</param>
+                            <param id="1" name="Comparison">1</param>
+                            <param id="2" name="Value">&quot;none&quot;</param>
+                        </condition>
+                    </conditions>
+                    <actions />
+                    <sub-events>
+                        <event-block sid="731406362417845">
+                            <conditions>
+                                <condition id="-8" name="Compare two values" sid="815683856551505" type="System">
+                                    <param id="0" name="First value">Human.group</param>
+                                    <param id="1" name="Comparison">0</param>
+                                    <param id="2" name="Second value">&quot;hungry&quot;</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="0" name="Call function" sid="254243981564664" type="Function">
+                                    <param id="0" name="Name">&quot;createBadge&quot;</param>
+                                    <param id="1" name="Parameter {n}">&quot;death&quot;{###}Human.oldGroup</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                        <event-block sid="691664513611547">
+                            <conditions>
+                                <condition id="-22" name="Else" sid="356988978492627" type="System" />
+                            </conditions>
+                            <actions>
+                                <action id="0" name="Call function" sid="768749279719374" type="Function">
+                                    <param id="0" name="Name">&quot;createBadge&quot;</param>
+                                    <param id="1" name="Parameter {n}">&quot;death&quot;{###}Human.group</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                    </sub-events>
+                </event-block>
+            </sub-events>
+        </event-block>
+        <event-block sid="903190792940551">
+            <conditions>
+                <condition id="0" name="On function" sid="367763545478296" type="Function">
+                    <param id="0" name="Name">&quot;flashGood1&quot;</param>
+                </condition>
+            </conditions>
+            <actions />
+            <sub-events>
+                <event-block sid="489045818922536">
+                    <conditions>
+                        <condition id="1" name="Compare parameter" sid="451450497737784" type="Function">
+                            <param id="0" name="Index">1</param>
+                            <param id="1" name="Comparison">0</param>
+                            <param id="2" name="Value">0</param>
+                        </condition>
+                    </conditions>
+                    <actions />
+                </event-block>
+                <event-block sid="111602584032023">
+                    <conditions>
+                        <condition id="1" name="Compare parameter" sid="211335163907124" type="Function">
+                            <param id="0" name="Index">1</param>
+                            <param id="1" name="Comparison">0</param>
+                            <param id="2" name="Value">1</param>
+                        </condition>
+                    </conditions>
+                    <actions />
+                </event-block>
+                <event-block sid="780798404516079">
+                    <conditions>
+                        <condition id="1" name="Compare parameter" sid="363086650065727" type="Function">
+                            <param id="0" name="Index">1</param>
+                            <param id="1" name="Comparison">0</param>
+                            <param id="2" name="Value">2</param>
+                        </condition>
+                    </conditions>
+                    <actions />
+                </event-block>
+                <event-block sid="267727025716346">
+                    <conditions>
+                        <condition id="-14" name="Pick by unique ID" sid="287128577686918" type="SpriteFont">
+                            <param id="0" name="Unique ID">Function.Param(0)</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-28" name="Set effect parameter" sid="651500409270108" type="SpriteFont">
+                            <param id="0" name="Effect">&quot;SetColor&quot;</param>
+                            <param id="1" name="Parameter index">0</param>
+                            <param id="2" name="Value">69</param>
+                        </action>
+                        <action id="-28" name="Set effect parameter" sid="796810652802944" type="SpriteFont">
+                            <param id="0" name="Effect">&quot;SetColor&quot;</param>
+                            <param id="1" name="Parameter index">1</param>
+                            <param id="2" name="Value">91</param>
+                        </action>
+                        <action id="-28" name="Set effect parameter" sid="557588460711560" type="SpriteFont">
+                            <param id="0" name="Effect">&quot;SetColor&quot;</param>
+                            <param id="1" name="Parameter index">2</param>
+                            <param id="2" name="Value">96</param>
+                        </action>
+                        <action id="-16" name="Wait" sid="963786271483785" type="System">
+                            <param id="0" name="Seconds">2</param>
+                        </action>
+                        <action id="-28" name="Set effect parameter" sid="744073074843368" type="SpriteFont">
+                            <param id="0" name="Effect">&quot;SetColor&quot;</param>
+                            <param id="1" name="Parameter index">0</param>
+                            <param id="2" name="Value">95</param>
+                        </action>
+                        <action id="-28" name="Set effect parameter" sid="461612608936095" type="SpriteFont">
+                            <param id="0" name="Effect">&quot;SetColor&quot;</param>
+                            <param id="1" name="Parameter index">1</param>
+                            <param id="2" name="Value">56</param>
+                        </action>
+                        <action id="-28" name="Set effect parameter" sid="746584980726113" type="SpriteFont">
+                            <param id="0" name="Effect">&quot;SetColor&quot;</param>
+                            <param id="1" name="Parameter index">2</param>
+                            <param id="2" name="Value">63</param>
+                        </action>
+                    </actions>
+                </event-block>
+            </sub-events>
+        </event-block>
+        <event-block sid="106395254710524">
+            <conditions>
+                <condition id="0" name="On function" sid="319727665723653" type="Function">
+                    <param id="0" name="Name">&quot;flashGood2&quot;</param>
+                </condition>
+            </conditions>
+            <actions />
+            <sub-events>
+                <event-block sid="939436149206882">
+                    <conditions>
+                        <condition id="1" name="Compare parameter" sid="826794125609731" type="Function">
+                            <param id="0" name="Index">1</param>
+                            <param id="1" name="Comparison">0</param>
+                            <param id="2" name="Value">0</param>
+                        </condition>
+                    </conditions>
+                    <actions />
+                </event-block>
+                <event-block sid="664064398623229">
+                    <conditions>
+                        <condition id="1" name="Compare parameter" sid="623899638690425" type="Function">
+                            <param id="0" name="Index">1</param>
+                            <param id="1" name="Comparison">0</param>
+                            <param id="2" name="Value">1</param>
+                        </condition>
+                    </conditions>
+                    <actions />
+                </event-block>
+                <event-block sid="419163995438238">
+                    <conditions>
+                        <condition id="1" name="Compare parameter" sid="771160814676912" type="Function">
+                            <param id="0" name="Index">1</param>
+                            <param id="1" name="Comparison">0</param>
+                            <param id="2" name="Value">2</param>
+                        </condition>
+                    </conditions>
+                    <actions />
+                </event-block>
+                <event-block sid="918154947732998">
+                    <conditions>
+                        <condition id="-14" name="Pick by unique ID" sid="994900296609158" type="SpriteFont">
+                            <param id="0" name="Unique ID">Function.Param(0)</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-28" name="Set effect parameter" sid="920552047735705" type="SpriteFont">
+                            <param id="0" name="Effect">&quot;SetColor&quot;</param>
+                            <param id="1" name="Parameter index">0</param>
+                            <param id="2" name="Value">69</param>
+                        </action>
+                        <action id="-28" name="Set effect parameter" sid="721429735620634" type="SpriteFont">
+                            <param id="0" name="Effect">&quot;SetColor&quot;</param>
+                            <param id="1" name="Parameter index">1</param>
+                            <param id="2" name="Value">91</param>
+                        </action>
+                        <action id="-28" name="Set effect parameter" sid="952319628477396" type="SpriteFont">
+                            <param id="0" name="Effect">&quot;SetColor&quot;</param>
+                            <param id="1" name="Parameter index">2</param>
+                            <param id="2" name="Value">96</param>
+                        </action>
+                        <action id="-16" name="Wait" sid="127698723430300" type="System">
+                            <param id="0" name="Seconds">2</param>
+                        </action>
+                        <action id="-28" name="Set effect parameter" sid="533262304021357" type="SpriteFont">
+                            <param id="0" name="Effect">&quot;SetColor&quot;</param>
+                            <param id="1" name="Parameter index">0</param>
+                            <param id="2" name="Value">84</param>
+                        </action>
+                        <action id="-28" name="Set effect parameter" sid="650556459632973" type="SpriteFont">
+                            <param id="0" name="Effect">&quot;SetColor&quot;</param>
+                            <param id="1" name="Parameter index">1</param>
+                            <param id="2" name="Value">76.5</param>
+                        </action>
+                        <action id="-28" name="Set effect parameter" sid="520808364953294" type="SpriteFont">
+                            <param id="0" name="Effect">&quot;SetColor&quot;</param>
+                            <param id="1" name="Parameter index">2</param>
+                            <param id="2" name="Value">55</param>
+                        </action>
+                    </actions>
+                </event-block>
+            </sub-events>
+        </event-block>
+        <event-block sid="178326198903975">
+            <conditions>
+                <condition id="0" name="On function" sid="211506076198822" type="Function">
+                    <param id="0" name="Name">&quot;flashGood3&quot;</param>
+                </condition>
+            </conditions>
+            <actions />
+            <sub-events>
+                <event-block sid="871174069514129">
+                    <conditions>
+                        <condition id="1" name="Compare parameter" sid="145446974097811" type="Function">
+                            <param id="0" name="Index">1</param>
+                            <param id="1" name="Comparison">0</param>
+                            <param id="2" name="Value">0</param>
+                        </condition>
+                    </conditions>
+                    <actions />
+                </event-block>
+                <event-block sid="406525248775482">
+                    <conditions>
+                        <condition id="1" name="Compare parameter" sid="581365522757416" type="Function">
+                            <param id="0" name="Index">1</param>
+                            <param id="1" name="Comparison">0</param>
+                            <param id="2" name="Value">1</param>
+                        </condition>
+                    </conditions>
+                    <actions />
+                </event-block>
+                <event-block sid="701107952192669">
+                    <conditions>
+                        <condition id="1" name="Compare parameter" sid="645320215722256" type="Function">
+                            <param id="0" name="Index">1</param>
+                            <param id="1" name="Comparison">0</param>
+                            <param id="2" name="Value">2</param>
+                        </condition>
+                    </conditions>
+                    <actions />
+                </event-block>
+                <event-block sid="506154577323225">
+                    <conditions>
+                        <condition id="-14" name="Pick by unique ID" sid="863807440995343" type="SpriteFont">
+                            <param id="0" name="Unique ID">Function.Param(0)</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-28" name="Set effect parameter" sid="921213648640812" type="SpriteFont">
+                            <param id="0" name="Effect">&quot;SetColor&quot;</param>
+                            <param id="1" name="Parameter index">0</param>
+                            <param id="2" name="Value">69</param>
+                        </action>
+                        <action id="-28" name="Set effect parameter" sid="931604219356609" type="SpriteFont">
+                            <param id="0" name="Effect">&quot;SetColor&quot;</param>
+                            <param id="1" name="Parameter index">1</param>
+                            <param id="2" name="Value">91</param>
+                        </action>
+                        <action id="-28" name="Set effect parameter" sid="194495547653155" type="SpriteFont">
+                            <param id="0" name="Effect">&quot;SetColor&quot;</param>
+                            <param id="1" name="Parameter index">2</param>
+                            <param id="2" name="Value">96</param>
+                        </action>
+                        <action id="-16" name="Wait" sid="244028759607693" type="System">
+                            <param id="0" name="Seconds">1</param>
+                        </action>
+                        <action id="-28" name="Set effect parameter" sid="445055701412199" type="SpriteFont">
+                            <param id="0" name="Effect">&quot;SetColor&quot;</param>
+                            <param id="1" name="Parameter index">0</param>
+                            <param id="2" name="Value">74</param>
+                        </action>
+                        <action id="-28" name="Set effect parameter" sid="592630064118590" type="SpriteFont">
+                            <param id="0" name="Effect">&quot;SetColor&quot;</param>
+                            <param id="1" name="Parameter index">1</param>
+                            <param id="2" name="Value">74</param>
+                        </action>
+                        <action id="-28" name="Set effect parameter" sid="197539899153791" type="SpriteFont">
+                            <param id="0" name="Effect">&quot;SetColor&quot;</param>
+                            <param id="1" name="Parameter index">2</param>
+                            <param id="2" name="Value">74</param>
                         </action>
                     </actions>
                 </event-block>

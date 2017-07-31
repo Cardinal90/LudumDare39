@@ -21,8 +21,8 @@
         <plugin author="Scirra" id="TiledBg" version="1">Tiled Background</plugin>
     </used-plugins>
     <used-behaviors>
-        <behavior author="Scirra" id="EightDir" version="1">8 Direction</behavior>
         <behavior author="Scirra" id="Fade" version="1">Fade</behavior>
+        <behavior author="lunarray" id="lunarray_LiteTween" version="1.700000048">LiteTween</behavior>
     </used-behaviors>
     <used-effects>
         <effect author="Scirra" id="setcolor">Set color</effect>
@@ -57,32 +57,14 @@
         <object-type global="1" name="Human" sid="684961741194898">
             <plugin id="Dictionary" />
             <instance-variables>
-                <instance-variable name="id" sid="406394276430296" type="number" />
                 <instance-variable name="group" sid="267434774880815" type="string" />
                 <instance-variable name="energy" sid="403669927392286" type="number" />
                 <instance-variable name="recycleProgress" sid="846642416655289" type="number" />
+                <instance-variable name="oldGroup" sid="940439731415951" type="string" />
             </instance-variables>
-        </object-type>
-        <object-type name="AddToStation" sid="703612858078322">
-            <plugin id="Button" />
         </object-type>
         <object-type name="Function" sid="494952190933108">
             <plugin id="Function" />
-        </object-type>
-        <object-type name="RemoveFromStation" sid="765353201592342">
-            <plugin id="Button" />
-        </object-type>
-        <object-type name="AddToFood" sid="614944129445431">
-            <plugin id="Button" />
-        </object-type>
-        <object-type name="RemoveFromFood" sid="221558415804647">
-            <plugin id="Button" />
-        </object-type>
-        <object-type name="RemoveFromIncubator" sid="497564906779982">
-            <plugin id="Button" />
-        </object-type>
-        <object-type name="AddToIncubator" sid="607763935982317">
-            <plugin id="Button" />
         </object-type>
         <object-type name="ProgressGreen" sid="601537676931968">
             <plugin id="TiledBg" />
@@ -99,9 +81,6 @@
                 <instance-variable name="group" sid="660694818878999" type="string" />
             </instance-variables>
             <texture original-source="C:\Projects\game\assets\red_bar.png" />
-        </object-type>
-        <object-type name="AddToMeat" sid="114956898957938">
-            <plugin id="Button" />
         </object-type>
         <object-type name="ProgressPurple" sid="281174574054904">
             <plugin id="TiledBg" />
@@ -150,11 +129,11 @@
                 <instance-variable name="type" sid="405278045625280" type="string" />
             </instance-variables>
             <behaviors>
-                <behavior-type name="8Direction" sid="854659859304879">
-                    <behavior id="EightDir" />
-                </behavior-type>
                 <behavior-type name="Fade" sid="166193072660145">
                     <behavior id="Fade" />
+                </behavior-type>
+                <behavior-type name="LiteTween" sid="525516933572973">
+                    <behavior id="lunarray_LiteTween" />
                 </behavior-type>
             </behaviors>
             <effects>
@@ -171,15 +150,6 @@
                     <frame duration="1" hotspotX="0" hotspotY="0" original-source="C:\Projects\game\assets\full.png" />
                 </animation>
             </animation-folder>
-        </object-type>
-        <object-type name="NumCurrentEnergy" sid="697037454863313">
-            <plugin id="Spritefont2" />
-            <effects>
-                <effect-type name="SetColor">
-                    <effect id="setcolor" />
-                </effect-type>
-            </effects>
-            <texture original-source="C:\Projects\game\assets\SpriteFont_DSPixelCyr_Bold_14_1111_15x24.png" />
         </object-type>
         <object-type name="Bg" sid="772488310455331">
             <plugin id="Sprite" />
@@ -292,6 +262,33 @@
                 <instance-variable name="group" sid="509507146592874" type="string" />
             </instance-variables>
             <texture original-source="C:\Projects\game\assets\energy_bar.png" />
+        </object-type>
+        <object-type name="Death" sid="978417290694275">
+            <plugin id="Sprite" />
+            <behaviors>
+                <behavior-type name="Fade" sid="776697483669180">
+                    <behavior id="Fade" />
+                </behavior-type>
+                <behavior-type name="LiteTween" sid="357856161919861">
+                    <behavior id="lunarray_LiteTween" />
+                </behavior-type>
+            </behaviors>
+            <animation-folder>
+                <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="547669411642394" speed="5">
+                    <frame duration="1" hotspotX="0" hotspotY="0" original-source="C:\Projects\game\assets\skull.png">
+                        <collision-poly>
+                            <point x="0.166667" y="0.111111" />
+                            <point x="0.5" y="0" />
+                            <point x="0.833333" y="0.111111" />
+                            <point x="0.666667" y="0.5" />
+                            <point x="1" y="1" />
+                            <point x="0.5" y="0.888889" />
+                            <point x="0" y="1" />
+                            <point x="0.333333" y="0.5" />
+                        </collision-poly>
+                    </frame>
+                </animation>
+            </animation-folder>
         </object-type>
     </object-folder>
     <families />
