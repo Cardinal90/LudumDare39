@@ -1,0 +1,31 @@
+﻿Import the relevant data below into Construct2/3.
+
+################################################################################
+
+Character width: 15
+Character height: 24
+Character set: ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789.,;:?!-_~#"'&()[]|`\/@°+=*$£€<>%
+
+################################################################################
+Construct 3 ONLY.
+Copy the following JSON text and paste into the 'Spacing data' property of the SpriteFont. No extra coding is required!
+
+[[4," "],[4,"$"],[5,"Ii.;:!'|`"],[7,"1,()[]\\/°"],[9,"ACDEFHJKLOPRSTUVXYZacdefhjkloprstuvxyz023456789?-_\"+=*£<>"],[10,"€"],[11,"BGNQbgnq~&%"],[13,"MWmw#@"]]
+
+################################################################################
+Construct 2 ONLY.
+Copy the following JSON text and paste into the Array.Load command INSIDE the default quotes.
+
+{""c2array"":true,""size"":[2,8,1],""data"":[[[4],[4],[5],[7],[9],[10],[11],[13]],[["" ""],[""$""],[""Ii.;:!'|`""],[""1,()[]\\/°""],[""ACDEFHJKLOPRSTUVXYZacdefhjkloprstuvxyz023456789?-_\""+=*£<>""],[""€""],[""BGNQbgnq~&%""],[""MWmw#@""]]]}
+
+################################################################################
+These are the details for building the character widths manually, with the SpriteFont  'Set character width' action.
+
+4	" "
+4	"$"
+5	"Ii.;:!'|`"
+7	"1,()[]\/°"
+9	"ACDEFHJKLOPRSTUVXYZacdefhjkloprstuvxyz023456789?-_""+=*£<>"
+10	"€"
+11	"BGNQbgnq~&%"
+13	"MWmw#@"

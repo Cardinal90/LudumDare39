@@ -32,7 +32,7 @@
         <variable constant="0" name="FoodProgress" sid="375590142947925" static="0" type="number">0</variable>
         <variable constant="0" name="PowerPeriod" sid="655955046137242" static="0" type="number">7</variable>
         <variable constant="0" name="PowerProgress" sid="689437499423992" static="0" type="number">0</variable>
-        <variable constant="0" name="PowerPackSize" sid="390897322904986" static="0" type="number">5</variable>
+        <variable constant="0" name="PowerPackSize" sid="390897322904986" static="0" type="number">3</variable>
         <variable constant="0" name="SexPeriod" sid="840601849546412" static="0" type="number">15</variable>
         <variable constant="0" name="HumansInPool" sid="421526390314118" static="0" type="number">0</variable>
         <variable constant="0" name="HumansInIncubator" sid="446915179872655" static="0" type="number">0</variable>
@@ -112,6 +112,22 @@
                     <param id="0" name="Variable">BasePowerDecreaseRate</param>
                     <param id="1" name="Value">PowerDecreaseRate</param>
                 </action>
+                <action id="-3" name="Create object" sid="483541107670735" type="System">
+                    <param id="0" name="Object to create">Badge</param>
+                    <param id="1" name="Layer">0</param>
+                    <param id="2" name="X">60</param>
+                    <param id="3" name="Y">120</param>
+                </action>
+                <action behavior="8Direction" id="10" name="Set vector Y" sid="384167872146713" type="Badge">
+                    <param id="0" name="Vector Y">-1000</param>
+                </action>
+                <action id="2" name="Stop" sid="688009739552898" type="MinusPowerButton" />
+                <action id="2" name="Stop" sid="301855606526160" type="MinusIncubatorButton" />
+                <action id="2" name="Stop" sid="105277592777712" type="MinusFoodButton" />
+                <action id="2" name="Stop" sid="728466961318304" type="PlusFoodButton" />
+                <action id="2" name="Stop" sid="461260823557380" type="PlusIncubatorButton" />
+                <action id="2" name="Stop" sid="146293721402051" type="PlusPowerButton" />
+                <action id="2" name="Stop" sid="596801428740682" type="PlusReactorButton" />
             </actions>
             <sub-events>
                 <event-block sid="231692729932514">
@@ -1204,6 +1220,10 @@
                             <param id="0" name="Variable">CurrentPower</param>
                             <param id="1" name="Value">min(CurrentPower + PowerPackSize*c1, MaxPower)</param>
                         </action>
+                        <action id="0" name="Call function" sid="768242900860197" type="Function">
+                            <param id="0" name="Name">&quot;createBadge&quot;</param>
+                            <param id="1" name="Parameter {n}">&quot;power&quot;{###}c1*PowerPackSize</param>
+                        </action>
                     </actions>
                 </event-block>
                 <event-block sid="953471340990084">
@@ -1794,7 +1814,11 @@
         </event-block>
         <event-block sid="592064075473225">
             <conditions>
-                <condition id="0" name="On clicked" sid="644682027045480" type="AddToStation" />
+                <condition id="6" name="On object clicked" sid="644682027045480" type="Mouse">
+                    <param id="0" name="Mouse button">0</param>
+                    <param id="1" name="Click type">0</param>
+                    <param id="2" name="Object clicked">PlusPowerButton</param>
+                </condition>
             </conditions>
             <actions>
                 <action id="0" name="Call function" sid="513777735233614" type="Function">
@@ -1853,7 +1877,11 @@
         </event-block>
         <event-block sid="247661661542415">
             <conditions>
-                <condition id="0" name="On clicked" sid="523100558889903" type="RemoveFromStation" />
+                <condition id="6" name="On object clicked" sid="523100558889903" type="Mouse">
+                    <param id="0" name="Mouse button">0</param>
+                    <param id="1" name="Click type">0</param>
+                    <param id="2" name="Object clicked">MinusPowerButton</param>
+                </condition>
             </conditions>
             <actions>
                 <action id="0" name="Call function" sid="307524564378584" type="Function">
@@ -1912,7 +1940,11 @@
         </event-block>
         <event-block sid="290770267473137">
             <conditions>
-                <condition id="0" name="On clicked" sid="763658110919769" type="AddToFood" />
+                <condition id="6" name="On object clicked" sid="763658110919769" type="Mouse">
+                    <param id="0" name="Mouse button">0</param>
+                    <param id="1" name="Click type">0</param>
+                    <param id="2" name="Object clicked">PlusFoodButton</param>
+                </condition>
             </conditions>
             <actions>
                 <action id="0" name="Call function" sid="958293481777541" type="Function">
@@ -1971,7 +2003,11 @@
         </event-block>
         <event-block sid="819979888861660">
             <conditions>
-                <condition id="0" name="On clicked" sid="451082317878733" type="RemoveFromFood" />
+                <condition id="6" name="On object clicked" sid="451082317878733" type="Mouse">
+                    <param id="0" name="Mouse button">0</param>
+                    <param id="1" name="Click type">0</param>
+                    <param id="2" name="Object clicked">MinusFoodButton</param>
+                </condition>
             </conditions>
             <actions>
                 <action id="0" name="Call function" sid="819923659749758" type="Function">
@@ -2030,7 +2066,11 @@
         </event-block>
         <event-block sid="413215514086070">
             <conditions>
-                <condition id="0" name="On clicked" sid="729252572148985" type="AddToIncubator" />
+                <condition id="6" name="On object clicked" sid="729252572148985" type="Mouse">
+                    <param id="0" name="Mouse button">0</param>
+                    <param id="1" name="Click type">0</param>
+                    <param id="2" name="Object clicked">PlusIncubatorButton</param>
+                </condition>
             </conditions>
             <actions>
                 <action id="0" name="Call function" sid="211421750996638" type="Function">
@@ -2093,7 +2133,11 @@
         </event-block>
         <event-block sid="204245633820973">
             <conditions>
-                <condition id="0" name="On clicked" sid="321678011174941" type="RemoveFromIncubator" />
+                <condition id="6" name="On object clicked" sid="321678011174941" type="Mouse">
+                    <param id="0" name="Mouse button">0</param>
+                    <param id="1" name="Click type">0</param>
+                    <param id="2" name="Object clicked">MinusIncubatorButton</param>
+                </condition>
             </conditions>
             <actions>
                 <action id="0" name="Call function" sid="772822685988571" type="Function">
@@ -2156,7 +2200,11 @@
         </event-block>
         <event-block sid="586530757606626">
             <conditions>
-                <condition id="0" name="On clicked" sid="968009964277524" type="AddToMeat" />
+                <condition id="6" name="On object clicked" sid="968009964277524" type="Mouse">
+                    <param id="0" name="Mouse button">0</param>
+                    <param id="1" name="Click type">0</param>
+                    <param id="2" name="Object clicked">PlusReactorButton</param>
+                </condition>
             </conditions>
             <actions>
                 <action id="0" name="Call function" sid="537866168036152" type="Function">
@@ -2250,12 +2298,12 @@
                                     <actions>
                                         <action id="-3" name="Create object" sid="950971504388228" type="System">
                                             <param id="0" name="Object to create">ProgressGreen</param>
-                                            <param id="1" name="Layer">1</param>
-                                            <param id="2" name="X">2</param>
-                                            <param id="3" name="Y">100 + i*3</param>
+                                            <param id="1" name="Layer">&quot;Interface&quot;</param>
+                                            <param id="2" name="X">452</param>
+                                            <param id="3" name="Y">696 + i*12</param>
                                         </action>
                                         <action id="-5" name="Set width" sid="677426441235414" type="ProgressGreen">
-                                            <param id="0" name="Width">50*Human.energy/MaxHumanEnergy</param>
+                                            <param id="0" name="Width">172*Human.energy/MaxHumanEnergy</param>
                                         </action>
                                     </actions>
                                 </event-block>
@@ -2266,12 +2314,12 @@
                                     <actions>
                                         <action id="-3" name="Create object" sid="703695844320208" type="System">
                                             <param id="0" name="Object to create">ProgressRed</param>
-                                            <param id="1" name="Layer">1</param>
-                                            <param id="2" name="X">2</param>
-                                            <param id="3" name="Y">100 + i*3</param>
+                                            <param id="1" name="Layer">&quot;Interface&quot;</param>
+                                            <param id="2" name="X">452</param>
+                                            <param id="3" name="Y">696 + i*12</param>
                                         </action>
                                         <action id="-5" name="Set width" sid="783660976157207" type="ProgressRed">
-                                            <param id="0" name="Width">50*Human.energy/MaxHumanEnergy</param>
+                                            <param id="0" name="Width">172*Human.energy/MaxHumanEnergy</param>
                                         </action>
                                     </actions>
                                 </event-block>
@@ -2328,14 +2376,14 @@
                                         </condition>
                                     </conditions>
                                     <actions>
-                                        <action id="-3" name="Create object" sid="963136408852138" type="System">
+                                        <action id="-3" name="Create object" sid="159792435669620" type="System">
                                             <param id="0" name="Object to create">ProgressGreen</param>
-                                            <param id="1" name="Layer">1</param>
-                                            <param id="2" name="X">70</param>
-                                            <param id="3" name="Y">100 + i*3</param>
+                                            <param id="1" name="Layer">&quot;Interface&quot;</param>
+                                            <param id="2" name="X">936</param>
+                                            <param id="3" name="Y">696 + i*12</param>
                                         </action>
-                                        <action id="-5" name="Set width" sid="576552398023119" type="ProgressGreen">
-                                            <param id="0" name="Width">50*Human.energy/MaxHumanEnergy</param>
+                                        <action id="-5" name="Set width" sid="661145381362317" type="ProgressGreen">
+                                            <param id="0" name="Width">172*Human.energy/MaxHumanEnergy</param>
                                         </action>
                                     </actions>
                                 </event-block>
@@ -2344,14 +2392,14 @@
                                         <condition id="-22" name="Else" sid="268818929095881" type="System" />
                                     </conditions>
                                     <actions>
-                                        <action id="-3" name="Create object" sid="319503657254176" type="System">
+                                        <action id="-3" name="Create object" sid="342685407942159" type="System">
                                             <param id="0" name="Object to create">ProgressRed</param>
-                                            <param id="1" name="Layer">1</param>
-                                            <param id="2" name="X">70</param>
-                                            <param id="3" name="Y">100 + i*3</param>
+                                            <param id="1" name="Layer">&quot;Interface&quot;</param>
+                                            <param id="2" name="X">936</param>
+                                            <param id="3" name="Y">696 + i*12</param>
                                         </action>
-                                        <action id="-5" name="Set width" sid="578315669411624" type="ProgressRed">
-                                            <param id="0" name="Width">50*Human.energy/MaxHumanEnergy</param>
+                                        <action id="-5" name="Set width" sid="345905477965905" type="ProgressRed">
+                                            <param id="0" name="Width">172*Human.energy/MaxHumanEnergy</param>
                                         </action>
                                     </actions>
                                 </event-block>
@@ -2408,14 +2456,14 @@
                                         </condition>
                                     </conditions>
                                     <actions>
-                                        <action id="-3" name="Create object" sid="494591083425356" type="System">
+                                        <action id="-3" name="Create object" sid="718942701786584" type="System">
                                             <param id="0" name="Object to create">ProgressGreen</param>
-                                            <param id="1" name="Layer">1</param>
-                                            <param id="2" name="X">150</param>
-                                            <param id="3" name="Y">100 + i*3</param>
+                                            <param id="1" name="Layer">&quot;Interface&quot;</param>
+                                            <param id="2" name="X">684</param>
+                                            <param id="3" name="Y">696 + i*12</param>
                                         </action>
-                                        <action id="-5" name="Set width" sid="130264186125979" type="ProgressGreen">
-                                            <param id="0" name="Width">50*Human.energy/MaxHumanEnergy</param>
+                                        <action id="-5" name="Set width" sid="816544656616600" type="ProgressGreen">
+                                            <param id="0" name="Width">172*Human.energy/MaxHumanEnergy</param>
                                         </action>
                                     </actions>
                                 </event-block>
@@ -2424,14 +2472,14 @@
                                         <condition id="-22" name="Else" sid="150104382735821" type="System" />
                                     </conditions>
                                     <actions>
-                                        <action id="-3" name="Create object" sid="960164611635940" type="System">
+                                        <action id="-3" name="Create object" sid="283742655428569" type="System">
                                             <param id="0" name="Object to create">ProgressRed</param>
-                                            <param id="1" name="Layer">1</param>
-                                            <param id="2" name="X">150</param>
-                                            <param id="3" name="Y">100 + i*3</param>
+                                            <param id="1" name="Layer">&quot;Interface&quot;</param>
+                                            <param id="2" name="X">684</param>
+                                            <param id="3" name="Y">696 + i*12</param>
                                         </action>
-                                        <action id="-5" name="Set width" sid="350987300639603" type="ProgressRed">
-                                            <param id="0" name="Width">50*Human.energy/MaxHumanEnergy</param>
+                                        <action id="-5" name="Set width" sid="191249474734508" type="ProgressRed">
+                                            <param id="0" name="Width">172*Human.energy/MaxHumanEnergy</param>
                                         </action>
                                     </actions>
                                 </event-block>
@@ -2480,12 +2528,12 @@
                             <actions>
                                 <action id="-3" name="Create object" sid="768268575848577" type="System">
                                     <param id="0" name="Object to create">ProgressPurple</param>
-                                    <param id="1" name="Layer">1</param>
-                                    <param id="2" name="X">220</param>
-                                    <param id="3" name="Y">100 + i*3</param>
+                                    <param id="1" name="Layer">&quot;Interface&quot;</param>
+                                    <param id="2" name="X">1184</param>
+                                    <param id="3" name="Y">696 + i*12</param>
                                 </action>
-                                <action id="-5" name="Set width" sid="360834702457086" type="ProgressPurple">
-                                    <param id="0" name="Width">50*Human.recycleProgress/RecycleTime</param>
+                                <action id="-5" name="Set width" sid="325792015397476" type="ProgressPurple">
+                                    <param id="0" name="Width">172*Human.recycleProgress/RecycleTime</param>
                                 </action>
                                 <action id="-9" name="Set value" sid="402381865239291" type="System">
                                     <param id="0" name="Variable">i</param>
@@ -2531,12 +2579,12 @@
                                     <actions>
                                         <action id="-3" name="Create object" sid="122499419767709" type="System">
                                             <param id="0" name="Object to create">ProgressGreen</param>
-                                            <param id="1" name="Layer">1</param>
-                                            <param id="2" name="X">185</param>
-                                            <param id="3" name="Y">2 + i*3</param>
+                                            <param id="1" name="Layer">&quot;Interface&quot;</param>
+                                            <param id="2" name="X">196</param>
+                                            <param id="3" name="Y">696 + i*12</param>
                                         </action>
                                         <action id="-5" name="Set width" sid="299676034581297" type="ProgressGreen">
-                                            <param id="0" name="Width">50*Human.energy/MaxHumanEnergy</param>
+                                            <param id="0" name="Width">172*Human.energy/MaxHumanEnergy</param>
                                         </action>
                                     </actions>
                                 </event-block>
@@ -2547,12 +2595,12 @@
                                     <actions>
                                         <action id="-3" name="Create object" sid="185828064354055" type="System">
                                             <param id="0" name="Object to create">ProgressRed</param>
-                                            <param id="1" name="Layer">1</param>
-                                            <param id="2" name="X">185</param>
-                                            <param id="3" name="Y">2 + i*3</param>
+                                            <param id="1" name="Layer">&quot;Interface&quot;</param>
+                                            <param id="2" name="X">196</param>
+                                            <param id="3" name="Y">696 + i*12</param>
                                         </action>
                                         <action id="-5" name="Set width" sid="197321676329101" type="ProgressRed">
-                                            <param id="0" name="Width">50*Human.energy/MaxHumanEnergy</param>
+                                            <param id="0" name="Width">172*Human.energy/MaxHumanEnergy</param>
                                         </action>
                                     </actions>
                                 </event-block>
@@ -2583,155 +2631,124 @@
                     <param id="0" name="Name">&quot;refreshNumbers&quot;</param>
                 </condition>
             </conditions>
-            <actions>
-                <action id="0" name="Set text" sid="532484996937091" type="Power">
-                    <param id="0" name="Text">round(CurrentPower) &amp; &quot;/&quot; &amp; MaxPower</param>
-                </action>
-                <action id="0" name="Set text" sid="750995246893646" type="Food">
-                    <param id="0" name="Text">CurrentFood</param>
-                </action>
-                <action id="0" name="Set text" sid="120581047919932" type="FoodTimer">
-                    <param id="0" name="Text">MealPeriod - MealTimer</param>
-                </action>
-                <action id="0" name="Set text" sid="813795601064418" type="HumansOnPower">
-                    <param id="0" name="Text">HumansOnPower &amp; &quot;/10&quot;</param>
-                </action>
-                <action id="0" name="Set text" sid="989393001080431" type="HumansOnFood">
-                    <param id="0" name="Text">HumansOnFood &amp; &quot;/10&quot;</param>
-                </action>
-                <action id="0" name="Set text" sid="976558500590399" type="HumansInIncubator">
-                    <param id="0" name="Text">HumansInIncubator &amp; &quot;/10&quot;</param>
-                </action>
-                <action id="0" name="Set text" sid="905323599858951" type="HumansOnMeat">
-                    <param id="0" name="Text">HumansOnMeat &amp; &quot;/10&quot;</param>
-                </action>
-                <action id="0" name="Set text" sid="450552719281581" type="HumansInPool">
-                    <param id="0" name="Text">HumansInPool</param>
-                </action>
-                <action id="0" name="Set text" sid="139604171005305" type="Level">
-                    <param id="0" name="Text">Level</param>
-                </action>
-                <action id="0" name="Set text" sid="679396239505440" type="Total">
-                    <param id="0" name="Text">TotalHumans &amp; &quot;/&quot; &amp; MaxTotalHumans</param>
-                </action>
-            </actions>
+            <actions />
             <sub-events>
                 <event-block sid="996970792674352">
                     <conditions>
                         <condition id="-14" name="Pick by unique ID" sid="993658768548028" type="SpriteFont">
-                            <param id="0" name="Unique ID">25</param>
+                            <param id="0" name="Unique ID">54</param>
                         </condition>
                     </conditions>
                     <actions>
                         <action id="0" name="Set text" sid="614571736895381" type="SpriteFont">
-                            <param id="0" name="Text">Level</param>
+                            <param id="0" name="Text">round(CurrentPower) &amp; &quot;/&quot;</param>
                         </action>
                     </actions>
                 </event-block>
-                <event-block sid="544346934105801">
+                <event-block sid="754428773650989">
                     <conditions>
-                        <condition id="-14" name="Pick by unique ID" sid="525024549822213" type="SpriteFont">
-                            <param id="0" name="Unique ID">26</param>
+                        <condition id="-14" name="Pick by unique ID" sid="282297261061497" type="SpriteFont">
+                            <param id="0" name="Unique ID">55</param>
                         </condition>
                     </conditions>
                     <actions>
-                        <action id="0" name="Set text" sid="267930876471108" type="SpriteFont">
-                            <param id="0" name="Text">round(CurrentPower) &amp; &quot;/&quot; &amp; MaxPower</param>
+                        <action id="0" name="Set text" sid="379484681924223" type="SpriteFont">
+                            <param id="0" name="Text">MaxPower</param>
                         </action>
                     </actions>
                 </event-block>
-                <event-block sid="570360745308841">
+                <event-block sid="734099927769371">
                     <conditions>
-                        <condition id="-14" name="Pick by unique ID" sid="858922837087736" type="SpriteFont">
-                            <param id="0" name="Unique ID">27</param>
+                        <condition id="-14" name="Pick by unique ID" sid="239193479766701" type="SpriteFont">
+                            <param id="0" name="Unique ID">56</param>
                         </condition>
                     </conditions>
                     <actions>
-                        <action id="0" name="Set text" sid="574106054742683" type="SpriteFont">
-                            <param id="0" name="Text">CurrentFood &amp; &quot;/&quot; &amp; MaxFood</param>
-                        </action>
-                    </actions>
-                </event-block>
-                <event-block sid="892918529717869">
-                    <conditions>
-                        <condition id="-14" name="Pick by unique ID" sid="688170221121719" type="SpriteFont">
-                            <param id="0" name="Unique ID">28</param>
-                        </condition>
-                    </conditions>
-                    <actions>
-                        <action id="0" name="Set text" sid="807234480413494" type="SpriteFont">
-                            <param id="0" name="Text">MealPeriod - MealTimer</param>
-                        </action>
-                    </actions>
-                </event-block>
-                <event-block sid="454442994972652">
-                    <conditions>
-                        <condition id="-14" name="Pick by unique ID" sid="934759124485851" type="SpriteFont">
-                            <param id="0" name="Unique ID">29</param>
-                        </condition>
-                    </conditions>
-                    <actions>
-                        <action id="0" name="Set text" sid="532064497474953" type="SpriteFont">
-                            <param id="0" name="Text">HumansInPool</param>
-                        </action>
-                    </actions>
-                </event-block>
-                <event-block sid="235092293470213">
-                    <conditions>
-                        <condition id="-14" name="Pick by unique ID" sid="911257128706273" type="SpriteFont">
-                            <param id="0" name="Unique ID">30</param>
-                        </condition>
-                    </conditions>
-                    <actions>
-                        <action id="0" name="Set text" sid="902754151784290" type="SpriteFont">
+                        <action id="0" name="Set text" sid="630852827663351" type="SpriteFont">
                             <param id="0" name="Text">TotalHumans &amp; &quot;/&quot; &amp; MaxTotalHumans</param>
                         </action>
                     </actions>
                 </event-block>
-                <event-block sid="235189436811372">
+                <event-block sid="348086045328433">
                     <conditions>
-                        <condition id="-14" name="Pick by unique ID" sid="285388434203620" type="SpriteFont">
-                            <param id="0" name="Unique ID">31</param>
+                        <condition id="-14" name="Pick by unique ID" sid="772808459236123" type="SpriteFont">
+                            <param id="0" name="Unique ID">57</param>
                         </condition>
                     </conditions>
                     <actions>
-                        <action id="0" name="Set text" sid="420187200361706" type="SpriteFont">
+                        <action id="0" name="Set text" sid="717135121138405" type="SpriteFont">
+                            <param id="0" name="Text">CurrentFood &amp; &quot;/&quot; &amp; MaxFood</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="340574852144136">
+                    <conditions>
+                        <condition id="-14" name="Pick by unique ID" sid="527027766169320" type="SpriteFont">
+                            <param id="0" name="Unique ID">58</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="0" name="Set text" sid="332684756863913" type="SpriteFont">
+                            <param id="0" name="Text">floor(MealPeriod - MealTimer)</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="141876276012998">
+                    <conditions>
+                        <condition id="-14" name="Pick by unique ID" sid="252655426048271" type="SpriteFont">
+                            <param id="0" name="Unique ID">59</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="0" name="Set text" sid="985899460565030" type="SpriteFont">
+                            <param id="0" name="Text">HumansInPool</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="658459968254183">
+                    <conditions>
+                        <condition id="-14" name="Pick by unique ID" sid="846553140762472" type="SpriteFont">
+                            <param id="0" name="Unique ID">60</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="0" name="Set text" sid="443041930718318" type="SpriteFont">
                             <param id="0" name="Text">HumansOnPower &amp; &quot;/10&quot;</param>
                         </action>
                     </actions>
                 </event-block>
-                <event-block sid="109059556146506">
+                <event-block sid="299413527168847">
                     <conditions>
-                        <condition id="-14" name="Pick by unique ID" sid="752528141915243" type="SpriteFont">
-                            <param id="0" name="Unique ID">32</param>
+                        <condition id="-14" name="Pick by unique ID" sid="540414986665792" type="SpriteFont">
+                            <param id="0" name="Unique ID">61</param>
                         </condition>
                     </conditions>
                     <actions>
-                        <action id="0" name="Set text" sid="335477749290258" type="SpriteFont">
-                            <param id="0" name="Text">HumansOnFood &amp; &quot;/10&quot;</param>
-                        </action>
-                    </actions>
-                </event-block>
-                <event-block sid="189272280739754">
-                    <conditions>
-                        <condition id="-14" name="Pick by unique ID" sid="578322518308748" type="SpriteFont">
-                            <param id="0" name="Unique ID">33</param>
-                        </condition>
-                    </conditions>
-                    <actions>
-                        <action id="0" name="Set text" sid="993559169258789" type="SpriteFont">
+                        <action id="0" name="Set text" sid="821875964920787" type="SpriteFont">
                             <param id="0" name="Text">HumansInIncubator &amp; &quot;/10&quot;</param>
                         </action>
                     </actions>
                 </event-block>
-                <event-block sid="339360684314680">
+                <event-block sid="406493775042661">
                     <conditions>
-                        <condition id="-14" name="Pick by unique ID" sid="652963852313930" type="SpriteFont">
-                            <param id="0" name="Unique ID">34</param>
+                        <condition id="-14" name="Pick by unique ID" sid="596930847107910" type="SpriteFont">
+                            <param id="0" name="Unique ID">62</param>
                         </condition>
                     </conditions>
                     <actions>
-                        <action id="0" name="Set text" sid="813455461739929" type="SpriteFont">
+                        <action id="0" name="Set text" sid="840469643764513" type="SpriteFont">
+                            <param id="0" name="Text">HumansOnFood &amp; &quot;/10&quot;</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="702367534141599">
+                    <conditions>
+                        <condition id="-14" name="Pick by unique ID" sid="355555032216720" type="SpriteFont">
+                            <param id="0" name="Unique ID">63</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="0" name="Set text" sid="489267136532800" type="SpriteFont">
                             <param id="0" name="Text">HumansOnMeat &amp; &quot;/10&quot;</param>
                         </action>
                     </actions>
@@ -2748,9 +2765,12 @@
                             <param id="1" name="Comparison">5</param>
                             <param id="2" name="Second value">Event3Max</param>
                         </condition>
+                        <condition id="-14" name="Pick by unique ID" sid="718620013896977" type="SpriteFont">
+                            <param id="0" name="Unique ID">64</param>
+                        </condition>
                     </conditions>
                     <actions>
-                        <action id="0" name="Set text" sid="863582269677780" type="EventText">
+                        <action id="0" name="Set text" sid="863582269677780" type="SpriteFont">
                             <param id="0" name="Text">&quot;&quot;</param>
                         </action>
                     </actions>
@@ -3150,8 +3170,8 @@
                         </condition>
                     </conditions>
                     <actions>
-                        <action id="0" name="Set text" sid="451150810726121" type="EventText">
-                            <param id="0" name="Text">&quot;Epidemic! One human dies every &quot; &amp; const_e1_epidemic &amp; &quot; seconds&quot;</param>
+                        <action id="0" name="Set text" sid="411463377288396" type="SpriteFont">
+                            <param id="0" name="Text">&quot;Event1&quot;</param>
                         </action>
                     </actions>
                 </event-block>
@@ -3164,12 +3184,12 @@
                         </condition>
                     </conditions>
                     <actions>
-                        <action id="0" name="Set text" sid="286935730231374" type="EventText">
-                            <param id="0" name="Text">&quot;An accident happened. You lost half your energy&quot;</param>
-                        </action>
                         <action id="-9" name="Set value" sid="247233395451066" type="System">
                             <param id="0" name="Variable">CurrentPower</param>
                             <param id="1" name="Value">CurrentPower/2</param>
+                        </action>
+                        <action id="0" name="Set text" sid="408230103088867" type="SpriteFont">
+                            <param id="0" name="Text">&quot;Event2&quot;</param>
                         </action>
                     </actions>
                 </event-block>
@@ -3186,8 +3206,8 @@
                             <param id="0" name="Variable">Event3Max</param>
                             <param id="1" name="Value">min(floor(TotalHumans*const_e3_rebellion), 10)</param>
                         </action>
-                        <action id="0" name="Set text" sid="178521057999215" type="EventText">
-                            <param id="0" name="Text">&quot;Rebellion! Send &quot; &amp; Event3Max &amp; &quot; humans into the bioreactor to force others to work&quot;</param>
+                        <action id="0" name="Set text" sid="509376367210868" type="SpriteFont">
+                            <param id="0" name="Text">&quot;Event3&quot;</param>
                         </action>
                     </actions>
                 </event-block>
@@ -3200,12 +3220,12 @@
                         </condition>
                     </conditions>
                     <actions>
-                        <action id="0" name="Set text" sid="552993505407472" type="EventText">
-                            <param id="0" name="Text">&quot;An accident happened. Your bioreactor is broken&quot;</param>
-                        </action>
                         <action id="-9" name="Set value" sid="750043342399517" type="System">
                             <param id="0" name="Variable">PowerPackSize</param>
                             <param id="1" name="Value">PowerPackSize*const_e4_morePower</param>
+                        </action>
+                        <action id="0" name="Set text" sid="421874301462896" type="SpriteFont">
+                            <param id="0" name="Text">&quot;Event4&quot;</param>
                         </action>
                     </actions>
                 </event-block>
@@ -3218,12 +3238,12 @@
                         </condition>
                     </conditions>
                     <actions>
-                        <action id="0" name="Set text" sid="534163959183814" type="EventText">
-                            <param id="0" name="Text">&quot;An accident happened. Your food farm is broken&quot;</param>
-                        </action>
                         <action id="-9" name="Set value" sid="484870999781567" type="System">
                             <param id="0" name="Variable">ReactorFood</param>
                             <param id="1" name="Value">ReactorFood*const_e5_moreReactorFood</param>
+                        </action>
+                        <action id="0" name="Set text" sid="201055689814589" type="SpriteFont">
+                            <param id="0" name="Text">&quot;Event5&quot;</param>
                         </action>
                     </actions>
                 </event-block>
@@ -3236,8 +3256,8 @@
                         </condition>
                     </conditions>
                     <actions>
-                        <action id="0" name="Set text" sid="327932048046172" type="EventText">
-                            <param id="0" name="Text">&quot;It is very hot. Workers in the power station tire &quot; &amp; const_e6_energyFactor &amp; &quot; times faster&quot;</param>
+                        <action id="0" name="Set text" sid="857369821293252" type="SpriteFont">
+                            <param id="0" name="Text">&quot;Event6&quot;</param>
                         </action>
                     </actions>
                 </event-block>
@@ -3250,9 +3270,6 @@
                         </condition>
                     </conditions>
                     <actions>
-                        <action id="0" name="Set text" sid="193887200508646" type="EventText">
-                            <param id="0" name="Text">&quot;It is freezing. You get &quot; &amp; const_e6_energyFactor &amp; &quot; times less energy&quot;</param>
-                        </action>
                         <action id="-9" name="Set value" sid="111073421362215" type="System">
                             <param id="0" name="Variable">PowerPackSize</param>
                             <param id="1" name="Value">PowerPackSize/const_e7_lessEnergy</param>
@@ -3265,6 +3282,9 @@
                             <param id="0" name="Variable">PowerDecreaseRate</param>
                             <param id="1" name="Value">PowerDecreaseRate/const_e7_lessEnergy</param>
                         </action>
+                        <action id="0" name="Set text" sid="407950891686383" type="SpriteFont">
+                            <param id="0" name="Text">&quot;Event7&quot;</param>
+                        </action>
                     </actions>
                 </event-block>
                 <event-block sid="524961704834343">
@@ -3276,8 +3296,8 @@
                         </condition>
                     </conditions>
                     <actions>
-                        <action id="0" name="Set text" sid="903324163493749" type="EventText">
-                            <param id="0" name="Text">&quot;Utopia. Reach full food and power to finish this level&quot;</param>
+                        <action id="0" name="Set text" sid="303471552000996" type="SpriteFont">
+                            <param id="0" name="Text">&quot;Event8&quot;</param>
                         </action>
                     </actions>
                 </event-block>
@@ -3290,8 +3310,8 @@
                         </condition>
                     </conditions>
                     <actions>
-                        <action id="0" name="Set text" sid="495988730506929" type="EventText">
-                            <param id="0" name="Text">&quot;Celibacy.Humans don&apos;t want to reproduce&quot;</param>
+                        <action id="0" name="Set text" sid="884961751068783" type="SpriteFont">
+                            <param id="0" name="Text">&quot;Event9&quot;</param>
                         </action>
                     </actions>
                 </event-block>
@@ -3301,6 +3321,70 @@
                         <action id="-9" name="Set value" sid="391778100409625" type="System">
                             <param id="0" name="Variable">BasePowerDecreaseRate</param>
                             <param id="1" name="Value">PowerDecreaseRate</param>
+                        </action>
+                    </actions>
+                </event-block>
+            </sub-events>
+        </event-block>
+        <event-block sid="421843576277644">
+            <conditions>
+                <condition id="0" name="On function" sid="330999596139097" type="Function">
+                    <param id="0" name="Name">&quot;createBadge&quot;</param>
+                </condition>
+            </conditions>
+            <actions />
+            <sub-events>
+                <event-block disabled="1" sid="910849231310690">
+                    <conditions>
+                        <condition id="1" name="Compare parameter" sid="481271815575596" type="Function">
+                            <param id="0" name="Index">0</param>
+                            <param id="1" name="Comparison">0</param>
+                            <param id="2" name="Value">&quot;power&quot;</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-3" name="Create object" sid="224129132227465" type="System">
+                            <param id="0" name="Object to create">Badge</param>
+                            <param id="1" name="Layer">0</param>
+                            <param id="2" name="X">10</param>
+                            <param id="3" name="Y">100</param>
+                        </action>
+                        <action id="0" name="Set text" sid="691273658888264" type="Badge">
+                            <param id="0" name="Text">&quot;+&quot; &amp; Function.Param(1)</param>
+                        </action>
+                        <action behavior="8Direction" id="10" name="Set vector Y" sid="167763688448218" type="Badge">
+                            <param id="0" name="Vector Y">-1000</param>
+                        </action>
+                    </actions>
+                </event-block>
+            </sub-events>
+        </event-block>
+        <event-block sid="519894649653787">
+            <conditions>
+                <condition id="-18" name="On created" sid="608615815743536" type="SpriteFont" />
+            </conditions>
+            <actions>
+                <action id="11" name="Load" sid="536399428412025" type="FontArray">
+                    <param id="0" name="JSON">&quot;{&quot;&quot;c2array&quot;&quot;:true,&quot;&quot;size&quot;&quot;:[2,11,1],&quot;&quot;data&quot;&quot;:[[[0],[13],[14],[26],[27],[28],[41],[42],[48],[55],[69]],[[&quot;&quot;$&quot;&quot;],[&quot;&quot;&apos;&quot;&quot;],[&quot;&quot;Ii.;:!|`&quot;&quot;],[&quot;&quot;°&quot;&quot;],[&quot;&quot;()&quot;&quot;],[&quot;&quot;1,[]\\/&quot;&quot;],[&quot;&quot;ACDEHJLOSTUVYacdehjlostuvy023459?-_\&quot;&quot;=&lt;&gt;&quot;&quot;],[&quot;&quot;FKPRXZfkprxz678+*&quot;&quot;],[&quot;&quot;£€&quot;&quot;],[&quot;&quot;BGNQbgnq~&amp;%&quot;&quot;],[&quot;&quot;MWmw#@&quot;&quot;]]]}&quot;</param>
+                </action>
+                <action id="5" name="Set character width" sid="218112654671485" type="SpriteFont">
+                    <param id="0" name="Character">&quot; &quot;</param>
+                    <param id="1" name="Width">16</param>
+                </action>
+            </actions>
+            <sub-events>
+                <event-block sid="847611926944626">
+                    <conditions>
+                        <condition id="-10" name="For" sid="443207044243897" type="System">
+                            <param id="0" name="Name">&quot;&quot;</param>
+                            <param id="1" name="Start index">0</param>
+                            <param id="2" name="End index">FontArray.Height</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="5" name="Set character width" sid="656337819982915" type="SpriteFont">
+                            <param id="0" name="Character">FontArray.At(1,loopindex)</param>
+                            <param id="1" name="Width">FontArray.At(0,loopindex)</param>
                         </action>
                     </actions>
                 </event-block>

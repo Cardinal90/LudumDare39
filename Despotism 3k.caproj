@@ -14,18 +14,25 @@
         <plugin author="Scirra" id="Button" version="1">Button</plugin>
         <plugin author="Scirra" id="Dictionary" version="1">Dictionary</plugin>
         <plugin author="Scirra" id="Function" version="1">Function</plugin>
+        <plugin author="Scirra" id="Mouse" version="1">Mouse</plugin>
+        <plugin author="Scirra" id="Sprite" version="1">Sprite</plugin>
         <plugin author="Scirra" id="Spritefont2" version="1">Sprite font</plugin>
         <plugin author="Scirra" id="Text" version="1">Text</plugin>
         <plugin author="Scirra" id="TiledBg" version="1">Tiled Background</plugin>
     </used-plugins>
-    <used-behaviors />
-    <used-effects />
+    <used-behaviors>
+        <behavior author="Scirra" id="EightDir" version="1">8 Direction</behavior>
+        <behavior author="Scirra" id="Fade" version="1">Fade</behavior>
+    </used-behaviors>
+    <used-effects>
+        <effect author="Scirra" id="setcolor">Set color</effect>
+    </used-effects>
     <configurations>
         <configuration exporter-descname="HTML5" exporter-id="html5" name="HTML5" />
     </configurations>
     <window-size>
-        <width>300</width>
-        <height>168</height>
+        <width>1500</width>
+        <height>840</height>
     </window-size>
     <pixel-rounding>0</pixel-rounding>
     <preview-effects>0</preview-effects>
@@ -62,9 +69,6 @@
         <object-type name="Function" sid="494952190933108">
             <plugin id="Function" />
         </object-type>
-        <object-type name="Power" sid="503632669725560">
-            <plugin id="Text" />
-        </object-type>
         <object-type name="RemoveFromStation" sid="765353201592342">
             <plugin id="Button" />
         </object-type>
@@ -74,29 +78,11 @@
         <object-type name="RemoveFromFood" sid="221558415804647">
             <plugin id="Button" />
         </object-type>
-        <object-type name="HumansOnPower" sid="397427079773052">
-            <plugin id="Text" />
-        </object-type>
-        <object-type name="HumansOnFood" sid="740927826507478">
-            <plugin id="Text" />
-        </object-type>
-        <object-type name="Food" sid="394827593938884">
-            <plugin id="Text" />
-        </object-type>
-        <object-type name="FoodTimer" sid="637237235526338">
-            <plugin id="Text" />
-        </object-type>
         <object-type name="RemoveFromIncubator" sid="497564906779982">
             <plugin id="Button" />
         </object-type>
         <object-type name="AddToIncubator" sid="607763935982317">
             <plugin id="Button" />
-        </object-type>
-        <object-type name="HumansInIncubator" sid="599963956811176">
-            <plugin id="Text" />
-        </object-type>
-        <object-type name="HumansInPool" sid="445147207215507">
-            <plugin id="Text" />
         </object-type>
         <object-type name="ProgressGreen" sid="601537676931968">
             <plugin id="TiledBg" />
@@ -104,7 +90,7 @@
                 <instance-variable name="humanId" sid="976776217415482" type="number" />
                 <instance-variable name="group" sid="262738666404625" type="string" />
             </instance-variables>
-            <texture />
+            <texture original-source="C:\Projects\game\assets\green_bar.png" />
         </object-type>
         <object-type name="ProgressRed" sid="959336714724269">
             <plugin id="TiledBg" />
@@ -112,13 +98,10 @@
                 <instance-variable name="humanId" sid="473563829417426" type="number" />
                 <instance-variable name="group" sid="660694818878999" type="string" />
             </instance-variables>
-            <texture />
+            <texture original-source="C:\Projects\game\assets\red_bar.png" />
         </object-type>
         <object-type name="AddToMeat" sid="114956898957938">
             <plugin id="Button" />
-        </object-type>
-        <object-type name="HumansOnMeat" sid="442593958507100">
-            <plugin id="Text" />
         </object-type>
         <object-type name="ProgressPurple" sid="281174574054904">
             <plugin id="TiledBg" />
@@ -126,36 +109,16 @@
                 <instance-variable name="humanId" sid="177765344364105" type="number" />
                 <instance-variable name="group" sid="929242425028949" type="string" />
             </instance-variables>
-            <texture />
+            <texture original-source="C:\Projects\game\assets\purple_bar.png" />
         </object-type>
         <object-type name="console" sid="229060615486615">
-            <plugin id="Text" />
-        </object-type>
-        <object-type name="Level" sid="675604671340470">
             <plugin id="Text" />
         </object-type>
         <object-type name="Pause" sid="176522367413867">
             <plugin id="Button" />
         </object-type>
-        <object-type name="Total" sid="904281089393888">
-            <plugin id="Text" />
-        </object-type>
-        <object-type name="SpriteFont" sid="416718107620223">
-            <plugin id="Spritefont2" />
-            <instance-variables>
-                <instance-variable name="type" sid="171402629235141" type="string" />
-            </instance-variables>
-            <texture original-source="C:\Users\Petra\Desktop\SpriteFont_Minecraftia_Regular_8_1111_10x13.png" />
-        </object-type>
         <object-type global="1" name="Array" sid="600385380073777">
             <plugin id="Arr" />
-        </object-type>
-        <object-type name="EventText" sid="797018831796711">
-            <plugin id="Spritefont2" />
-            <instance-variables>
-                <instance-variable name="type" sid="632310299517101" type="string" />
-            </instance-variables>
-            <texture original-source="C:\Users\Petra\Desktop\SpriteFont_Minecraftia_Regular_8_1111_10x13.png" />
         </object-type>
         <object-type name="VictoryText" sid="820699961748221">
             <plugin id="Spritefont2" />
@@ -181,6 +144,147 @@
             </instance-variables>
             <texture original-source="C:\Users\Petra\Desktop\SpriteFont_Minecraftia_Regular_8_1111_10x13.png" />
         </object-type>
+        <object-type name="Badge" sid="165483509390173">
+            <plugin id="Spritefont2" />
+            <instance-variables>
+                <instance-variable name="type" sid="405278045625280" type="string" />
+            </instance-variables>
+            <behaviors>
+                <behavior-type name="8Direction" sid="854659859304879">
+                    <behavior id="EightDir" />
+                </behavior-type>
+                <behavior-type name="Fade" sid="166193072660145">
+                    <behavior id="Fade" />
+                </behavior-type>
+            </behaviors>
+            <effects>
+                <effect-type name="SetColor">
+                    <effect id="setcolor" />
+                </effect-type>
+            </effects>
+            <texture original-source="C:\Projects\game\assets\SpriteFont_DSPixelCyr_(71,99999)_[Left,0,0,0]_71x111.png" />
+        </object-type>
+        <object-type name="FullBg" sid="360906749936012">
+            <plugin id="Sprite" />
+            <animation-folder>
+                <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="419174706503704" speed="5">
+                    <frame duration="1" hotspotX="0" hotspotY="0" original-source="C:\Projects\game\assets\full.png" />
+                </animation>
+            </animation-folder>
+        </object-type>
+        <object-type name="NumCurrentEnergy" sid="697037454863313">
+            <plugin id="Spritefont2" />
+            <effects>
+                <effect-type name="SetColor">
+                    <effect id="setcolor" />
+                </effect-type>
+            </effects>
+            <texture original-source="C:\Projects\game\assets\SpriteFont_DSPixelCyr_Bold_14_1111_15x24.png" />
+        </object-type>
+        <object-type name="Bg" sid="772488310455331">
+            <plugin id="Sprite" />
+            <animation-folder>
+                <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="396824214337014" speed="5">
+                    <frame duration="1" hotspotX="0" hotspotY="0" original-source="C:\Projects\game\assets\bg.png" />
+                </animation>
+            </animation-folder>
+        </object-type>
+        <object-type name="MinusPowerButton" sid="467567143000151">
+            <plugin id="Sprite" />
+            <animation-folder>
+                <animation framecount="2" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="278463579709336" speed="5">
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" />
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" />
+                </animation>
+            </animation-folder>
+        </object-type>
+        <object-type name="MinusIncubatorButton" sid="467126704076993">
+            <plugin id="Sprite" />
+            <animation-folder>
+                <animation framecount="2" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="266381207570389" speed="5">
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" />
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" />
+                </animation>
+            </animation-folder>
+        </object-type>
+        <object-type name="MinusFoodButton" sid="518267757744877">
+            <plugin id="Sprite" />
+            <animation-folder>
+                <animation framecount="2" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="450356748505229" speed="5">
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" />
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" />
+                </animation>
+            </animation-folder>
+        </object-type>
+        <object-type name="PlusFoodButton" sid="891610490428394">
+            <plugin id="Sprite" />
+            <animation-folder>
+                <animation framecount="2" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="509508891041125" speed="5">
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" />
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" />
+                </animation>
+            </animation-folder>
+        </object-type>
+        <object-type name="PlusReactorButton" sid="510037645678636">
+            <plugin id="Sprite" />
+            <animation-folder>
+                <animation framecount="2" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="774725539729372" speed="5">
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" />
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" />
+                </animation>
+            </animation-folder>
+        </object-type>
+        <object-type name="PlusIncubatorButton" sid="751774727227563">
+            <plugin id="Sprite" />
+            <animation-folder>
+                <animation framecount="2" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="820063351991252" speed="5">
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" />
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" />
+                </animation>
+            </animation-folder>
+        </object-type>
+        <object-type name="PlusPowerButton" sid="435585330552885">
+            <plugin id="Sprite" />
+            <animation-folder>
+                <animation framecount="2" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="783247045288130" speed="5">
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" />
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" />
+                </animation>
+            </animation-folder>
+        </object-type>
+        <object-type name="SpriteFont" sid="981504497175495">
+            <plugin id="Spritefont2" />
+            <instance-variables>
+                <instance-variable name="type" sid="176538674956211" type="string" />
+            </instance-variables>
+            <effects>
+                <effect-type name="SetColor">
+                    <effect id="setcolor" />
+                </effect-type>
+            </effects>
+            <texture original-source="C:\Projects\game\assets\SpriteFont_DSPixelCyr_(71,99999)_[Left,0,0,0]_71x111.png" />
+        </object-type>
+        <object-type global="1" name="FontArray" sid="578593380889085">
+            <plugin id="Arr" />
+        </object-type>
+        <object-type name="Gradient" sid="817452142575403">
+            <plugin id="Sprite" />
+            <animation-folder>
+                <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="279213280261060" speed="5">
+                    <frame duration="1" hotspotX="0" hotspotY="0" original-source="C:\Projects\game\assets\bottom-shadow.png">
+                        <collision-poly>
+                            <point x="0.0526667" y="0.612403" />
+                            <point x="0.947333" y="0.612403" />
+                            <point x="1" y="1" />
+                            <point x="0" y="1" />
+                        </collision-poly>
+                    </frame>
+                </animation>
+            </animation-folder>
+        </object-type>
+        <object-type name="Mouse" sid="327518291983464">
+            <plugin id="Mouse" />
+        </object-type>
     </object-folder>
     <families />
     <layout-folder>
@@ -195,6 +299,7 @@
     </event-folder>
     <global-instances>
         <global-instance type="Function" uid="4" />
+        <global-instance type="Mouse" uid="8" />
     </global-instances>
     <sounds-folder />
     <music-folder />
