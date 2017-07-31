@@ -3,6 +3,13 @@
     <!--All the 'name' attributes are ignored by Construct 2 - they are there for readability only.-->
     <name>GameES</name>
     <events>
+        <variable constant="0" name="MinusPowerDisabled" sid="857466433854752" static="0" type="number">0</variable>
+        <variable constant="0" name="MinusFoodDisabled" sid="578685237868688" static="0" type="number">0</variable>
+        <variable constant="0" name="MinusIncubatorDisabled" sid="200919934111578" static="0" type="number">0</variable>
+        <variable constant="0" name="PlusPowerDisabled" sid="422395553633131" static="0" type="number">0</variable>
+        <variable constant="0" name="PlusFoodDisabled" sid="472578209672065" static="0" type="number">0</variable>
+        <variable constant="0" name="PlusIncubatorDisabled" sid="336818899759371" static="0" type="number">0</variable>
+        <variable constant="0" name="PlusReactorDisabled" sid="416408134085067" static="0" type="number">0</variable>
         <variable constant="0" name="LevelStartTime" sid="103055519668562" static="0" type="number">0</variable>
         <variable constant="0" name="TotalTime" sid="897253730388986" static="0" type="number">0</variable>
         <variable constant="0" name="const_e7_lessEnergy" sid="252962220196944" static="0" type="number">2</variable>
@@ -1434,6 +1441,18 @@
                         <action id="3" name="Set enabled" sid="861568752738105" type="AddToMeat">
                             <param id="0" name="Mode">0</param>
                         </action>
+                        <action id="-9" name="Set value" sid="855595205902209" type="System">
+                            <param id="0" name="Variable">PlusFoodDisabled</param>
+                            <param id="1" name="Value">1</param>
+                        </action>
+                        <action id="-9" name="Set value" sid="780235512539963" type="System">
+                            <param id="0" name="Variable">PlusPowerDisabled</param>
+                            <param id="1" name="Value">1</param>
+                        </action>
+                        <action id="-9" name="Set value" sid="696668105253048" type="System">
+                            <param id="0" name="Variable">PlusReactorDisabled</param>
+                            <param id="1" name="Value">1</param>
+                        </action>
                     </actions>
                 </event-block>
                 <event-block sid="898072427172518">
@@ -1450,6 +1469,18 @@
                         <action id="3" name="Set enabled" sid="594250740798473" type="AddToMeat">
                             <param id="0" name="Mode">1</param>
                         </action>
+                        <action id="-9" name="Set value" sid="147774681354603" type="System">
+                            <param id="0" name="Variable">PlusFoodDisabled</param>
+                            <param id="1" name="Value">0</param>
+                        </action>
+                        <action id="-9" name="Set value" sid="920343276168853" type="System">
+                            <param id="0" name="Variable">PlusPowerDisabled</param>
+                            <param id="1" name="Value">0</param>
+                        </action>
+                        <action id="-9" name="Set value" sid="670052606373380" type="System">
+                            <param id="0" name="Variable">PlusReactorDisabled</param>
+                            <param id="1" name="Value">0</param>
+                        </action>
                     </actions>
                 </event-block>
                 <event-block sid="815280105601173">
@@ -1464,6 +1495,10 @@
                         <action id="3" name="Set enabled" sid="820985168303851" type="AddToIncubator">
                             <param id="0" name="Mode">0</param>
                         </action>
+                        <action id="-9" name="Set value" sid="219318123851080" type="System">
+                            <param id="0" name="Variable">PlusIncubatorDisabled</param>
+                            <param id="1" name="Value">1</param>
+                        </action>
                     </actions>
                 </event-block>
                 <event-block sid="858253339618631">
@@ -1473,6 +1508,10 @@
                     <actions>
                         <action id="3" name="Set enabled" sid="253584176413465" type="AddToIncubator">
                             <param id="0" name="Mode">1</param>
+                        </action>
+                        <action id="-9" name="Set value" sid="640123583872734" type="System">
+                            <param id="0" name="Variable">PlusIncubatorDisabled</param>
+                            <param id="1" name="Value">0</param>
                         </action>
                     </actions>
                 </event-block>
@@ -1488,6 +1527,10 @@
                         <action id="3" name="Set enabled" sid="541443056694430" type="AddToStation">
                             <param id="0" name="Mode">0</param>
                         </action>
+                        <action id="-9" name="Set value" sid="971327998165606" type="System">
+                            <param id="0" name="Variable">PlusPowerDisabled</param>
+                            <param id="1" name="Value">1</param>
+                        </action>
                     </actions>
                 </event-block>
                 <event-block sid="214520800427135">
@@ -1497,6 +1540,10 @@
                     <actions>
                         <action id="3" name="Set enabled" sid="414341134036376" type="AddToStation">
                             <param id="0" name="Mode">1</param>
+                        </action>
+                        <action id="-9" name="Set value" sid="123276336078390" type="System">
+                            <param id="0" name="Variable">PlusPowerDisabled</param>
+                            <param id="1" name="Value">0</param>
                         </action>
                     </actions>
                 </event-block>
@@ -1522,6 +1569,10 @@
                         <action id="3" name="Set enabled" sid="455466074222830" type="AddToFood">
                             <param id="0" name="Mode">0</param>
                         </action>
+                        <action id="-9" name="Set value" sid="787667067216812" type="System">
+                            <param id="0" name="Variable">PlusFoodDisabled</param>
+                            <param id="1" name="Value">1</param>
+                        </action>
                     </actions>
                 </event-block>
                 <event-block sid="790266203462465">
@@ -1531,6 +1582,10 @@
                     <actions>
                         <action id="3" name="Set enabled" sid="284964703368311" type="AddToFood">
                             <param id="0" name="Mode">1</param>
+                        </action>
+                        <action id="-9" name="Set value" sid="415618752000068" type="System">
+                            <param id="0" name="Variable">PlusFoodDisabled</param>
+                            <param id="1" name="Value">0</param>
                         </action>
                     </actions>
                 </event-block>
@@ -1551,6 +1606,10 @@
                         <action id="3" name="Set enabled" sid="991569729568944" type="AddToMeat">
                             <param id="0" name="Mode">0</param>
                         </action>
+                        <action id="-9" name="Set value" sid="863773824663579" type="System">
+                            <param id="0" name="Variable">PlusReactorDisabled</param>
+                            <param id="1" name="Value">1</param>
+                        </action>
                     </actions>
                 </event-block>
                 <event-block sid="221220945165960">
@@ -1560,6 +1619,10 @@
                     <actions>
                         <action id="3" name="Set enabled" sid="476062240719155" type="AddToMeat">
                             <param id="0" name="Mode">1</param>
+                        </action>
+                        <action id="-9" name="Set value" sid="828702784766663" type="System">
+                            <param id="0" name="Variable">PlusReactorDisabled</param>
+                            <param id="1" name="Value">0</param>
                         </action>
                     </actions>
                 </event-block>
@@ -1585,6 +1648,10 @@
                         <action id="3" name="Set enabled" sid="149927912634656" type="AddToIncubator">
                             <param id="0" name="Mode">1</param>
                         </action>
+                        <action id="-9" name="Set value" sid="188260293330641" type="System">
+                            <param id="0" name="Variable">PlusIncubatorDisabled</param>
+                            <param id="1" name="Value">0</param>
+                        </action>
                     </actions>
                 </event-block>
                 <event-block sid="341761689167839">
@@ -1594,6 +1661,10 @@
                     <actions>
                         <action id="3" name="Set enabled" sid="487243475090479" type="AddToIncubator">
                             <param id="0" name="Mode">0</param>
+                        </action>
+                        <action id="-9" name="Set value" sid="540372968119434" type="System">
+                            <param id="0" name="Variable">PlusIncubatorDisabled</param>
+                            <param id="1" name="Value">1</param>
                         </action>
                     </actions>
                 </event-block>
@@ -1639,6 +1710,34 @@
                         <action id="3" name="Set enabled" sid="990972545982747" type="RemoveFromStation">
                             <param id="0" name="Mode">0</param>
                         </action>
+                        <action id="-9" name="Set value" sid="152264875592091" type="System">
+                            <param id="0" name="Variable">PlusPowerDisabled</param>
+                            <param id="1" name="Value">1</param>
+                        </action>
+                        <action id="-9" name="Set value" sid="792206715782465" type="System">
+                            <param id="0" name="Variable">PlusFoodDisabled</param>
+                            <param id="1" name="Value">1</param>
+                        </action>
+                        <action id="-9" name="Set value" sid="158696580756691" type="System">
+                            <param id="0" name="Variable">PlusIncubatorDisabled</param>
+                            <param id="1" name="Value">1</param>
+                        </action>
+                        <action id="-9" name="Set value" sid="963109223330728" type="System">
+                            <param id="0" name="Variable">PlusReactorDisabled</param>
+                            <param id="1" name="Value">1</param>
+                        </action>
+                        <action id="-9" name="Set value" sid="773635443448868" type="System">
+                            <param id="0" name="Variable">MinusFoodDisabled</param>
+                            <param id="1" name="Value">1</param>
+                        </action>
+                        <action id="-9" name="Set value" sid="165053323790476" type="System">
+                            <param id="0" name="Variable">MinusPowerDisabled</param>
+                            <param id="1" name="Value">1</param>
+                        </action>
+                        <action id="-9" name="Set value" sid="396209560391610" type="System">
+                            <param id="0" name="Variable">MinusIncubatorDisabled</param>
+                            <param id="1" name="Value">1</param>
+                        </action>
                     </actions>
                 </event-block>
                 <event-block sid="410925186976457">
@@ -1675,6 +1774,34 @@
                         </action>
                         <action id="3" name="Set enabled" sid="561940238848340" type="RemoveFromIncubator">
                             <param id="0" name="Mode">1</param>
+                        </action>
+                        <action id="-9" name="Set value" sid="845158709594184" type="System">
+                            <param id="0" name="Variable">PlusPowerDisabled</param>
+                            <param id="1" name="Value">0</param>
+                        </action>
+                        <action id="-9" name="Set value" sid="335895616509976" type="System">
+                            <param id="0" name="Variable">PlusFoodDisabled</param>
+                            <param id="1" name="Value">0</param>
+                        </action>
+                        <action id="-9" name="Set value" sid="910833087128717" type="System">
+                            <param id="0" name="Variable">PlusIncubatorDisabled</param>
+                            <param id="1" name="Value">0</param>
+                        </action>
+                        <action id="-9" name="Set value" sid="635788615625106" type="System">
+                            <param id="0" name="Variable">PlusReactorDisabled</param>
+                            <param id="1" name="Value">0</param>
+                        </action>
+                        <action id="-9" name="Set value" sid="110832765662509" type="System">
+                            <param id="0" name="Variable">MinusFoodDisabled</param>
+                            <param id="1" name="Value">0</param>
+                        </action>
+                        <action id="-9" name="Set value" sid="900684227691150" type="System">
+                            <param id="0" name="Variable">MinusPowerDisabled</param>
+                            <param id="1" name="Value">0</param>
+                        </action>
+                        <action id="-9" name="Set value" sid="518839807277138" type="System">
+                            <param id="0" name="Variable">MinusIncubatorDisabled</param>
+                            <param id="1" name="Value">0</param>
                         </action>
                     </actions>
                 </event-block>
@@ -2623,6 +2750,17 @@
                         </event-block>
                     </sub-events>
                 </event-block>
+                <event-block sid="918545861425380">
+                    <conditions />
+                    <actions>
+                        <action id="-6" name="Set height" sid="620002417242840" type="PowerBar">
+                            <param id="0" name="Height">floor(500*(CurrentPower/MaxPower)/20)*20</param>
+                        </action>
+                        <action id="-2" name="Set Y" sid="321931627906795" type="PowerBar">
+                            <param id="0" name="Y">607-floor(500*(CurrentPower/MaxPower)/20)*20</param>
+                        </action>
+                    </actions>
+                </event-block>
             </sub-events>
         </event-block>
         <event-block sid="751793298869528">
@@ -2633,6 +2771,16 @@
             </conditions>
             <actions />
             <sub-events>
+                <variable constant="0" name="power" sid="744717310858256" static="0" type="number">0</variable>
+                <event-block sid="342500243700509">
+                    <conditions />
+                    <actions>
+                        <action id="-9" name="Set value" sid="681049157835190" type="System">
+                            <param id="0" name="Variable">power</param>
+                            <param id="1" name="Value">round(CurrentPower)</param>
+                        </action>
+                    </actions>
+                </event-block>
                 <event-block sid="996970792674352">
                     <conditions>
                         <condition id="-14" name="Pick by unique ID" sid="993658768548028" type="SpriteFont">
@@ -2641,7 +2789,7 @@
                     </conditions>
                     <actions>
                         <action id="0" name="Set text" sid="614571736895381" type="SpriteFont">
-                            <param id="0" name="Text">round(CurrentPower) &amp; &quot;/&quot;</param>
+                            <param id="0" name="Text">power</param>
                         </action>
                     </actions>
                 </event-block>
@@ -2654,6 +2802,115 @@
                     <actions>
                         <action id="0" name="Set text" sid="379484681924223" type="SpriteFont">
                             <param id="0" name="Text">MaxPower</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="755363521919878">
+                    <conditions>
+                        <condition id="-14" name="Pick by unique ID" sid="946674904824088" type="SpriteFont">
+                            <param id="0" name="Unique ID">9</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="0" name="Set text" sid="524777357617957" type="SpriteFont">
+                            <param id="0" name="Text">&quot;/&quot;</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <variable constant="0" name="shift" sid="719957039344449" static="0" type="number">0</variable>
+                <event-block sid="343237993186926">
+                    <conditions>
+                        <condition id="-14" name="Compare variable" sid="366285358786827" type="System">
+                            <param id="0" name="Variable">power</param>
+                            <param id="1" name="Comparison">2</param>
+                            <param id="2" name="Value">10000</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-9" name="Set value" sid="783226898172968" type="System">
+                            <param id="0" name="Variable">shift</param>
+                            <param id="1" name="Value">0</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="503638699563741">
+                    <conditions>
+                        <condition id="-14" name="Compare variable" sid="171474252643053" type="System">
+                            <param id="0" name="Variable">power</param>
+                            <param id="1" name="Comparison">2</param>
+                            <param id="2" name="Value">1000</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-9" name="Set value" sid="529111474951567" type="System">
+                            <param id="0" name="Variable">shift</param>
+                            <param id="1" name="Value">1</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="878172293792481">
+                    <conditions>
+                        <condition id="-14" name="Compare variable" sid="168179117140704" type="System">
+                            <param id="0" name="Variable">power</param>
+                            <param id="1" name="Comparison">2</param>
+                            <param id="2" name="Value">100</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-9" name="Set value" sid="662099889189039" type="System">
+                            <param id="0" name="Variable">shift</param>
+                            <param id="1" name="Value">2</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="271747749998438">
+                    <conditions>
+                        <condition id="-14" name="Compare variable" sid="306185778876142" type="System">
+                            <param id="0" name="Variable">power</param>
+                            <param id="1" name="Comparison">2</param>
+                            <param id="2" name="Value">10</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-9" name="Set value" sid="630447962184767" type="System">
+                            <param id="0" name="Variable">shift</param>
+                            <param id="1" name="Value">3</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block disabled="1" sid="953562194787501">
+                    <conditions>
+                        <condition id="-14" name="Pick by unique ID" sid="776612777246577" type="SpriteFont">
+                            <param id="0" name="Unique ID">54</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-1" name="Set X" sid="220240356635680" type="SpriteFont">
+                            <param id="0" name="X">23+21*3</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="696722235273242">
+                    <conditions>
+                        <condition id="-14" name="Pick by unique ID" sid="341677496340867" type="SpriteFont">
+                            <param id="0" name="Unique ID">9</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-1" name="Set X" sid="942060796601196" type="SpriteFont">
+                            <param id="0" name="X">97-18*shift</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="792236756595787">
+                    <conditions>
+                        <condition id="-14" name="Pick by unique ID" sid="643339934063059" type="SpriteFont">
+                            <param id="0" name="Unique ID">55</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-1" name="Set X" sid="879962366036249" type="SpriteFont">
+                            <param id="0" name="X">111-18*shift</param>
                         </action>
                     </actions>
                 </event-block>
@@ -3385,6 +3642,269 @@
                         <action id="5" name="Set character width" sid="656337819982915" type="SpriteFont">
                             <param id="0" name="Character">FontArray.At(1,loopindex)</param>
                             <param id="1" name="Width">FontArray.At(0,loopindex)</param>
+                        </action>
+                    </actions>
+                </event-block>
+            </sub-events>
+        </event-block>
+        <event-block sid="711549257654771">
+            <conditions>
+                <condition id="6" name="On object clicked" sid="837485139794504" type="Mouse">
+                    <param id="0" name="Mouse button">0</param>
+                    <param id="1" name="Click type">0</param>
+                    <param id="2" name="Object clicked">PlusPowerButton</param>
+                </condition>
+                <condition id="-14" name="Compare variable" sid="991163756578995" type="System">
+                    <param id="0" name="Variable">PlusPowerDisabled</param>
+                    <param id="1" name="Comparison">0</param>
+                    <param id="2" name="Value">0</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="5" name="Set frame" sid="771531150863458" type="PlusPowerButton">
+                    <param id="0" name="Frame number">1</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="344943948852012">
+            <conditions>
+                <condition id="6" name="On object clicked" sid="762192123970924" type="Mouse">
+                    <param id="0" name="Mouse button">0</param>
+                    <param id="1" name="Click type">0</param>
+                    <param id="2" name="Object clicked">PlusReactorButton</param>
+                </condition>
+                <condition id="-14" name="Compare variable" sid="697875752665721" type="System">
+                    <param id="0" name="Variable">PlusReactorDisabled</param>
+                    <param id="1" name="Comparison">0</param>
+                    <param id="2" name="Value">0</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="5" name="Set frame" sid="662666272592906" type="PlusReactorButton">
+                    <param id="0" name="Frame number">1</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="328910231512246">
+            <conditions>
+                <condition id="6" name="On object clicked" sid="233311206237529" type="Mouse">
+                    <param id="0" name="Mouse button">0</param>
+                    <param id="1" name="Click type">0</param>
+                    <param id="2" name="Object clicked">PlusIncubatorButton</param>
+                </condition>
+                <condition id="-14" name="Compare variable" sid="347228805593669" type="System">
+                    <param id="0" name="Variable">PlusIncubatorDisabled</param>
+                    <param id="1" name="Comparison">0</param>
+                    <param id="2" name="Value">0</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="5" name="Set frame" sid="725943789694033" type="PlusIncubatorButton">
+                    <param id="0" name="Frame number">1</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="384674202602902">
+            <conditions>
+                <condition id="6" name="On object clicked" sid="767399504217024" type="Mouse">
+                    <param id="0" name="Mouse button">0</param>
+                    <param id="1" name="Click type">0</param>
+                    <param id="2" name="Object clicked">PlusFoodButton</param>
+                </condition>
+                <condition id="-14" name="Compare variable" sid="741780535170552" type="System">
+                    <param id="0" name="Variable">PlusFoodDisabled</param>
+                    <param id="1" name="Comparison">0</param>
+                    <param id="2" name="Value">0</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="5" name="Set frame" sid="161741447889162" type="PlusFoodButton">
+                    <param id="0" name="Frame number">1</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="768030221891853">
+            <conditions>
+                <condition id="6" name="On object clicked" sid="947080326909399" type="Mouse">
+                    <param id="0" name="Mouse button">0</param>
+                    <param id="1" name="Click type">0</param>
+                    <param id="2" name="Object clicked">MinusFoodButton</param>
+                </condition>
+                <condition id="-14" name="Compare variable" sid="934320497494658" type="System">
+                    <param id="0" name="Variable">MinusFoodDisabled</param>
+                    <param id="1" name="Comparison">0</param>
+                    <param id="2" name="Value">0</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="5" name="Set frame" sid="329223617293347" type="MinusFoodButton">
+                    <param id="0" name="Frame number">1</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="796699839823136">
+            <conditions>
+                <condition id="6" name="On object clicked" sid="375205690389232" type="Mouse">
+                    <param id="0" name="Mouse button">0</param>
+                    <param id="1" name="Click type">0</param>
+                    <param id="2" name="Object clicked">MinusIncubatorButton</param>
+                </condition>
+                <condition id="-14" name="Compare variable" sid="783285939696089" type="System">
+                    <param id="0" name="Variable">MinusIncubatorDisabled</param>
+                    <param id="1" name="Comparison">0</param>
+                    <param id="2" name="Value">0</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="5" name="Set frame" sid="402893748036699" type="MinusIncubatorButton">
+                    <param id="0" name="Frame number">1</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="968314663682995">
+            <conditions>
+                <condition id="6" name="On object clicked" sid="119126581659694" type="Mouse">
+                    <param id="0" name="Mouse button">0</param>
+                    <param id="1" name="Click type">0</param>
+                    <param id="2" name="Object clicked">MinusPowerButton</param>
+                </condition>
+                <condition id="-14" name="Compare variable" sid="550633740320988" type="System">
+                    <param id="0" name="Variable">MinusPowerDisabled</param>
+                    <param id="1" name="Comparison">0</param>
+                    <param id="2" name="Value">0</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="5" name="Set frame" sid="206062706519913" type="MinusPowerButton">
+                    <param id="0" name="Frame number">1</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="247938730812487">
+            <conditions>
+                <condition id="3" name="On button released" sid="390930186926178" type="Mouse">
+                    <param id="0" name="Mouse button">0</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="5" name="Set frame" sid="936135110125382" type="PlusPowerButton">
+                    <param id="0" name="Frame number">0</param>
+                </action>
+                <action id="5" name="Set frame" sid="350912047284291" type="PlusReactorButton">
+                    <param id="0" name="Frame number">0</param>
+                </action>
+                <action id="5" name="Set frame" sid="363615985231019" type="PlusIncubatorButton">
+                    <param id="0" name="Frame number">0</param>
+                </action>
+                <action id="5" name="Set frame" sid="365877440398732" type="PlusFoodButton">
+                    <param id="0" name="Frame number">0</param>
+                </action>
+                <action id="5" name="Set frame" sid="832650506795755" type="MinusFoodButton">
+                    <param id="0" name="Frame number">0</param>
+                </action>
+                <action id="5" name="Set frame" sid="594414483165569" type="MinusIncubatorButton">
+                    <param id="0" name="Frame number">0</param>
+                </action>
+                <action id="5" name="Set frame" sid="156940138207974" type="MinusPowerButton">
+                    <param id="0" name="Frame number">0</param>
+                </action>
+            </actions>
+            <sub-events>
+                <event-block disabled="1" sid="968181333570696">
+                    <conditions>
+                        <condition id="-14" name="Compare variable" sid="359987663193618" type="System">
+                            <param id="0" name="Variable">PlusPowerDisabled</param>
+                            <param id="1" name="Comparison">0</param>
+                            <param id="2" name="Value">0</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="5" name="Set frame" sid="797956826663000" type="PlusPowerButton">
+                            <param id="0" name="Frame number">1</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block disabled="1" sid="564825393527711">
+                    <conditions>
+                        <condition id="-14" name="Compare variable" sid="654355742094364" type="System">
+                            <param id="0" name="Variable">PlusReactorDisabled</param>
+                            <param id="1" name="Comparison">0</param>
+                            <param id="2" name="Value">0</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="5" name="Set frame" sid="916326841501309" type="PlusReactorButton">
+                            <param id="0" name="Frame number">1</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block disabled="1" sid="253872465411395">
+                    <conditions>
+                        <condition id="-14" name="Compare variable" sid="350417532921800" type="System">
+                            <param id="0" name="Variable">PlusIncubatorDisabled</param>
+                            <param id="1" name="Comparison">0</param>
+                            <param id="2" name="Value">0</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="5" name="Set frame" sid="503370883738133" type="PlusIncubatorButton">
+                            <param id="0" name="Frame number">1</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block disabled="1" sid="718295505358664">
+                    <conditions>
+                        <condition id="-14" name="Compare variable" sid="644909285533155" type="System">
+                            <param id="0" name="Variable">PlusFoodDisabled</param>
+                            <param id="1" name="Comparison">0</param>
+                            <param id="2" name="Value">0</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="5" name="Set frame" sid="780030112705263" type="PlusFoodButton">
+                            <param id="0" name="Frame number">1</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block disabled="1" sid="636473576530849">
+                    <conditions>
+                        <condition id="-14" name="Compare variable" sid="510488323569475" type="System">
+                            <param id="0" name="Variable">MinusFoodDisabled</param>
+                            <param id="1" name="Comparison">0</param>
+                            <param id="2" name="Value">0</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="5" name="Set frame" sid="814059279723228" type="MinusFoodButton">
+                            <param id="0" name="Frame number">1</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block disabled="1" sid="381726665376839">
+                    <conditions>
+                        <condition id="-14" name="Compare variable" sid="672454442549562" type="System">
+                            <param id="0" name="Variable">MinusIncubatorDisabled</param>
+                            <param id="1" name="Comparison">0</param>
+                            <param id="2" name="Value">0</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="5" name="Set frame" sid="383886338149425" type="MinusIncubatorButton">
+                            <param id="0" name="Frame number">1</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block disabled="1" sid="353968546117657">
+                    <conditions>
+                        <condition id="-14" name="Compare variable" sid="838795307259985" type="System">
+                            <param id="0" name="Variable">MinusPowerDisabled</param>
+                            <param id="1" name="Comparison">0</param>
+                            <param id="2" name="Value">0</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="5" name="Set frame" sid="532417214731080" type="MinusPowerButton">
+                            <param id="0" name="Frame number">1</param>
                         </action>
                     </actions>
                 </event-block>

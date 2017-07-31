@@ -285,6 +285,14 @@
         <object-type name="Mouse" sid="327518291983464">
             <plugin id="Mouse" />
         </object-type>
+        <object-type name="PowerBar" sid="132755472425582">
+            <plugin id="TiledBg" />
+            <instance-variables>
+                <instance-variable name="humanId" sid="799904417304246" type="number" />
+                <instance-variable name="group" sid="509507146592874" type="string" />
+            </instance-variables>
+            <texture original-source="C:\Projects\game\assets\energy_bar.png" />
+        </object-type>
     </object-folder>
     <families />
     <layout-folder>
