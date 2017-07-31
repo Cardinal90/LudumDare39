@@ -61,6 +61,10 @@
                 <condition id="-2" name="On start of layout" sid="884295847978460" type="System" />
             </conditions>
             <actions>
+                <action id="-4" name="Set layer visible" sid="231844947648718" type="System">
+                    <param id="0" name="Layer">&quot;Modal&quot;</param>
+                    <param id="1" name="Visibility">0</param>
+                </action>
                 <action id="-9" name="Destroy" sid="527108790618781" type="Human" />
                 <action id="0" name="Call function" sid="654123490702290" type="Function">
                     <param id="0" name="Name">&quot;refreshInterface&quot;</param>
@@ -126,6 +130,13 @@
                 <action id="2" name="Stop" sid="461260823557380" type="PlusIncubatorButton" />
                 <action id="2" name="Stop" sid="146293721402051" type="PlusPowerButton" />
                 <action id="2" name="Stop" sid="596801428740682" type="PlusReactorButton" />
+                <action id="-3" name="Set position" sid="452597922495231" type="ModalOverlay">
+                    <param id="0" name="X">0</param>
+                    <param id="1" name="Y">0</param>
+                </action>
+                <action id="-9" name="Destroy" sid="947280912247450" type="Manipulator" />
+                <action id="-9" name="Destroy" sid="269056170697597" type="PoolOut" />
+                <action id="-9" name="Destroy" sid="314437573807798" type="PoolIn" />
             </actions>
             <sub-events>
                 <event-block sid="231692729932514">
@@ -1385,6 +1396,10 @@
                             <param id="0" name="Name">&quot;refreshInterface&quot;</param>
                             <param id="1" name="Parameter {n}"></param>
                         </action>
+                        <action disabled="1" id="0" name="Call function" sid="346936042375029" type="Function">
+                            <param id="0" name="Name">&quot;showLevelModal&quot;</param>
+                            <param id="1" name="Parameter {n}"></param>
+                        </action>
                     </actions>
                 </event-block>
                 <event-block sid="370137905399506">
@@ -1416,6 +1431,10 @@
                         </action>
                         <action id="0" name="Call function" sid="283549766445236" type="Function">
                             <param id="0" name="Name">&quot;refreshInterface&quot;</param>
+                            <param id="1" name="Parameter {n}"></param>
+                        </action>
+                        <action disabled="1" id="0" name="Call function" sid="973278153222066" type="Function">
+                            <param id="0" name="Name">&quot;showLevelModal&quot;</param>
                             <param id="1" name="Parameter {n}"></param>
                         </action>
                     </actions>
@@ -1632,7 +1651,7 @@
             </conditions>
             <actions />
             <sub-events>
-                <event-block sid="935196186056746">
+                <event-block disabled="1" sid="935196186056746">
                     <conditions>
                         <condition id="-8" name="Compare two values" sid="635230398990511" type="System">
                             <param id="0" name="First value">HumansInPool</param>
@@ -1641,34 +1660,34 @@
                         </condition>
                     </conditions>
                     <actions>
-                        <action id="-9" name="Set value" sid="855595205902209" type="System">
+                        <action disabled="1" id="-9" name="Set value" sid="855595205902209" type="System">
                             <param id="0" name="Variable">PlusFoodDisabled</param>
                             <param id="1" name="Value">1</param>
                         </action>
-                        <action id="-9" name="Set value" sid="780235512539963" type="System">
+                        <action disabled="1" id="-9" name="Set value" sid="780235512539963" type="System">
                             <param id="0" name="Variable">PlusPowerDisabled</param>
                             <param id="1" name="Value">1</param>
                         </action>
-                        <action id="-9" name="Set value" sid="696668105253048" type="System">
+                        <action disabled="1" id="-9" name="Set value" sid="696668105253048" type="System">
                             <param id="0" name="Variable">PlusReactorDisabled</param>
                             <param id="1" name="Value">1</param>
                         </action>
                     </actions>
                 </event-block>
-                <event-block sid="898072427172518">
+                <event-block disabled="1" sid="898072427172518">
                     <conditions>
                         <condition id="-22" name="Else" sid="596220569452900" type="System" />
                     </conditions>
                     <actions>
-                        <action id="-9" name="Set value" sid="147774681354603" type="System">
+                        <action disabled="1" id="-9" name="Set value" sid="147774681354603" type="System">
                             <param id="0" name="Variable">PlusFoodDisabled</param>
                             <param id="1" name="Value">0</param>
                         </action>
-                        <action id="-9" name="Set value" sid="920343276168853" type="System">
+                        <action disabled="1" id="-9" name="Set value" sid="920343276168853" type="System">
                             <param id="0" name="Variable">PlusPowerDisabled</param>
                             <param id="1" name="Value">0</param>
                         </action>
-                        <action id="-9" name="Set value" sid="670052606373380" type="System">
+                        <action disabled="1" id="-9" name="Set value" sid="670052606373380" type="System">
                             <param id="0" name="Variable">PlusReactorDisabled</param>
                             <param id="1" name="Value">0</param>
                         </action>
@@ -1683,7 +1702,7 @@
                         </condition>
                     </conditions>
                     <actions>
-                        <action id="-9" name="Set value" sid="219318123851080" type="System">
+                        <action disabled="1" id="-9" name="Set value" sid="219318123851080" type="System">
                             <param id="0" name="Variable">PlusIncubatorDisabled</param>
                             <param id="1" name="Value">1</param>
                         </action>
@@ -1694,18 +1713,23 @@
                         <condition id="-22" name="Else" sid="729406403339505" type="System" />
                     </conditions>
                     <actions>
-                        <action id="-9" name="Set value" sid="640123583872734" type="System">
+                        <action disabled="1" id="-9" name="Set value" sid="640123583872734" type="System">
                             <param id="0" name="Variable">PlusIncubatorDisabled</param>
                             <param id="1" name="Value">0</param>
                         </action>
                     </actions>
                 </event-block>
-                <event-block sid="840813948304873">
+                <event-block any="1" sid="840813948304873">
                     <conditions>
                         <condition id="-8" name="Compare two values" sid="721308381109668" type="System">
                             <param id="0" name="First value">HumansOnPower</param>
                             <param id="1" name="Comparison">5</param>
                             <param id="2" name="Second value">10</param>
+                        </condition>
+                        <condition id="-14" name="Compare variable" sid="669793095262897" type="System">
+                            <param id="0" name="Variable">HumansInPool</param>
+                            <param id="1" name="Comparison">3</param>
+                            <param id="2" name="Value">0</param>
                         </condition>
                     </conditions>
                     <actions>
@@ -1743,6 +1767,11 @@
                             <param id="1" name="Comparison">0</param>
                             <param id="2" name="Second value">5</param>
                         </condition>
+                        <condition id="-8" name="Compare two values" sid="211907732200948" type="System">
+                            <param id="0" name="First value">HumansInPool</param>
+                            <param id="1" name="Comparison">3</param>
+                            <param id="2" name="Second value">0</param>
+                        </condition>
                     </conditions>
                     <actions>
                         <action id="-9" name="Set value" sid="787667067216812" type="System">
@@ -1773,6 +1802,11 @@
                             <param id="0" name="First value">CurrentEvent</param>
                             <param id="1" name="Comparison">0</param>
                             <param id="2" name="Second value">4</param>
+                        </condition>
+                        <condition id="-14" name="Compare variable" sid="719766035446120" type="System">
+                            <param id="0" name="Variable">HumansInPool</param>
+                            <param id="1" name="Comparison">3</param>
+                            <param id="2" name="Value">0</param>
                         </condition>
                     </conditions>
                     <actions>
@@ -1826,6 +1860,84 @@
                         <action id="-9" name="Set value" sid="540372968119434" type="System">
                             <param id="0" name="Variable">PlusIncubatorDisabled</param>
                             <param id="1" name="Value">1</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="987768339562095">
+                    <conditions>
+                        <condition id="-14" name="Compare variable" sid="733339276545637" type="System">
+                            <param id="0" name="Variable">HumansOnPower</param>
+                            <param id="1" name="Comparison">0</param>
+                            <param id="2" name="Value">0</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-9" name="Set value" sid="609417060622650" type="System">
+                            <param id="0" name="Variable">MinusPowerDisabled</param>
+                            <param id="1" name="Value">1</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="460721134442407">
+                    <conditions>
+                        <condition id="-22" name="Else" sid="161889097091536" type="System" />
+                    </conditions>
+                    <actions>
+                        <action id="-9" name="Set value" sid="753271435468648" type="System">
+                            <param id="0" name="Variable">MinusPowerDisabled</param>
+                            <param id="1" name="Value">0</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="619478099801530">
+                    <conditions>
+                        <condition id="-14" name="Compare variable" sid="316913846551422" type="System">
+                            <param id="0" name="Variable">HumansOnFood</param>
+                            <param id="1" name="Comparison">0</param>
+                            <param id="2" name="Value">0</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-9" name="Set value" sid="758096911089976" type="System">
+                            <param id="0" name="Variable">MinusFoodDisabled</param>
+                            <param id="1" name="Value">1</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="751163666362892">
+                    <conditions>
+                        <condition id="-22" name="Else" sid="247582885685686" type="System" />
+                    </conditions>
+                    <actions>
+                        <action id="-9" name="Set value" sid="373101106665892" type="System">
+                            <param id="0" name="Variable">MinusFoodDisabled</param>
+                            <param id="1" name="Value">0</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="365965725405756">
+                    <conditions>
+                        <condition id="-14" name="Compare variable" sid="299559305314480" type="System">
+                            <param id="0" name="Variable">HumansInIncubator</param>
+                            <param id="1" name="Comparison">0</param>
+                            <param id="2" name="Value">0</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-9" name="Set value" sid="700839436237937" type="System">
+                            <param id="0" name="Variable">MinusIncubatorDisabled</param>
+                            <param id="1" name="Value">1</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="676283796438230">
+                    <conditions>
+                        <condition id="-22" name="Else" sid="735955035101544" type="System" />
+                    </conditions>
+                    <actions>
+                        <action id="-9" name="Set value" sid="580390730921976" type="System">
+                            <param id="0" name="Variable">MinusIncubatorDisabled</param>
+                            <param id="1" name="Value">0</param>
                         </action>
                     </actions>
                 </event-block>
@@ -2019,6 +2131,560 @@
                 </event-block>
             </sub-events>
         </event-block>
+        <event-block sid="455266976108573">
+            <conditions>
+                <condition id="4" name="On finished" sid="310199145548606" type="Manipulator">
+                    <param id="0" name="Animation">&quot;grab&quot;</param>
+                </condition>
+            </conditions>
+            <actions />
+            <sub-events>
+                <event-block sid="452446259592385">
+                    <conditions>
+                        <condition id="-7" name="Compare instance variable" sid="241899307264825" type="Manipulator">
+                            <param id="0" name="Instance variable">type</param>
+                            <param id="1" name="Comparison">0</param>
+                            <param id="2" name="Value">&quot;poolPower&quot;</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="4" name="Set animation" sid="678794936530938" type="Manipulator">
+                            <param id="0" name="Animation">&quot;lr&quot;</param>
+                            <param id="1" name="From">1</param>
+                        </action>
+                        <action behavior="LiteTween" id="3" name="Set target" sid="582605722218184" type="Manipulator">
+                            <param id="0" name="Target is">0</param>
+                            <param id="1" name="Relativity">0</param>
+                            <param id="2" name="Value">504</param>
+                        </action>
+                        <action behavior="LiteTween" id="3" name="Set target" sid="476003799975564" type="Manipulator">
+                            <param id="0" name="Target is">1</param>
+                            <param id="1" name="Relativity">0</param>
+                            <param id="2" name="Value">20</param>
+                        </action>
+                        <action behavior="LiteTween" id="10" name="Start" sid="478747177519484" type="Manipulator">
+                            <param id="0" name="Start Mode">0</param>
+                            <param id="1" name="Force use current">1</param>
+                        </action>
+                        <action id="-16" name="Wait" sid="611407596057819" type="System">
+                            <param id="0" name="Seconds">0.15</param>
+                        </action>
+                        <action id="4" name="Set animation" sid="874735048255378" type="Manipulator">
+                            <param id="0" name="Animation">&quot;drop&quot;</param>
+                            <param id="1" name="From">1</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="211228273366273">
+                    <conditions>
+                        <condition id="-7" name="Compare instance variable" sid="403792442735057" type="Manipulator">
+                            <param id="0" name="Instance variable">type</param>
+                            <param id="1" name="Comparison">0</param>
+                            <param id="2" name="Value">&quot;powerPool&quot;</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="4" name="Set animation" sid="439040864112109" type="Manipulator">
+                            <param id="0" name="Animation">&quot;rl&quot;</param>
+                            <param id="1" name="From">1</param>
+                        </action>
+                        <action behavior="LiteTween" id="3" name="Set target" sid="965018143844975" type="Manipulator">
+                            <param id="0" name="Target is">0</param>
+                            <param id="1" name="Relativity">0</param>
+                            <param id="2" name="Value">252</param>
+                        </action>
+                        <action behavior="LiteTween" id="3" name="Set target" sid="990386514155326" type="Manipulator">
+                            <param id="0" name="Target is">1</param>
+                            <param id="1" name="Relativity">0</param>
+                            <param id="2" name="Value">20</param>
+                        </action>
+                        <action behavior="LiteTween" id="10" name="Start" sid="379021252014194" type="Manipulator">
+                            <param id="0" name="Start Mode">0</param>
+                            <param id="1" name="Force use current">1</param>
+                        </action>
+                        <action id="-16" name="Wait" sid="682361223600242" type="System">
+                            <param id="0" name="Seconds">0.15</param>
+                        </action>
+                        <action id="4" name="Set animation" sid="841847459378881" type="Manipulator">
+                            <param id="0" name="Animation">&quot;drop&quot;</param>
+                            <param id="1" name="From">1</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="856328590393970">
+                    <conditions>
+                        <condition id="-7" name="Compare instance variable" sid="293184899384777" type="Manipulator">
+                            <param id="0" name="Instance variable">type</param>
+                            <param id="1" name="Comparison">0</param>
+                            <param id="2" name="Value">&quot;poolIncubator&quot;</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="4" name="Set animation" sid="580681742254546" type="Manipulator">
+                            <param id="0" name="Animation">&quot;lr&quot;</param>
+                            <param id="1" name="From">1</param>
+                        </action>
+                        <action behavior="LiteTween" id="3" name="Set target" sid="196251540569839" type="Manipulator">
+                            <param id="0" name="Target is">0</param>
+                            <param id="1" name="Relativity">0</param>
+                            <param id="2" name="Value">732</param>
+                        </action>
+                        <action behavior="LiteTween" id="3" name="Set target" sid="803213860546126" type="Manipulator">
+                            <param id="0" name="Target is">1</param>
+                            <param id="1" name="Relativity">0</param>
+                            <param id="2" name="Value">20</param>
+                        </action>
+                        <action behavior="LiteTween" id="10" name="Start" sid="382718893095482" type="Manipulator">
+                            <param id="0" name="Start Mode">0</param>
+                            <param id="1" name="Force use current">1</param>
+                        </action>
+                        <action behavior="LiteTween" id="1" name="Set duration" sid="280869656341711" type="Manipulator">
+                            <param id="0" name="Duration">0.25</param>
+                        </action>
+                        <action id="-16" name="Wait" sid="670331851204694" type="System">
+                            <param id="0" name="Seconds">0.25</param>
+                        </action>
+                        <action id="4" name="Set animation" sid="161914534138988" type="Manipulator">
+                            <param id="0" name="Animation">&quot;drop&quot;</param>
+                            <param id="1" name="From">1</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="308276349356852">
+                    <conditions>
+                        <condition id="-7" name="Compare instance variable" sid="896649049605061" type="Manipulator">
+                            <param id="0" name="Instance variable">type</param>
+                            <param id="1" name="Comparison">0</param>
+                            <param id="2" name="Value">&quot;incubatorPool&quot;</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="4" name="Set animation" sid="169065310127141" type="Manipulator">
+                            <param id="0" name="Animation">&quot;rl&quot;</param>
+                            <param id="1" name="From">1</param>
+                        </action>
+                        <action behavior="LiteTween" id="3" name="Set target" sid="191194917765277" type="Manipulator">
+                            <param id="0" name="Target is">0</param>
+                            <param id="1" name="Relativity">0</param>
+                            <param id="2" name="Value">252</param>
+                        </action>
+                        <action behavior="LiteTween" id="3" name="Set target" sid="218929180853286" type="Manipulator">
+                            <param id="0" name="Target is">1</param>
+                            <param id="1" name="Relativity">0</param>
+                            <param id="2" name="Value">20</param>
+                        </action>
+                        <action behavior="LiteTween" id="10" name="Start" sid="933944824678128" type="Manipulator">
+                            <param id="0" name="Start Mode">0</param>
+                            <param id="1" name="Force use current">1</param>
+                        </action>
+                        <action behavior="LiteTween" id="1" name="Set duration" sid="763926294956080" type="Manipulator">
+                            <param id="0" name="Duration">0.25</param>
+                        </action>
+                        <action id="-16" name="Wait" sid="436129584628609" type="System">
+                            <param id="0" name="Seconds">0.25</param>
+                        </action>
+                        <action id="4" name="Set animation" sid="291950942230039" type="Manipulator">
+                            <param id="0" name="Animation">&quot;drop&quot;</param>
+                            <param id="1" name="From">1</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="635144825244036">
+                    <conditions>
+                        <condition id="-7" name="Compare instance variable" sid="256161636374501" type="Manipulator">
+                            <param id="0" name="Instance variable">type</param>
+                            <param id="1" name="Comparison">0</param>
+                            <param id="2" name="Value">&quot;poolFood&quot;</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="4" name="Set animation" sid="119000055371365" type="Manipulator">
+                            <param id="0" name="Animation">&quot;lr&quot;</param>
+                            <param id="1" name="From">1</param>
+                        </action>
+                        <action behavior="LiteTween" id="3" name="Set target" sid="759710843622304" type="Manipulator">
+                            <param id="0" name="Target is">0</param>
+                            <param id="1" name="Relativity">0</param>
+                            <param id="2" name="Value">1024</param>
+                        </action>
+                        <action behavior="LiteTween" id="3" name="Set target" sid="525182818058026" type="Manipulator">
+                            <param id="0" name="Target is">1</param>
+                            <param id="1" name="Relativity">0</param>
+                            <param id="2" name="Value">20</param>
+                        </action>
+                        <action behavior="LiteTween" id="10" name="Start" sid="897960940756138" type="Manipulator">
+                            <param id="0" name="Start Mode">0</param>
+                            <param id="1" name="Force use current">1</param>
+                        </action>
+                        <action behavior="LiteTween" id="1" name="Set duration" sid="736852843882442" type="Manipulator">
+                            <param id="0" name="Duration">0.4</param>
+                        </action>
+                        <action id="-16" name="Wait" sid="654115432201742" type="System">
+                            <param id="0" name="Seconds">0.4</param>
+                        </action>
+                        <action id="4" name="Set animation" sid="825255134282607" type="Manipulator">
+                            <param id="0" name="Animation">&quot;drop&quot;</param>
+                            <param id="1" name="From">1</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="864893403605131">
+                    <conditions>
+                        <condition id="-7" name="Compare instance variable" sid="686862960054925" type="Manipulator">
+                            <param id="0" name="Instance variable">type</param>
+                            <param id="1" name="Comparison">0</param>
+                            <param id="2" name="Value">&quot;foodPool&quot;</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="4" name="Set animation" sid="275040236306744" type="Manipulator">
+                            <param id="0" name="Animation">&quot;rl&quot;</param>
+                            <param id="1" name="From">1</param>
+                        </action>
+                        <action behavior="LiteTween" id="3" name="Set target" sid="342283927927988" type="Manipulator">
+                            <param id="0" name="Target is">0</param>
+                            <param id="1" name="Relativity">0</param>
+                            <param id="2" name="Value">252</param>
+                        </action>
+                        <action behavior="LiteTween" id="3" name="Set target" sid="816762243470853" type="Manipulator">
+                            <param id="0" name="Target is">1</param>
+                            <param id="1" name="Relativity">0</param>
+                            <param id="2" name="Value">20</param>
+                        </action>
+                        <action behavior="LiteTween" id="10" name="Start" sid="433300248072509" type="Manipulator">
+                            <param id="0" name="Start Mode">0</param>
+                            <param id="1" name="Force use current">1</param>
+                        </action>
+                        <action behavior="LiteTween" id="1" name="Set duration" sid="170610213496238" type="Manipulator">
+                            <param id="0" name="Duration">0.4</param>
+                        </action>
+                        <action id="-16" name="Wait" sid="663463494234645" type="System">
+                            <param id="0" name="Seconds">0.4</param>
+                        </action>
+                        <action id="4" name="Set animation" sid="661462286567010" type="Manipulator">
+                            <param id="0" name="Animation">&quot;drop&quot;</param>
+                            <param id="1" name="From">1</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="564702100894388">
+                    <conditions>
+                        <condition id="-7" name="Compare instance variable" sid="215244886086069" type="Manipulator">
+                            <param id="0" name="Instance variable">type</param>
+                            <param id="1" name="Comparison">0</param>
+                            <param id="2" name="Value">&quot;poolReactor&quot;</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="4" name="Set animation" sid="753360214006627" type="Manipulator">
+                            <param id="0" name="Animation">&quot;lr&quot;</param>
+                            <param id="1" name="From">1</param>
+                        </action>
+                        <action behavior="LiteTween" id="3" name="Set target" sid="786094712425743" type="Manipulator">
+                            <param id="0" name="Target is">0</param>
+                            <param id="1" name="Relativity">0</param>
+                            <param id="2" name="Value">1192</param>
+                        </action>
+                        <action behavior="LiteTween" id="3" name="Set target" sid="799502925907952" type="Manipulator">
+                            <param id="0" name="Target is">1</param>
+                            <param id="1" name="Relativity">0</param>
+                            <param id="2" name="Value">20</param>
+                        </action>
+                        <action behavior="LiteTween" id="10" name="Start" sid="761416501284957" type="Manipulator">
+                            <param id="0" name="Start Mode">0</param>
+                            <param id="1" name="Force use current">1</param>
+                        </action>
+                        <action behavior="LiteTween" id="1" name="Set duration" sid="335070054905710" type="Manipulator">
+                            <param id="0" name="Duration">0.5</param>
+                        </action>
+                        <action id="-16" name="Wait" sid="694201453397047" type="System">
+                            <param id="0" name="Seconds">0.5</param>
+                        </action>
+                        <action id="4" name="Set animation" sid="873307046617646" type="Manipulator">
+                            <param id="0" name="Animation">&quot;drop&quot;</param>
+                            <param id="1" name="From">1</param>
+                        </action>
+                    </actions>
+                </event-block>
+            </sub-events>
+        </event-block>
+        <event-block sid="414311893633241">
+            <conditions>
+                <condition id="4" name="On finished" sid="555660163259897" type="Manipulator">
+                    <param id="0" name="Animation">&quot;drop&quot;</param>
+                </condition>
+            </conditions>
+            <actions />
+            <sub-events>
+                <event-block sid="448584910596006">
+                    <conditions>
+                        <condition id="-7" name="Compare instance variable" sid="992410653380891" type="Manipulator">
+                            <param id="0" name="Instance variable">type</param>
+                            <param id="1" name="Comparison">0</param>
+                            <param id="2" name="Value">&quot;poolPower&quot;</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="0" name="Call function" sid="335179854712590" type="Function">
+                            <param id="0" name="Name">&quot;addToPower&quot;</param>
+                            <param id="1" name="Parameter {n}"></param>
+                        </action>
+                        <action id="0" name="Call function" sid="114968871509357" type="Function">
+                            <param id="0" name="Name">&quot;refreshInterface&quot;</param>
+                            <param id="1" name="Parameter {n}"></param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="558414011829247">
+                    <conditions>
+                        <condition id="-7" name="Compare instance variable" sid="157582302614038" type="Manipulator">
+                            <param id="0" name="Instance variable">type</param>
+                            <param id="1" name="Comparison">0</param>
+                            <param id="2" name="Value">&quot;poolIncubator&quot;</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="0" name="Call function" sid="218926020308933" type="Function">
+                            <param id="0" name="Name">&quot;addToIncubator&quot;</param>
+                            <param id="1" name="Parameter {n}"></param>
+                        </action>
+                        <action id="0" name="Call function" sid="348996550620905" type="Function">
+                            <param id="0" name="Name">&quot;addToIncubator&quot;</param>
+                            <param id="1" name="Parameter {n}"></param>
+                        </action>
+                        <action id="0" name="Call function" sid="803851317345848" type="Function">
+                            <param id="0" name="Name">&quot;refreshInterface&quot;</param>
+                            <param id="1" name="Parameter {n}"></param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="447667543351455">
+                    <conditions>
+                        <condition id="-7" name="Compare instance variable" sid="554766664692950" type="Manipulator">
+                            <param id="0" name="Instance variable">type</param>
+                            <param id="1" name="Comparison">0</param>
+                            <param id="2" name="Value">&quot;poolFood&quot;</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="0" name="Call function" sid="147708051820317" type="Function">
+                            <param id="0" name="Name">&quot;addToFood&quot;</param>
+                            <param id="1" name="Parameter {n}"></param>
+                        </action>
+                        <action id="0" name="Call function" sid="349947239779832" type="Function">
+                            <param id="0" name="Name">&quot;refreshInterface&quot;</param>
+                            <param id="1" name="Parameter {n}"></param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="554778512630477">
+                    <conditions>
+                        <condition id="-7" name="Compare instance variable" sid="684742891514759" type="Manipulator">
+                            <param id="0" name="Instance variable">type</param>
+                            <param id="1" name="Comparison">0</param>
+                            <param id="2" name="Value">&quot;poolReactor&quot;</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="0" name="Call function" sid="604694167695291" type="Function">
+                            <param id="0" name="Name">&quot;AddToMeat&quot;</param>
+                            <param id="1" name="Parameter {n}"></param>
+                        </action>
+                        <action id="0" name="Call function" sid="229848365141435" type="Function">
+                            <param id="0" name="Name">&quot;refreshInterface&quot;</param>
+                            <param id="1" name="Parameter {n}"></param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="960353191586522">
+                    <conditions>
+                        <condition id="-7" name="Compare instance variable" sid="397871614524119" type="Manipulator">
+                            <param id="0" name="Instance variable">type</param>
+                            <param id="1" name="Comparison">0</param>
+                            <param id="2" name="Value">&quot;powerPool&quot;</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="0" name="Call function" sid="492827953507106" type="Function">
+                            <param id="0" name="Name">&quot;removeFromPower&quot;</param>
+                            <param id="1" name="Parameter {n}"></param>
+                        </action>
+                        <action id="0" name="Call function" sid="122268599248827" type="Function">
+                            <param id="0" name="Name">&quot;refreshInterface&quot;</param>
+                            <param id="1" name="Parameter {n}"></param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="356573472173170">
+                    <conditions>
+                        <condition id="-7" name="Compare instance variable" sid="599325046975929" type="Manipulator">
+                            <param id="0" name="Instance variable">type</param>
+                            <param id="1" name="Comparison">0</param>
+                            <param id="2" name="Value">&quot;incubatorPool&quot;</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="0" name="Call function" sid="476787677419633" type="Function">
+                            <param id="0" name="Name">&quot;removeFromIncubator&quot;</param>
+                            <param id="1" name="Parameter {n}"></param>
+                        </action>
+                        <action id="0" name="Call function" sid="611380111274416" type="Function">
+                            <param id="0" name="Name">&quot;removeFromIncubator&quot;</param>
+                            <param id="1" name="Parameter {n}"></param>
+                        </action>
+                        <action id="0" name="Call function" sid="683271501268650" type="Function">
+                            <param id="0" name="Name">&quot;refreshInterface&quot;</param>
+                            <param id="1" name="Parameter {n}"></param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="304934156773911">
+                    <conditions>
+                        <condition id="-7" name="Compare instance variable" sid="856506776292102" type="Manipulator">
+                            <param id="0" name="Instance variable">type</param>
+                            <param id="1" name="Comparison">0</param>
+                            <param id="2" name="Value">&quot;foodPool&quot;</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="0" name="Call function" sid="165826517529002" type="Function">
+                            <param id="0" name="Name">&quot;removeFromFood&quot;</param>
+                            <param id="1" name="Parameter {n}"></param>
+                        </action>
+                        <action id="0" name="Call function" sid="413359566230332" type="Function">
+                            <param id="0" name="Name">&quot;refreshInterface&quot;</param>
+                            <param id="1" name="Parameter {n}"></param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="813632835227605">
+                    <conditions />
+                    <actions>
+                        <action id="-9" name="Destroy" sid="292748131879348" type="Manipulator" />
+                    </actions>
+                </event-block>
+            </sub-events>
+        </event-block>
+        <event-block sid="614877869478460">
+            <conditions>
+                <condition id="3" name="Compare frame" sid="950939229730311" type="Manipulator">
+                    <param id="0" name="Comparison">0</param>
+                    <param id="1" name="Number">4</param>
+                </condition>
+                <condition id="-7" name="Compare instance variable" sid="748955177414489" type="Manipulator">
+                    <param id="0" name="Instance variable">created</param>
+                    <param id="1" name="Comparison">0</param>
+                    <param id="2" name="Value">0</param>
+                </condition>
+                <condition id="2" name="Is playing" sid="611814386551652" type="Manipulator">
+                    <param id="0" name="Animation">&quot;drop&quot;</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="-10" name="Set value" sid="897329544936657" type="Manipulator">
+                    <param id="0" name="Instance variable">created</param>
+                    <param id="1" name="Value">1</param>
+                </action>
+            </actions>
+            <sub-events>
+                <event-block any="1" sid="628181894284856">
+                    <conditions>
+                        <condition id="-7" name="Compare instance variable" sid="813737874109546" type="Manipulator">
+                            <param id="0" name="Instance variable">type</param>
+                            <param id="1" name="Comparison">0</param>
+                            <param id="2" name="Value">&quot;powerPool&quot;</param>
+                        </condition>
+                        <condition id="-7" name="Compare instance variable" sid="199669222223021" type="Manipulator">
+                            <param id="0" name="Instance variable">type</param>
+                            <param id="1" name="Comparison">0</param>
+                            <param id="2" name="Value">&quot;incubatorPool&quot;</param>
+                        </condition>
+                        <condition id="-7" name="Compare instance variable" sid="568711171186957" type="Manipulator">
+                            <param id="0" name="Instance variable">type</param>
+                            <param id="1" name="Comparison">0</param>
+                            <param id="2" name="Value">&quot;foodPool&quot;</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-3" name="Create object" sid="574138632159174" type="System">
+                            <param id="0" name="Object to create">PoolIn</param>
+                            <param id="1" name="Layer">&quot;BackgroundAnimations&quot;</param>
+                            <param id="2" name="X">264</param>
+                            <param id="3" name="Y">256</param>
+                        </action>
+                        <action id="4" name="Set animation" sid="948746486585324" type="PoolOut">
+                            <param id="0" name="Animation">&quot;default&quot;</param>
+                            <param id="1" name="From">1</param>
+                        </action>
+                    </actions>
+                </event-block>
+            </sub-events>
+        </event-block>
+        <event-block sid="831130001876868">
+            <conditions>
+                <condition id="3" name="Compare frame" sid="669096191994280" type="PoolOut">
+                    <param id="0" name="Comparison">0</param>
+                    <param id="1" name="Number">4</param>
+                </condition>
+            </conditions>
+            <actions />
+            <sub-events>
+                <event-block sid="237344626339574">
+                    <conditions>
+                        <condition id="-7" name="Compare instance variable" sid="201978606643627" type="PoolOut">
+                            <param id="0" name="Instance variable">type</param>
+                            <param id="1" name="Comparison">0</param>
+                            <param id="2" name="Value">&quot;poolPower&quot;</param>
+                        </condition>
+                        <condition id="-7" name="Compare instance variable" sid="920688150393934" type="PoolOut">
+                            <param id="0" name="Instance variable">created</param>
+                            <param id="1" name="Comparison">0</param>
+                            <param id="2" name="Value">0</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-10" name="Set value" sid="464812374413639" type="PoolOut">
+                            <param id="0" name="Instance variable">created</param>
+                            <param id="1" name="Value">1</param>
+                        </action>
+                        <action id="-3" name="Create object" sid="486285782081331" type="System">
+                            <param id="0" name="Object to create">Manipulator</param>
+                            <param id="1" name="Layer">&quot;BackgroundAnimations&quot;</param>
+                            <param id="2" name="X">252</param>
+                            <param id="3" name="Y">20</param>
+                        </action>
+                        <action id="4" name="Set animation" sid="599112123094357" type="Manipulator">
+                            <param id="0" name="Animation">&quot;grab&quot;</param>
+                            <param id="1" name="From">1</param>
+                        </action>
+                        <action id="-10" name="Set value" sid="418572107702185" type="Manipulator">
+                            <param id="0" name="Instance variable">type</param>
+                            <param id="1" name="Value">&quot;poolPower&quot;</param>
+                        </action>
+                    </actions>
+                </event-block>
+            </sub-events>
+        </event-block>
+        <event-block sid="334033922923933">
+            <conditions>
+                <condition id="4" name="On finished" sid="936795202711117" type="PoolOut">
+                    <param id="0" name="Animation">&quot;default&quot;</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="-9" name="Destroy" sid="997296621031884" type="PoolOut" />
+            </actions>
+        </event-block>
+        <event-block sid="336423044853198">
+            <conditions>
+                <condition id="4" name="On finished" sid="426021166378676" type="PoolIn">
+                    <param id="0" name="Animation">&quot;default&quot;</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="-9" name="Destroy" sid="678644381238891" type="PoolIn" />
+            </actions>
+        </event-block>
         <event-block sid="159738775562736">
             <conditions>
                 <condition id="0" name="On function" sid="492299618279558" type="Function">
@@ -2053,7 +2719,7 @@
                                     <param id="0" name="Variable">HumansOnPower</param>
                                     <param id="1" name="Value">HumansOnPower + 1</param>
                                 </action>
-                                <action id="-9" name="Set value" sid="644837065315534" type="System">
+                                <action disabled="1" id="-9" name="Set value" sid="697114202970025" type="System">
                                     <param id="0" name="Variable">HumansInPool</param>
                                     <param id="1" name="Value">HumansInPool - 1</param>
                                 </action>
@@ -2094,13 +2760,31 @@
                 </condition>
             </conditions>
             <actions>
-                <action id="0" name="Call function" sid="513777735233614" type="Function">
+                <action disabled="1" id="0" name="Call function" sid="864205248158740" type="Function">
                     <param id="0" name="Name">&quot;addToPower&quot;</param>
                     <param id="1" name="Parameter {n}"></param>
                 </action>
-                <action id="0" name="Call function" sid="708971864919917" type="Function">
+                <action disabled="1" id="0" name="Call function" sid="322018352846091" type="Function">
                     <param id="0" name="Name">&quot;refreshInterface&quot;</param>
                     <param id="1" name="Parameter {n}"></param>
+                </action>
+                <action id="-9" name="Set value" sid="644837065315534" type="System">
+                    <param id="0" name="Variable">HumansInPool</param>
+                    <param id="1" name="Value">HumansInPool - 1</param>
+                </action>
+                <action id="-3" name="Create object" sid="613878285289017" type="System">
+                    <param id="0" name="Object to create">PoolOut</param>
+                    <param id="1" name="Layer">&quot;BackgroundAnimations&quot;</param>
+                    <param id="2" name="X">264</param>
+                    <param id="3" name="Y">256</param>
+                </action>
+                <action id="4" name="Set animation" sid="935521860006349" type="PoolOut">
+                    <param id="0" name="Animation">&quot;default&quot;</param>
+                    <param id="1" name="From">1</param>
+                </action>
+                <action id="-10" name="Set value" sid="113741009438550" type="PoolOut">
+                    <param id="0" name="Instance variable">type</param>
+                    <param id="1" name="Value">&quot;poolPower&quot;</param>
                 </action>
             </actions>
         </event-block>
@@ -2134,7 +2818,7 @@
                                     <param id="0" name="Instance variable">group</param>
                                     <param id="1" name="Value">&quot;pool&quot;</param>
                                 </action>
-                                <action id="-9" name="Set value" sid="431104204537557" type="System">
+                                <action disabled="1" id="-9" name="Set value" sid="431104204537557" type="System">
                                     <param id="0" name="Variable">HumansOnPower</param>
                                     <param id="1" name="Value">HumansOnPower - 1</param>
                                 </action>
@@ -2162,166 +2846,31 @@
                 </condition>
             </conditions>
             <actions>
-                <action id="0" name="Call function" sid="307524564378584" type="Function">
+                <action disabled="1" id="0" name="Call function" sid="307524564378584" type="Function">
                     <param id="0" name="Name">&quot;removeFromPower&quot;</param>
                     <param id="1" name="Parameter {n}"></param>
                 </action>
-                <action id="0" name="Call function" sid="722017598803842" type="Function">
+                <action disabled="1" id="0" name="Call function" sid="722017598803842" type="Function">
                     <param id="0" name="Name">&quot;refreshInterface&quot;</param>
                     <param id="1" name="Parameter {n}"></param>
                 </action>
-            </actions>
-        </event-block>
-        <event-block sid="612278632765064">
-            <conditions>
-                <condition id="0" name="On function" sid="868610830000678" type="Function">
-                    <param id="0" name="Name">&quot;addToFood&quot;</param>
-                </condition>
-            </conditions>
-            <actions />
-            <sub-events>
-                <event-block sid="777291074499655">
-                    <conditions>
-                        <condition id="-7" name="Compare instance variable" sid="543756613119983" type="Human">
-                            <param id="0" name="Instance variable">group</param>
-                            <param id="1" name="Comparison">0</param>
-                            <param id="2" name="Value">&quot;pool&quot;</param>
-                        </condition>
-                    </conditions>
-                    <actions />
-                    <sub-events>
-                        <event-block sid="459456884644770">
-                            <conditions>
-                                <condition id="-20" name="Pick highest/lowest" sid="335514899361596" type="Human">
-                                    <param id="0" name="Which">1</param>
-                                    <param id="1" name="Instance variable">energy</param>
-                                </condition>
-                            </conditions>
-                            <actions>
-                                <action id="-10" name="Set value" sid="453448659952250" type="Human">
-                                    <param id="0" name="Instance variable">group</param>
-                                    <param id="1" name="Value">&quot;food&quot;</param>
-                                </action>
-                                <action id="-9" name="Set value" sid="751426952232753" type="System">
-                                    <param id="0" name="Variable">HumansOnFood</param>
-                                    <param id="1" name="Value">HumansOnFood + 1</param>
-                                </action>
-                                <action id="-9" name="Set value" sid="446188173323379" type="System">
-                                    <param id="0" name="Variable">HumansInPool</param>
-                                    <param id="1" name="Value">HumansInPool - 1</param>
-                                </action>
-                            </actions>
-                            <sub-events>
-                                <event-block sid="880622053480809">
-                                    <conditions>
-                                        <condition id="-14" name="Compare variable" sid="576126965947374" type="System">
-                                            <param id="0" name="Variable">HumansOnFood</param>
-                                            <param id="1" name="Comparison">0</param>
-                                            <param id="2" name="Value">10</param>
-                                        </condition>
-                                    </conditions>
-                                    <actions>
-                                        <action id="0" name="Call function" sid="985968697604205" type="Function">
-                                            <param id="0" name="Name">&quot;flashGood3&quot;</param>
-                                            <param id="1" name="Parameter {n}">62</param>
-                                        </action>
-                                    </actions>
-                                </event-block>
-                            </sub-events>
-                        </event-block>
-                    </sub-events>
-                </event-block>
-            </sub-events>
-        </event-block>
-        <event-block sid="290770267473137">
-            <conditions>
-                <condition id="6" name="On object clicked" sid="763658110919769" type="Mouse">
-                    <param id="0" name="Mouse button">0</param>
-                    <param id="1" name="Click type">0</param>
-                    <param id="2" name="Object clicked">PlusFoodButton</param>
-                </condition>
-                <condition id="-14" name="Compare variable" sid="909748221452204" type="System">
-                    <param id="0" name="Variable">PlusFoodDisabled</param>
-                    <param id="1" name="Comparison">0</param>
-                    <param id="2" name="Value">0</param>
-                </condition>
-            </conditions>
-            <actions>
-                <action id="0" name="Call function" sid="958293481777541" type="Function">
-                    <param id="0" name="Name">&quot;addToFood&quot;</param>
-                    <param id="1" name="Parameter {n}"></param>
+                <action id="-9" name="Set value" sid="326814254822387" type="System">
+                    <param id="0" name="Variable">HumansOnPower</param>
+                    <param id="1" name="Value">HumansOnPower - 1</param>
                 </action>
-                <action id="0" name="Call function" sid="147702990850972" type="Function">
-                    <param id="0" name="Name">&quot;refreshInterface&quot;</param>
-                    <param id="1" name="Parameter {n}"></param>
+                <action id="-3" name="Create object" sid="535621137338302" type="System">
+                    <param id="0" name="Object to create">Manipulator</param>
+                    <param id="1" name="Layer">&quot;BackgroundAnimations&quot;</param>
+                    <param id="2" name="X">504</param>
+                    <param id="3" name="Y">20</param>
                 </action>
-            </actions>
-        </event-block>
-        <event-block sid="489687388299148">
-            <conditions>
-                <condition id="0" name="On function" sid="480273149399686" type="Function">
-                    <param id="0" name="Name">&quot;removeFromFood&quot;</param>
-                </condition>
-            </conditions>
-            <actions />
-            <sub-events>
-                <event-block sid="734736430250593">
-                    <conditions>
-                        <condition id="-7" name="Compare instance variable" sid="443663840042547" type="Human">
-                            <param id="0" name="Instance variable">group</param>
-                            <param id="1" name="Comparison">0</param>
-                            <param id="2" name="Value">&quot;food&quot;</param>
-                        </condition>
-                    </conditions>
-                    <actions />
-                    <sub-events>
-                        <event-block sid="274705126267147">
-                            <conditions>
-                                <condition id="-20" name="Pick highest/lowest" sid="502231810797511" type="Human">
-                                    <param id="0" name="Which">0</param>
-                                    <param id="1" name="Instance variable">energy</param>
-                                </condition>
-                            </conditions>
-                            <actions>
-                                <action id="-10" name="Set value" sid="150699935520479" type="Human">
-                                    <param id="0" name="Instance variable">group</param>
-                                    <param id="1" name="Value">&quot;pool&quot;</param>
-                                </action>
-                                <action id="-9" name="Set value" sid="597925707236125" type="System">
-                                    <param id="0" name="Variable">HumansOnFood</param>
-                                    <param id="1" name="Value">HumansOnFood - 1</param>
-                                </action>
-                                <action id="-9" name="Set value" sid="790331955953171" type="System">
-                                    <param id="0" name="Variable">HumansInPool</param>
-                                    <param id="1" name="Value">HumansInPool + 1</param>
-                                </action>
-                            </actions>
-                        </event-block>
-                    </sub-events>
-                </event-block>
-            </sub-events>
-        </event-block>
-        <event-block sid="819979888861660">
-            <conditions>
-                <condition id="6" name="On object clicked" sid="451082317878733" type="Mouse">
-                    <param id="0" name="Mouse button">0</param>
-                    <param id="1" name="Click type">0</param>
-                    <param id="2" name="Object clicked">MinusFoodButton</param>
-                </condition>
-                <condition id="-14" name="Compare variable" sid="542547779550687" type="System">
-                    <param id="0" name="Variable">MinusFoodDisabled</param>
-                    <param id="1" name="Comparison">0</param>
-                    <param id="2" name="Value">0</param>
-                </condition>
-            </conditions>
-            <actions>
-                <action id="0" name="Call function" sid="819923659749758" type="Function">
-                    <param id="0" name="Name">&quot;removeFromFood&quot;</param>
-                    <param id="1" name="Parameter {n}"></param>
+                <action id="4" name="Set animation" sid="630374625110610" type="Manipulator">
+                    <param id="0" name="Animation">&quot;grab&quot;</param>
+                    <param id="1" name="From">1</param>
                 </action>
-                <action id="0" name="Call function" sid="765359919754023" type="Function">
-                    <param id="0" name="Name">&quot;refreshInterface&quot;</param>
-                    <param id="1" name="Parameter {n}"></param>
+                <action id="-10" name="Set value" sid="652863380304903" type="Manipulator">
+                    <param id="0" name="Instance variable">type</param>
+                    <param id="1" name="Value">&quot;powerPool&quot;</param>
                 </action>
             </actions>
         </event-block>
@@ -2359,7 +2908,7 @@
                                     <param id="0" name="Variable">HumansInIncubator</param>
                                     <param id="1" name="Value">HumansInIncubator + 1</param>
                                 </action>
-                                <action id="-9" name="Set value" sid="357666884571357" type="System">
+                                <action disabled="1" id="-9" name="Set value" sid="357666884571357" type="System">
                                     <param id="0" name="Variable">HumansInPool</param>
                                     <param id="1" name="Value">HumansInPool - 1</param>
                                 </action>
@@ -2400,17 +2949,35 @@
                 </condition>
             </conditions>
             <actions>
-                <action id="0" name="Call function" sid="211421750996638" type="Function">
+                <action disabled="1" id="0" name="Call function" sid="211421750996638" type="Function">
                     <param id="0" name="Name">&quot;addToIncubator&quot;</param>
                     <param id="1" name="Parameter {n}"></param>
                 </action>
-                <action id="0" name="Call function" sid="214693350700975" type="Function">
+                <action disabled="1" id="0" name="Call function" sid="214693350700975" type="Function">
                     <param id="0" name="Name">&quot;addToIncubator&quot;</param>
                     <param id="1" name="Parameter {n}"></param>
                 </action>
-                <action id="0" name="Call function" sid="968815042513462" type="Function">
+                <action disabled="1" id="0" name="Call function" sid="968815042513462" type="Function">
                     <param id="0" name="Name">&quot;refreshInterface&quot;</param>
                     <param id="1" name="Parameter {n}"></param>
+                </action>
+                <action id="-9" name="Set value" sid="597859607196857" type="System">
+                    <param id="0" name="Variable">HumansInPool</param>
+                    <param id="1" name="Value">HumansInPool - 1</param>
+                </action>
+                <action id="-3" name="Create object" sid="291849822222920" type="System">
+                    <param id="0" name="Object to create">Manipulator</param>
+                    <param id="1" name="Layer">&quot;BackgroundAnimations&quot;</param>
+                    <param id="2" name="X">252</param>
+                    <param id="3" name="Y">20</param>
+                </action>
+                <action id="4" name="Set animation" sid="867071042779422" type="Manipulator">
+                    <param id="0" name="Animation">&quot;grab&quot;</param>
+                    <param id="1" name="From">1</param>
+                </action>
+                <action id="-10" name="Set value" sid="735527638131990" type="Manipulator">
+                    <param id="0" name="Instance variable">type</param>
+                    <param id="1" name="Value">&quot;poolIncubator&quot;</param>
                 </action>
             </actions>
         </event-block>
@@ -2444,7 +3011,7 @@
                                     <param id="0" name="Instance variable">group</param>
                                     <param id="1" name="Value">&quot;pool&quot;</param>
                                 </action>
-                                <action id="-9" name="Set value" sid="726571096462929" type="System">
+                                <action disabled="1" id="-9" name="Set value" sid="726571096462929" type="System">
                                     <param id="0" name="Variable">HumansInIncubator</param>
                                     <param id="1" name="Value">HumansInIncubator - 1</param>
                                 </action>
@@ -2472,17 +3039,224 @@
                 </condition>
             </conditions>
             <actions>
-                <action id="0" name="Call function" sid="772822685988571" type="Function">
+                <action disabled="1" id="0" name="Call function" sid="772822685988571" type="Function">
                     <param id="0" name="Name">&quot;removeFromIncubator&quot;</param>
                     <param id="1" name="Parameter {n}"></param>
                 </action>
-                <action id="0" name="Call function" sid="403420682101901" type="Function">
+                <action disabled="1" id="0" name="Call function" sid="403420682101901" type="Function">
                     <param id="0" name="Name">&quot;removeFromIncubator&quot;</param>
                     <param id="1" name="Parameter {n}"></param>
                 </action>
-                <action id="0" name="Call function" sid="184103039347718" type="Function">
+                <action disabled="1" id="0" name="Call function" sid="184103039347718" type="Function">
                     <param id="0" name="Name">&quot;refreshInterface&quot;</param>
                     <param id="1" name="Parameter {n}"></param>
+                </action>
+                <action id="-9" name="Set value" sid="320847149513923" type="System">
+                    <param id="0" name="Variable">HumansInIncubator</param>
+                    <param id="1" name="Value">HumansInIncubator - 2</param>
+                </action>
+                <action id="-3" name="Create object" sid="180230073583858" type="System">
+                    <param id="0" name="Object to create">Manipulator</param>
+                    <param id="1" name="Layer">&quot;BackgroundAnimations&quot;</param>
+                    <param id="2" name="X">732</param>
+                    <param id="3" name="Y">20</param>
+                </action>
+                <action id="4" name="Set animation" sid="632770542113778" type="Manipulator">
+                    <param id="0" name="Animation">&quot;grab&quot;</param>
+                    <param id="1" name="From">1</param>
+                </action>
+                <action id="-10" name="Set value" sid="469078311781039" type="Manipulator">
+                    <param id="0" name="Instance variable">type</param>
+                    <param id="1" name="Value">&quot;incubatorPool&quot;</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="612278632765064">
+            <conditions>
+                <condition id="0" name="On function" sid="868610830000678" type="Function">
+                    <param id="0" name="Name">&quot;addToFood&quot;</param>
+                </condition>
+            </conditions>
+            <actions />
+            <sub-events>
+                <event-block sid="777291074499655">
+                    <conditions>
+                        <condition id="-7" name="Compare instance variable" sid="543756613119983" type="Human">
+                            <param id="0" name="Instance variable">group</param>
+                            <param id="1" name="Comparison">0</param>
+                            <param id="2" name="Value">&quot;pool&quot;</param>
+                        </condition>
+                    </conditions>
+                    <actions />
+                    <sub-events>
+                        <event-block sid="459456884644770">
+                            <conditions>
+                                <condition id="-20" name="Pick highest/lowest" sid="335514899361596" type="Human">
+                                    <param id="0" name="Which">1</param>
+                                    <param id="1" name="Instance variable">energy</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="-10" name="Set value" sid="453448659952250" type="Human">
+                                    <param id="0" name="Instance variable">group</param>
+                                    <param id="1" name="Value">&quot;food&quot;</param>
+                                </action>
+                                <action id="-9" name="Set value" sid="751426952232753" type="System">
+                                    <param id="0" name="Variable">HumansOnFood</param>
+                                    <param id="1" name="Value">HumansOnFood + 1</param>
+                                </action>
+                                <action disabled="1" id="-9" name="Set value" sid="446188173323379" type="System">
+                                    <param id="0" name="Variable">HumansInPool</param>
+                                    <param id="1" name="Value">HumansInPool - 1</param>
+                                </action>
+                            </actions>
+                            <sub-events>
+                                <event-block sid="880622053480809">
+                                    <conditions>
+                                        <condition id="-14" name="Compare variable" sid="576126965947374" type="System">
+                                            <param id="0" name="Variable">HumansOnFood</param>
+                                            <param id="1" name="Comparison">0</param>
+                                            <param id="2" name="Value">10</param>
+                                        </condition>
+                                    </conditions>
+                                    <actions>
+                                        <action id="0" name="Call function" sid="985968697604205" type="Function">
+                                            <param id="0" name="Name">&quot;flashGood3&quot;</param>
+                                            <param id="1" name="Parameter {n}">62</param>
+                                        </action>
+                                    </actions>
+                                </event-block>
+                            </sub-events>
+                        </event-block>
+                    </sub-events>
+                </event-block>
+            </sub-events>
+        </event-block>
+        <event-block sid="290770267473137">
+            <conditions>
+                <condition id="6" name="On object clicked" sid="763658110919769" type="Mouse">
+                    <param id="0" name="Mouse button">0</param>
+                    <param id="1" name="Click type">0</param>
+                    <param id="2" name="Object clicked">PlusFoodButton</param>
+                </condition>
+                <condition id="-14" name="Compare variable" sid="909748221452204" type="System">
+                    <param id="0" name="Variable">PlusFoodDisabled</param>
+                    <param id="1" name="Comparison">0</param>
+                    <param id="2" name="Value">0</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action disabled="1" id="0" name="Call function" sid="958293481777541" type="Function">
+                    <param id="0" name="Name">&quot;addToFood&quot;</param>
+                    <param id="1" name="Parameter {n}"></param>
+                </action>
+                <action disabled="1" id="0" name="Call function" sid="147702990850972" type="Function">
+                    <param id="0" name="Name">&quot;refreshInterface&quot;</param>
+                    <param id="1" name="Parameter {n}"></param>
+                </action>
+                <action id="-9" name="Set value" sid="392167932525579" type="System">
+                    <param id="0" name="Variable">HumansInPool</param>
+                    <param id="1" name="Value">HumansInPool - 1</param>
+                </action>
+                <action id="-3" name="Create object" sid="905849524438804" type="System">
+                    <param id="0" name="Object to create">Manipulator</param>
+                    <param id="1" name="Layer">&quot;BackgroundAnimations&quot;</param>
+                    <param id="2" name="X">252</param>
+                    <param id="3" name="Y">20</param>
+                </action>
+                <action id="4" name="Set animation" sid="230256566493083" type="Manipulator">
+                    <param id="0" name="Animation">&quot;grab&quot;</param>
+                    <param id="1" name="From">1</param>
+                </action>
+                <action id="-10" name="Set value" sid="100658243144077" type="Manipulator">
+                    <param id="0" name="Instance variable">type</param>
+                    <param id="1" name="Value">&quot;poolFood&quot;</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="489687388299148">
+            <conditions>
+                <condition id="0" name="On function" sid="480273149399686" type="Function">
+                    <param id="0" name="Name">&quot;removeFromFood&quot;</param>
+                </condition>
+            </conditions>
+            <actions />
+            <sub-events>
+                <event-block sid="734736430250593">
+                    <conditions>
+                        <condition id="-7" name="Compare instance variable" sid="443663840042547" type="Human">
+                            <param id="0" name="Instance variable">group</param>
+                            <param id="1" name="Comparison">0</param>
+                            <param id="2" name="Value">&quot;food&quot;</param>
+                        </condition>
+                    </conditions>
+                    <actions />
+                    <sub-events>
+                        <event-block sid="274705126267147">
+                            <conditions>
+                                <condition id="-20" name="Pick highest/lowest" sid="502231810797511" type="Human">
+                                    <param id="0" name="Which">0</param>
+                                    <param id="1" name="Instance variable">energy</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="-10" name="Set value" sid="150699935520479" type="Human">
+                                    <param id="0" name="Instance variable">group</param>
+                                    <param id="1" name="Value">&quot;pool&quot;</param>
+                                </action>
+                                <action disabled="1" id="-9" name="Set value" sid="597925707236125" type="System">
+                                    <param id="0" name="Variable">HumansOnFood</param>
+                                    <param id="1" name="Value">HumansOnFood - 1</param>
+                                </action>
+                                <action id="-9" name="Set value" sid="790331955953171" type="System">
+                                    <param id="0" name="Variable">HumansInPool</param>
+                                    <param id="1" name="Value">HumansInPool + 1</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                    </sub-events>
+                </event-block>
+            </sub-events>
+        </event-block>
+        <event-block sid="819979888861660">
+            <conditions>
+                <condition id="6" name="On object clicked" sid="451082317878733" type="Mouse">
+                    <param id="0" name="Mouse button">0</param>
+                    <param id="1" name="Click type">0</param>
+                    <param id="2" name="Object clicked">MinusFoodButton</param>
+                </condition>
+                <condition id="-14" name="Compare variable" sid="542547779550687" type="System">
+                    <param id="0" name="Variable">MinusFoodDisabled</param>
+                    <param id="1" name="Comparison">0</param>
+                    <param id="2" name="Value">0</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action disabled="1" id="0" name="Call function" sid="819923659749758" type="Function">
+                    <param id="0" name="Name">&quot;removeFromFood&quot;</param>
+                    <param id="1" name="Parameter {n}"></param>
+                </action>
+                <action disabled="1" id="0" name="Call function" sid="765359919754023" type="Function">
+                    <param id="0" name="Name">&quot;refreshInterface&quot;</param>
+                    <param id="1" name="Parameter {n}"></param>
+                </action>
+                <action id="-9" name="Set value" sid="115824331790334" type="System">
+                    <param id="0" name="Variable">HumansOnFood</param>
+                    <param id="1" name="Value">HumansOnFood - 1</param>
+                </action>
+                <action id="-3" name="Create object" sid="167002550491556" type="System">
+                    <param id="0" name="Object to create">Manipulator</param>
+                    <param id="1" name="Layer">&quot;BackgroundAnimations&quot;</param>
+                    <param id="2" name="X">1024</param>
+                    <param id="3" name="Y">20</param>
+                </action>
+                <action id="4" name="Set animation" sid="200121103176515" type="Manipulator">
+                    <param id="0" name="Animation">&quot;grab&quot;</param>
+                    <param id="1" name="From">1</param>
+                </action>
+                <action id="-10" name="Set value" sid="622405994660142" type="Manipulator">
+                    <param id="0" name="Instance variable">type</param>
+                    <param id="1" name="Value">&quot;foodPool&quot;</param>
                 </action>
             </actions>
         </event-block>
@@ -2520,7 +3294,7 @@
                                     <param id="0" name="Variable">HumansOnMeat</param>
                                     <param id="1" name="Value">HumansOnMeat + 1</param>
                                 </action>
-                                <action id="-9" name="Set value" sid="744520270896450" type="System">
+                                <action disabled="1" id="-9" name="Set value" sid="744520270896450" type="System">
                                     <param id="0" name="Variable">HumansInPool</param>
                                     <param id="1" name="Value">HumansInPool - 1</param>
                                 </action>
@@ -2561,13 +3335,31 @@
                 </condition>
             </conditions>
             <actions>
-                <action id="0" name="Call function" sid="537866168036152" type="Function">
+                <action disabled="1" id="0" name="Call function" sid="537866168036152" type="Function">
                     <param id="0" name="Name">&quot;addToMeat&quot;</param>
                     <param id="1" name="Parameter {n}"></param>
                 </action>
-                <action id="0" name="Call function" sid="909395911479760" type="Function">
+                <action disabled="1" id="0" name="Call function" sid="909395911479760" type="Function">
                     <param id="0" name="Name">&quot;refreshInterface&quot;</param>
                     <param id="1" name="Parameter {n}"></param>
+                </action>
+                <action id="-9" name="Set value" sid="723323621710903" type="System">
+                    <param id="0" name="Variable">HumansInPool</param>
+                    <param id="1" name="Value">HumansInPool - 1</param>
+                </action>
+                <action id="-3" name="Create object" sid="276925796690038" type="System">
+                    <param id="0" name="Object to create">Manipulator</param>
+                    <param id="1" name="Layer">&quot;BackgroundAnimations&quot;</param>
+                    <param id="2" name="X">252</param>
+                    <param id="3" name="Y">20</param>
+                </action>
+                <action id="4" name="Set animation" sid="535810685710262" type="Manipulator">
+                    <param id="0" name="Animation">&quot;grab&quot;</param>
+                    <param id="1" name="From">1</param>
+                </action>
+                <action id="-10" name="Set value" sid="927231364530435" type="Manipulator">
+                    <param id="0" name="Instance variable">type</param>
+                    <param id="1" name="Value">&quot;poolReactor&quot;</param>
                 </action>
             </actions>
         </event-block>
@@ -3653,11 +4445,7 @@
                             <param id="2" name="Second value">1</param>
                         </condition>
                     </conditions>
-                    <actions>
-                        <action id="0" name="Set text" sid="411463377288396" type="SpriteFont">
-                            <param id="0" name="Text">&quot;Event1&quot;</param>
-                        </action>
-                    </actions>
+                    <actions />
                 </event-block>
                 <event-block sid="544441258046561">
                     <conditions>
@@ -3671,9 +4459,6 @@
                         <action id="-9" name="Set value" sid="247233395451066" type="System">
                             <param id="0" name="Variable">CurrentPower</param>
                             <param id="1" name="Value">CurrentPower/2</param>
-                        </action>
-                        <action id="0" name="Set text" sid="408230103088867" type="SpriteFont">
-                            <param id="0" name="Text">&quot;Event2&quot;</param>
                         </action>
                     </actions>
                 </event-block>
@@ -3690,9 +4475,6 @@
                             <param id="0" name="Variable">Event3Max</param>
                             <param id="1" name="Value">min(floor(TotalHumans*const_e3_rebellion), 10)</param>
                         </action>
-                        <action id="0" name="Set text" sid="509376367210868" type="SpriteFont">
-                            <param id="0" name="Text">&quot;Event3&quot;</param>
-                        </action>
                     </actions>
                 </event-block>
                 <event-block sid="873988895870812">
@@ -3707,9 +4489,6 @@
                         <action id="-9" name="Set value" sid="750043342399517" type="System">
                             <param id="0" name="Variable">PowerPackSize</param>
                             <param id="1" name="Value">PowerPackSize*const_e4_morePower</param>
-                        </action>
-                        <action id="0" name="Set text" sid="421874301462896" type="SpriteFont">
-                            <param id="0" name="Text">&quot;Event4&quot;</param>
                         </action>
                     </actions>
                 </event-block>
@@ -3726,9 +4505,6 @@
                             <param id="0" name="Variable">ReactorFood</param>
                             <param id="1" name="Value">ReactorFood*const_e5_moreReactorFood</param>
                         </action>
-                        <action id="0" name="Set text" sid="201055689814589" type="SpriteFont">
-                            <param id="0" name="Text">&quot;Event5&quot;</param>
-                        </action>
                     </actions>
                 </event-block>
                 <event-block sid="718399589635934">
@@ -3739,11 +4515,7 @@
                             <param id="2" name="Second value">6</param>
                         </condition>
                     </conditions>
-                    <actions>
-                        <action id="0" name="Set text" sid="857369821293252" type="SpriteFont">
-                            <param id="0" name="Text">&quot;Event6&quot;</param>
-                        </action>
-                    </actions>
+                    <actions />
                 </event-block>
                 <event-block sid="578783323925489">
                     <conditions>
@@ -3766,9 +4538,6 @@
                             <param id="0" name="Variable">PowerDecreaseRate</param>
                             <param id="1" name="Value">PowerDecreaseRate/const_e7_lessEnergy</param>
                         </action>
-                        <action id="0" name="Set text" sid="407950891686383" type="SpriteFont">
-                            <param id="0" name="Text">&quot;Event7&quot;</param>
-                        </action>
                     </actions>
                 </event-block>
                 <event-block sid="524961704834343">
@@ -3779,11 +4548,7 @@
                             <param id="2" name="Second value">8</param>
                         </condition>
                     </conditions>
-                    <actions>
-                        <action id="0" name="Set text" sid="303471552000996" type="SpriteFont">
-                            <param id="0" name="Text">&quot;Event8&quot;</param>
-                        </action>
-                    </actions>
+                    <actions />
                 </event-block>
                 <event-block sid="575558284655366">
                     <conditions>
@@ -3793,11 +4558,7 @@
                             <param id="2" name="Second value">9</param>
                         </condition>
                     </conditions>
-                    <actions>
-                        <action id="0" name="Set text" sid="884961751068783" type="SpriteFont">
-                            <param id="0" name="Text">&quot;Event9&quot;</param>
-                        </action>
-                    </actions>
+                    <actions />
                 </event-block>
                 <event-block sid="633947140366277">
                     <conditions />
@@ -4903,6 +5664,241 @@
                             <param id="2" name="Value">74</param>
                         </action>
                     </actions>
+                </event-block>
+            </sub-events>
+        </event-block>
+        <event-block sid="623314806599997">
+            <conditions>
+                <condition id="0" name="On function" sid="442444955517832" type="Function">
+                    <param id="0" name="Name">&quot;showLevelModal&quot;</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="-9" name="Set value" sid="569167456612812" type="System">
+                    <param id="0" name="Variable">Paused</param>
+                    <param id="1" name="Value">1</param>
+                </action>
+                <action id="-4" name="Set layer visible" sid="742482462226945" type="System">
+                    <param id="0" name="Layer">&quot;Modal&quot;</param>
+                    <param id="1" name="Visibility">1</param>
+                </action>
+            </actions>
+            <sub-events>
+                <event-block sid="386845822973044">
+                    <conditions>
+                        <condition id="-14" name="Compare variable" sid="666042118563225" type="System">
+                            <param id="0" name="Variable">CurrentEvent</param>
+                            <param id="1" name="Comparison">0</param>
+                            <param id="2" name="Value">1</param>
+                        </condition>
+                    </conditions>
+                    <actions />
+                    <sub-events>
+                        <event-block sid="405738717346181">
+                            <conditions>
+                                <condition id="-14" name="Pick by unique ID" sid="559056399344140" type="SpriteFont">
+                                    <param id="0" name="Unique ID">6</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="0" name="Set text" sid="390507993265437" type="SpriteFont">
+                                    <param id="0" name="Text">&quot;Epidemic! One human will die every &quot; &amp; const_e1_epidemic &amp; &quot; seconds&quot;</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                    </sub-events>
+                </event-block>
+                <event-block sid="288983166872963">
+                    <conditions>
+                        <condition id="-14" name="Compare variable" sid="699487270309177" type="System">
+                            <param id="0" name="Variable">CurrentEvent</param>
+                            <param id="1" name="Comparison">0</param>
+                            <param id="2" name="Value">2</param>
+                        </condition>
+                    </conditions>
+                    <actions />
+                    <sub-events>
+                        <event-block sid="140824893163601">
+                            <conditions>
+                                <condition id="-14" name="Pick by unique ID" sid="740890971058726" type="SpriteFont">
+                                    <param id="0" name="Unique ID">6</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="0" name="Set text" sid="636969791357506" type="SpriteFont">
+                                    <param id="0" name="Text">&quot;An accident happened. You lost half your power!&quot;</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                    </sub-events>
+                </event-block>
+                <event-block sid="905447773723170">
+                    <conditions>
+                        <condition id="-14" name="Compare variable" sid="119854580100110" type="System">
+                            <param id="0" name="Variable">CurrentEvent</param>
+                            <param id="1" name="Comparison">0</param>
+                            <param id="2" name="Value">3</param>
+                        </condition>
+                    </conditions>
+                    <actions />
+                    <sub-events>
+                        <event-block sid="281479614905721">
+                            <conditions>
+                                <condition id="-14" name="Pick by unique ID" sid="580418203388851" type="SpriteFont">
+                                    <param id="0" name="Unique ID">6</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="0" name="Set text" sid="570280487415431" type="SpriteFont">
+                                    <param id="0" name="Text">&quot;Rebellion! Send &quot; &amp; Event3Max &amp; &quot;humans into the bioreactor to force others to work&quot;</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                    </sub-events>
+                </event-block>
+                <event-block sid="915650820437865">
+                    <conditions>
+                        <condition id="-14" name="Compare variable" sid="389711902447414" type="System">
+                            <param id="0" name="Variable">CurrentEvent</param>
+                            <param id="1" name="Comparison">0</param>
+                            <param id="2" name="Value">4</param>
+                        </condition>
+                    </conditions>
+                    <actions />
+                    <sub-events>
+                        <event-block sid="872594827233475">
+                            <conditions>
+                                <condition id="-14" name="Pick by unique ID" sid="604866681395421" type="SpriteFont">
+                                    <param id="0" name="Unique ID">6</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="0" name="Set text" sid="140617321136515" type="SpriteFont">
+                                    <param id="0" name="Text">&quot;An accident happened. Your bioreactor is broken. Generator will give &quot; &amp; const_e4_morePower &amp; &quot; times more power&quot;</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                    </sub-events>
+                </event-block>
+                <event-block sid="626079274500177">
+                    <conditions>
+                        <condition id="-14" name="Compare variable" sid="960905524166136" type="System">
+                            <param id="0" name="Variable">CurrentEvent</param>
+                            <param id="1" name="Comparison">0</param>
+                            <param id="2" name="Value">5</param>
+                        </condition>
+                    </conditions>
+                    <actions />
+                    <sub-events>
+                        <event-block sid="463407320499659">
+                            <conditions>
+                                <condition id="-14" name="Pick by unique ID" sid="369616922401849" type="SpriteFont">
+                                    <param id="0" name="Unique ID">6</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="0" name="Set text" sid="775576689961254" type="SpriteFont">
+                                    <param id="0" name="Text">&quot;An accident happened. Food producer is broken. Bioreactor will give &quot; &amp; const_e5_moreReactorFood &amp; &quot; times more food&quot;</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                    </sub-events>
+                </event-block>
+                <event-block sid="517469790399961">
+                    <conditions>
+                        <condition id="-14" name="Compare variable" sid="555534593261363" type="System">
+                            <param id="0" name="Variable">CurrentEvent</param>
+                            <param id="1" name="Comparison">0</param>
+                            <param id="2" name="Value">6</param>
+                        </condition>
+                    </conditions>
+                    <actions />
+                    <sub-events>
+                        <event-block sid="175224163001516">
+                            <conditions>
+                                <condition id="-14" name="Pick by unique ID" sid="890703472506984" type="SpriteFont">
+                                    <param id="0" name="Unique ID">6</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="0" name="Set text" sid="703565230025859" type="SpriteFont">
+                                    <param id="0" name="Text">&quot;It is very hot. Workers in your power generator will tire &quot; &amp; const_e6_energyFactor &amp; &quot; times faster&quot;</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                    </sub-events>
+                </event-block>
+                <event-block sid="896038547852574">
+                    <conditions>
+                        <condition id="-14" name="Compare variable" sid="220177713985780" type="System">
+                            <param id="0" name="Variable">CurrentEvent</param>
+                            <param id="1" name="Comparison">0</param>
+                            <param id="2" name="Value">7</param>
+                        </condition>
+                    </conditions>
+                    <actions />
+                    <sub-events>
+                        <event-block sid="866592349912221">
+                            <conditions>
+                                <condition id="-14" name="Pick by unique ID" sid="659508781089812" type="SpriteFont">
+                                    <param id="0" name="Unique ID">6</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="0" name="Set text" sid="949308508067799" type="SpriteFont">
+                                    <param id="0" name="Text">&quot;It is freezing. You get &quot; &amp; const_e6_energyFactor &amp; &quot; times less energy&quot;</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                    </sub-events>
+                </event-block>
+                <event-block sid="343209750170995">
+                    <conditions>
+                        <condition id="-14" name="Compare variable" sid="910939775375451" type="System">
+                            <param id="0" name="Variable">CurrentEvent</param>
+                            <param id="1" name="Comparison">0</param>
+                            <param id="2" name="Value">8</param>
+                        </condition>
+                    </conditions>
+                    <actions />
+                    <sub-events>
+                        <event-block sid="537037153950587">
+                            <conditions>
+                                <condition id="-14" name="Pick by unique ID" sid="755456008437283" type="SpriteFont">
+                                    <param id="0" name="Unique ID">6</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="0" name="Set text" sid="609188655088266" type="SpriteFont">
+                                    <param id="0" name="Text">&quot;Utopia. Reach full food and power to finish this level&quot;</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                    </sub-events>
+                </event-block>
+                <event-block sid="391213172407227">
+                    <conditions>
+                        <condition id="-14" name="Compare variable" sid="614061265361352" type="System">
+                            <param id="0" name="Variable">CurrentEvent</param>
+                            <param id="1" name="Comparison">0</param>
+                            <param id="2" name="Value">9</param>
+                        </condition>
+                    </conditions>
+                    <actions />
+                    <sub-events>
+                        <event-block sid="377891523219766">
+                            <conditions>
+                                <condition id="-14" name="Pick by unique ID" sid="280906067460081" type="SpriteFont">
+                                    <param id="0" name="Unique ID">6</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="0" name="Set text" sid="290629666378098" type="SpriteFont">
+                                    <param id="0" name="Text">&quot;Celibacy. Humans don&apos;t want to reproduce&quot;</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                    </sub-events>
                 </event-block>
             </sub-events>
         </event-block>

@@ -4,11 +4,11 @@
 It is entirely optional and the project will load without it.  If you are placing the project under source control,
 you probably do not want to add any .uistate.xml files to the repository.-->
     <camera>
-        <position-x>673.667</position-x>
-        <position-y>313.146</position-y>
-        <position-z>175.436</position-z>
-        <lookat-x>673.667</lookat-x>
-        <lookat-y>313.146</lookat-y>
+        <position-x>277.403</position-x>
+        <position-y>345.093</position-y>
+        <position-z>105.515</position-z>
+        <lookat-x>277.403</lookat-x>
+        <lookat-y>345.093</lookat-y>
         <lookat-z>0</lookat-z>
     </camera>
     <snap-to-grid>0</snap-to-grid>
@@ -23,12 +23,14 @@ you probably do not want to add any .uistate.xml files to the repository.-->
         <property expanded="0" name="Margins" />
         <property expanded="1" name="Effects" />
     </properties>
-    <active-layer name="Background" />
+    <active-layer name="BackgroundAnimations" />
     <layers>
         <layer locked="0" name="Background" parallax-in-editor="0" visible="1" />
+        <layer locked="0" name="BackgroundAnimations" parallax-in-editor="0" visible="1" />
         <layer locked="0" name="Animations" parallax-in-editor="0" visible="0" />
-        <layer locked="0" name="Interface" parallax-in-editor="0" visible="1" />
-        <layer locked="1" name="Foreground" parallax-in-editor="0" visible="1" />
+        <layer locked="0" name="Interface" parallax-in-editor="0" visible="0" />
+        <layer locked="1" name="Foreground" parallax-in-editor="0" visible="0" />
         <layer locked="0" name="Buttons" parallax-in-editor="0" visible="0" />
+        <layer locked="0" name="Modal" parallax-in-editor="0" visible="0" />
     </layers>
 </c2uistate>

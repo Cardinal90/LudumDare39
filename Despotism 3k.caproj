@@ -147,7 +147,7 @@
             <plugin id="Sprite" />
             <animation-folder>
                 <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="419174706503704" speed="5">
-                    <frame duration="1" hotspotX="0" hotspotY="0" original-source="C:\Projects\game\assets\full.png" />
+                    <frame duration="1" hotspotX="0" hotspotY="0" original-source="C:\Projects\game\assets\bg_hands.png" />
                 </animation>
             </animation-folder>
         </object-type>
@@ -224,9 +224,6 @@
         </object-type>
         <object-type name="SpriteFont" sid="981504497175495">
             <plugin id="Spritefont2" />
-            <instance-variables>
-                <instance-variable name="type" sid="176538674956211" type="string" />
-            </instance-variables>
             <effects>
                 <effect-type name="SetColor">
                     <effect id="setcolor" />
@@ -287,6 +284,118 @@
                             <point x="0.333333" y="0.5" />
                         </collision-poly>
                     </frame>
+                </animation>
+            </animation-folder>
+        </object-type>
+        <object-type name="ModalOverlay" sid="478464643226900">
+            <plugin id="Sprite" />
+            <animation-folder>
+                <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="715174999499432" speed="5">
+                    <frame duration="1" hotspotX="0" hotspotY="0" />
+                </animation>
+            </animation-folder>
+        </object-type>
+        <object-type name="Manipulator" sid="513181327535912">
+            <plugin id="Sprite" />
+            <instance-variables>
+                <instance-variable name="type" sid="649054248658712" type="string" />
+                <instance-variable name="created" sid="600306849674017" type="number" />
+            </instance-variables>
+            <behaviors>
+                <behavior-type name="LiteTween" sid="815969966521922">
+                    <behavior id="lunarray_LiteTween" />
+                </behavior-type>
+            </behaviors>
+            <animation-folder>
+                <animation framecount="12" loop="0" name="grab" pingpong="0" repeatcount="1" repeatto="0" sid="146347193798485" speed="20">
+                    <frame duration="1" hotspotX="0" hotspotY="0" />
+                    <frame duration="1" hotspotX="0" hotspotY="0" />
+                    <frame duration="1" hotspotX="0" hotspotY="0" />
+                    <frame duration="1" hotspotX="0" hotspotY="0" />
+                    <frame duration="1" hotspotX="0" hotspotY="0" />
+                    <frame duration="1" hotspotX="0" hotspotY="0" />
+                    <frame duration="1" hotspotX="0" hotspotY="0" />
+                    <frame duration="1" hotspotX="0" hotspotY="0" />
+                    <frame duration="1" hotspotX="0" hotspotY="0" />
+                    <frame duration="1" hotspotX="0" hotspotY="0" />
+                    <frame duration="1" hotspotX="0" hotspotY="0" />
+                    <frame duration="1" hotspotX="0" hotspotY="0" />
+                </animation>
+                <animation framecount="1" loop="0" name="lr" pingpong="0" repeatcount="1" repeatto="0" sid="861170669359056" speed="5">
+                    <frame duration="1" hotspotX="0" hotspotY="0" original-source="C:\Projects\game\assets\hand-left-to-right.png">
+                        <collision-poly>
+                            <point x="0.666667" y="0.27027" />
+                            <point x="0.466667" y="0.513514" />
+                            <point x="1" y="0" />
+                            <point x="0.6" y="0.486486" />
+                            <point x="0.6" y="0.837838" />
+                            <point x="0.466667" y="0.891892" />
+                            <point x="0.0666667" y="0.972973" />
+                            <point x="0.533333" y="0.486486" />
+                        </collision-poly>
+                    </frame>
+                </animation>
+                <animation framecount="1" loop="0" name="rl" pingpong="0" repeatcount="1" repeatto="0" sid="322609215632203" speed="5">
+                    <frame duration="1" hotspotX="0" hotspotY="0" original-source="C:\Projects\game\assets\hand-right-to-left.png">
+                        <collision-poly>
+                            <point x="0" y="0" />
+                            <point x="0.466667" y="0.513514" />
+                            <point x="0.333333" y="0.27027" />
+                            <point x="0.466667" y="0.486486" />
+                            <point x="0.933333" y="0.972973" />
+                            <point x="0.466667" y="0.891892" />
+                            <point x="0.4" y="0.837838" />
+                            <point x="0.4" y="0.486486" />
+                        </collision-poly>
+                    </frame>
+                </animation>
+                <animation framecount="12" loop="0" name="drop" pingpong="0" repeatcount="1" repeatto="0" sid="911044592942931" speed="20">
+                    <frame duration="1" hotspotX="0" hotspotY="0" />
+                    <frame duration="1" hotspotX="0" hotspotY="0" />
+                    <frame duration="1" hotspotX="0" hotspotY="0" />
+                    <frame duration="1" hotspotX="0" hotspotY="0" />
+                    <frame duration="1" hotspotX="0" hotspotY="0" />
+                    <frame duration="1" hotspotX="0" hotspotY="0" />
+                    <frame duration="1" hotspotX="0" hotspotY="0" />
+                    <frame duration="1" hotspotX="0" hotspotY="0" />
+                    <frame duration="1" hotspotX="0" hotspotY="0" />
+                    <frame duration="1" hotspotX="0" hotspotY="0" />
+                    <frame duration="1" hotspotX="0" hotspotY="0" />
+                    <frame duration="1" hotspotX="0" hotspotY="0" />
+                </animation>
+            </animation-folder>
+        </object-type>
+        <object-type name="PoolOut" sid="877764106937057">
+            <plugin id="Sprite" />
+            <instance-variables>
+                <instance-variable name="type" sid="695640193498140" type="string" />
+                <instance-variable name="created" sid="819525343624054" type="number" />
+            </instance-variables>
+            <animation-folder>
+                <animation framecount="12" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="223196390166554" speed="20">
+                    <frame duration="1" hotspotX="0" hotspotY="0" />
+                    <frame duration="1" hotspotX="0" hotspotY="0" />
+                    <frame duration="1" hotspotX="0" hotspotY="0" />
+                    <frame duration="1" hotspotX="0" hotspotY="0" />
+                    <frame duration="1" hotspotX="0" hotspotY="0" />
+                    <frame duration="1" hotspotX="0" hotspotY="0" />
+                    <frame duration="1" hotspotX="0" hotspotY="0" />
+                    <frame duration="1" hotspotX="0" hotspotY="0" />
+                    <frame duration="1" hotspotX="0" hotspotY="0" />
+                    <frame duration="1" hotspotX="0" hotspotY="0" />
+                    <frame duration="1" hotspotX="0" hotspotY="0" />
+                    <frame duration="1" hotspotX="0" hotspotY="0" />
+                </animation>
+            </animation-folder>
+        </object-type>
+        <object-type name="PoolIn" sid="409776357094965">
+            <plugin id="Sprite" />
+            <animation-folder>
+                <animation framecount="4" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="428293952603949" speed="20">
+                    <frame duration="1" hotspotX="0" hotspotY="0" />
+                    <frame duration="1" hotspotX="0" hotspotY="0" />
+                    <frame duration="1" hotspotX="0" hotspotY="0" />
+                    <frame duration="1" hotspotX="0" hotspotY="0" />
                 </animation>
             </animation-folder>
         </object-type>

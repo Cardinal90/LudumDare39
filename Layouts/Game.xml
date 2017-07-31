@@ -44,9 +44,6 @@
                         <character-spacing>2</character-spacing>
                         <line-height>0</line-height>
                     </properties>
-                    <instance-variables>
-                        <type>&quot;&quot;</type>
-                    </instance-variables>
                     <effect-instances>
                         <effect-instance type="SetColor">
                             <parameters>
@@ -95,7 +92,7 @@
                 </instance>
                 <instance type="Bg" uid="44">
                     <properties>
-                        <initial-visibility>Visible</initial-visibility>
+                        <initial-visibility>Invisible</initial-visibility>
                         <initial-animation>Default</initial-animation>
                         <initial-frame>0</initial-frame>
                         <collisions>Enabled</collisions>
@@ -103,8 +100,8 @@
                     <blend-mode>0</blend-mode>
                     <effect-fallback>0</effect-fallback>
                     <world>
-                        <x>0</x>
-                        <y>0</y>
+                        <x>-35</x>
+                        <y>880</y>
                         <z>0</z>
                         <width>1500</width>
                         <height>840</height>
@@ -152,6 +149,112 @@
                         <z>0</z>
                         <width>24</width>
                         <height>36</height>
+                        <depth>0</depth>
+                        <hotspotX>0</hotspotX>
+                        <hotspotY>0</hotspotY>
+                        <angle>0</angle>
+                        <opacity>1</opacity>
+                    </world>
+                </instance>
+            </instances>
+            <effects />
+        </layer>
+        <layer name="BackgroundAnimations" sid="140705400180753">
+            <initially-visible>1</initially-visible>
+            <background-color>255,255,255</background-color>
+            <transparent>1</transparent>
+            <parallax>
+                <x>1</x>
+                <y>1</y>
+            </parallax>
+            <zoom-rate>1</zoom-rate>
+            <opacity>1</opacity>
+            <force-own-texture>0</force-own-texture>
+            <global>0</global>
+            <use-render-cells>0</use-render-cells>
+            <blend-mode>0</blend-mode>
+            <effect-fallback>0</effect-fallback>
+            <instances>
+                <instance type="Manipulator" uid="7">
+                    <properties>
+                        <initial-visibility>Visible</initial-visibility>
+                        <initial-animation>Default</initial-animation>
+                        <initial-frame>0</initial-frame>
+                        <collisions>Enabled</collisions>
+                    </properties>
+                    <instance-variables>
+                        <type>&quot;poolPower&quot;</type>
+                        <created>0</created>
+                    </instance-variables>
+                    <behavior-instances>
+                        <behavior-instance type="LiteTween">
+                            <properties>
+                                <active-on-start>No</active-on-start>
+                                <tweened-property>Position</tweened-property>
+                                <function>Linear</function>
+                                <target>100,100</target>
+                                <target-mode>Absolute</target-mode>
+                                <duration>0.1</duration>
+                                <enforce-mode>Enforce</enforce-mode>
+                            </properties>
+                        </behavior-instance>
+                    </behavior-instances>
+                    <blend-mode>0</blend-mode>
+                    <effect-fallback>0</effect-fallback>
+                    <world>
+                        <x>-132</x>
+                        <y>25</y>
+                        <z>0</z>
+                        <width>64</width>
+                        <height>280</height>
+                        <depth>0</depth>
+                        <hotspotX>0</hotspotX>
+                        <hotspotY>0</hotspotY>
+                        <angle>0</angle>
+                        <opacity>1</opacity>
+                    </world>
+                </instance>
+                <instance type="PoolOut" uid="11">
+                    <properties>
+                        <initial-visibility>Visible</initial-visibility>
+                        <initial-animation>Default</initial-animation>
+                        <initial-frame>0</initial-frame>
+                        <collisions>Enabled</collisions>
+                    </properties>
+                    <instance-variables>
+                        <type>&quot;poolPower&quot;</type>
+                        <created>0</created>
+                    </instance-variables>
+                    <blend-mode>0</blend-mode>
+                    <effect-fallback>0</effect-fallback>
+                    <world>
+                        <x>-120</x>
+                        <y>191</y>
+                        <z>0</z>
+                        <width>40</width>
+                        <height>176</height>
+                        <depth>0</depth>
+                        <hotspotX>0</hotspotX>
+                        <hotspotY>0</hotspotY>
+                        <angle>0</angle>
+                        <opacity>1</opacity>
+                    </world>
+                </instance>
+                <instance type="PoolIn" uid="12">
+                    <properties>
+                        <initial-visibility>Visible</initial-visibility>
+                        <initial-animation>Default</initial-animation>
+                        <initial-frame>0</initial-frame>
+                        <collisions>Enabled</collisions>
+                    </properties>
+                    <blend-mode>0</blend-mode>
+                    <effect-fallback>0</effect-fallback>
+                    <world>
+                        <x>-147</x>
+                        <y>288</y>
+                        <z>0</z>
+                        <width>40</width>
+                        <height>176</height>
                         <depth>0</depth>
                         <hotspotX>0</hotspotX>
                         <hotspotY>0</hotspotY>
@@ -276,9 +379,6 @@
                         <character-spacing>2</character-spacing>
                         <line-height>0</line-height>
                     </properties>
-                    <instance-variables>
-                        <type>&quot;total&quot;</type>
-                    </instance-variables>
                     <effect-instances>
                         <effect-instance type="SetColor">
                             <parameters>
@@ -318,9 +418,6 @@
                         <character-spacing>2</character-spacing>
                         <line-height>0</line-height>
                     </properties>
-                    <instance-variables>
-                        <type>&quot;total&quot;</type>
-                    </instance-variables>
                     <effect-instances>
                         <effect-instance type="SetColor">
                             <parameters>
@@ -360,9 +457,6 @@
                         <character-spacing>2</character-spacing>
                         <line-height>0</line-height>
                     </properties>
-                    <instance-variables>
-                        <type>&quot;powerMax&quot;</type>
-                    </instance-variables>
                     <effect-instances>
                         <effect-instance type="SetColor">
                             <parameters>
@@ -402,9 +496,6 @@
                         <character-spacing>2</character-spacing>
                         <line-height>0</line-height>
                     </properties>
-                    <instance-variables>
-                        <type>&quot;power&quot;</type>
-                    </instance-variables>
                     <effect-instances>
                         <effect-instance type="SetColor">
                             <parameters>
@@ -444,9 +535,6 @@
                         <character-spacing>2</character-spacing>
                         <line-height>0</line-height>
                     </properties>
-                    <instance-variables>
-                        <type>&quot;total&quot;</type>
-                    </instance-variables>
                     <effect-instances>
                         <effect-instance type="SetColor">
                             <parameters>
@@ -558,9 +646,6 @@
                         <character-spacing>2</character-spacing>
                         <line-height>0</line-height>
                     </properties>
-                    <instance-variables>
-                        <type>&quot;slash&quot;</type>
-                    </instance-variables>
                     <effect-instances>
                         <effect-instance type="SetColor">
                             <parameters>
@@ -624,9 +709,6 @@
                         <character-spacing>2</character-spacing>
                         <line-height>0</line-height>
                     </properties>
-                    <instance-variables>
-                        <type>&quot;&quot;</type>
-                    </instance-variables>
                     <effect-instances>
                         <effect-instance type="SetColor">
                             <parameters>
@@ -666,9 +748,6 @@
                         <character-spacing>2</character-spacing>
                         <line-height>0</line-height>
                     </properties>
-                    <instance-variables>
-                        <type>&quot;&quot;</type>
-                    </instance-variables>
                     <effect-instances>
                         <effect-instance type="SetColor">
                             <parameters>
@@ -708,9 +787,6 @@
                         <character-spacing>2</character-spacing>
                         <line-height>0</line-height>
                     </properties>
-                    <instance-variables>
-                        <type>&quot;&quot;</type>
-                    </instance-variables>
                     <effect-instances>
                         <effect-instance type="SetColor">
                             <parameters>
@@ -750,9 +826,6 @@
                         <character-spacing>2</character-spacing>
                         <line-height>0</line-height>
                     </properties>
-                    <instance-variables>
-                        <type>&quot;&quot;</type>
-                    </instance-variables>
                     <effect-instances>
                         <effect-instance type="SetColor">
                             <parameters>
@@ -792,9 +865,6 @@
                         <character-spacing>2</character-spacing>
                         <line-height>0</line-height>
                     </properties>
-                    <instance-variables>
-                        <type>&quot;&quot;</type>
-                    </instance-variables>
                     <effect-instances>
                         <effect-instance type="SetColor">
                             <parameters>
@@ -1082,6 +1152,86 @@
                         <depth>0</depth>
                         <hotspotX>0</hotspotX>
                         <hotspotY>0</hotspotY>
+                    </world>
+                </instance>
+            </instances>
+            <effects />
+        </layer>
+        <layer name="Modal" sid="117457971588802">
+            <initially-visible>1</initially-visible>
+            <background-color>255,255,255</background-color>
+            <transparent>1</transparent>
+            <parallax>
+                <x>1</x>
+                <y>1</y>
+            </parallax>
+            <zoom-rate>1</zoom-rate>
+            <opacity>1</opacity>
+            <force-own-texture>0</force-own-texture>
+            <global>0</global>
+            <use-render-cells>0</use-render-cells>
+            <blend-mode>0</blend-mode>
+            <effect-fallback>0</effect-fallback>
+            <instances>
+                <instance type="ModalOverlay" uid="5">
+                    <properties>
+                        <initial-visibility>Visible</initial-visibility>
+                        <initial-animation>Default</initial-animation>
+                        <initial-frame>0</initial-frame>
+                        <collisions>Enabled</collisions>
+                    </properties>
+                    <blend-mode>0</blend-mode>
+                    <effect-fallback>0</effect-fallback>
+                    <world>
+                        <x>0</x>
+                        <y>0</y>
+                        <z>0</z>
+                        <width>1500</width>
+                        <height>840</height>
+                        <depth>0</depth>
+                        <hotspotX>0</hotspotX>
+                        <hotspotY>0</hotspotY>
+                        <angle>0</angle>
+                        <opacity>1</opacity>
+                    </world>
+                </instance>
+                <instance type="SpriteFont" uid="6">
+                    <properties>
+                        <character-width>71</character-width>
+                        <character-height>111</character-height>
+                        <character-set>ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789.,;:?!-_~#&quot;&apos;&amp;()[]|`\/@°+=*$£€&lt;&gt;</character-set>
+                        <text>5346</text>
+                        <scale>0.31</scale>
+                        <initial-visibility>Visible</initial-visibility>
+                        <horizontal-alignment>Left</horizontal-alignment>
+                        <vertical-alignment>Top</vertical-alignment>
+                        <hotspot>Top-left</hotspot>
+                        <wrapping>Word</wrapping>
+                        <character-spacing>2</character-spacing>
+                        <line-height>0</line-height>
+                    </properties>
+                    <effect-instances>
+                        <effect-instance type="SetColor">
+                            <parameters>
+                                <blue>0.96</blue>
+                                <green>0.87</green>
+                                <red>0.5</red>
+                            </parameters>
+                        </effect-instance>
+                    </effect-instances>
+                    <blend-mode>0</blend-mode>
+                    <effect-fallback>0</effect-fallback>
+                    <world>
+                        <x>402</x>
+                        <y>468</y>
+                        <z>0</z>
+                        <width>651</width>
+                        <height>281</height>
+                        <depth>0</depth>
+                        <hotspotX>0</hotspotX>
+                        <hotspotY>0</hotspotY>
+                        <angle>0</angle>
+                        <opacity>1</opacity>
                     </world>
                 </instance>
             </instances>
