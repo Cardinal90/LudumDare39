@@ -137,6 +137,10 @@
                 <action id="-9" name="Destroy" sid="947280912247450" type="Manipulator" />
                 <action id="-9" name="Destroy" sid="269056170697597" type="PoolOut" />
                 <action id="-9" name="Destroy" sid="314437573807798" type="PoolIn" />
+                <action id="4" name="Set animation" sid="865976884836521" type="Reactor">
+                    <param id="0" name="Animation">&quot;idle&quot;</param>
+                    <param id="1" name="From">1</param>
+                </action>
             </actions>
             <sub-events>
                 <event-block sid="231692729932514">
@@ -399,11 +403,11 @@
                         </condition>
                     </conditions>
                     <actions>
-                        <action disabled="1" id="0" name="Call function" sid="671674148718438" type="Function">
+                        <action id="0" name="Call function" sid="671674148718438" type="Function">
                             <param id="0" name="Name">&quot;removeFromIncubator&quot;</param>
                             <param id="1" name="Parameter {n}"></param>
                         </action>
-                        <action id="-9" name="Set value" sid="979651111512560" type="System">
+                        <action disabled="1" id="-9" name="Set value" sid="979651111512560" type="System">
                             <param id="0" name="Variable">HumansInIncubator</param>
                             <param id="1" name="Value">HumansInIncubator - 1</param>
                         </action>
@@ -1060,11 +1064,11 @@
                                         </condition>
                                     </conditions>
                                     <actions>
-                                        <action disabled="1" id="0" name="Call function" sid="554287651063308" type="Function">
+                                        <action id="0" name="Call function" sid="554287651063308" type="Function">
                                             <param id="0" name="Name">&quot;removeFromFood&quot;</param>
                                             <param id="1" name="Parameter {n}"></param>
                                         </action>
-                                        <action id="-9" name="Set value" sid="615067243263023" type="System">
+                                        <action disabled="1" id="-9" name="Set value" sid="615067243263023" type="System">
                                             <param id="0" name="Variable">HumansOnFood</param>
                                             <param id="1" name="Value">HumansOnFood - 1</param>
                                         </action>
@@ -1102,6 +1106,20 @@
                                             <param id="0" name="Name">&quot;removeFromPower&quot;</param>
                                             <param id="1" name="Parameter {n}"></param>
                                         </action>
+                                        <action id="-3" name="Create object" sid="108687319219068" type="System">
+                                            <param id="0" name="Object to create">Manipulator</param>
+                                            <param id="1" name="Layer">&quot;BackgroundAnimations&quot;</param>
+                                            <param id="2" name="X">732</param>
+                                            <param id="3" name="Y">20</param>
+                                        </action>
+                                        <action id="4" name="Set animation" sid="963458676653385" type="Manipulator">
+                                            <param id="0" name="Animation">&quot;grab&quot;</param>
+                                            <param id="1" name="From">1</param>
+                                        </action>
+                                        <action id="-10" name="Set value" sid="734973426581013" type="Manipulator">
+                                            <param id="0" name="Instance variable">type</param>
+                                            <param id="1" name="Value">&quot;powerPool&quot;</param>
+                                        </action>
                                     </actions>
                                 </event-block>
                                 <event-block sid="724165357018093">
@@ -1118,11 +1136,11 @@
                                         </condition>
                                     </conditions>
                                     <actions>
-                                        <action disabled="1" id="0" name="Call function" sid="290364932586551" type="Function">
+                                        <action id="0" name="Call function" sid="290364932586551" type="Function">
                                             <param id="0" name="Name">&quot;removeFromIncubator&quot;</param>
                                             <param id="1" name="Parameter {n}"></param>
                                         </action>
-                                        <action id="-9" name="Set value" sid="713990886695905" type="System">
+                                        <action disabled="1" id="-9" name="Set value" sid="713990886695905" type="System">
                                             <param id="0" name="Variable">HumansInIncubator</param>
                                             <param id="1" name="Value">HumansInIncubator - 1</param>
                                         </action>
@@ -1179,11 +1197,11 @@
                                 </condition>
                             </conditions>
                             <actions>
-                                <action disabled="1" id="0" name="Call function" sid="911805321347446" type="Function">
+                                <action id="0" name="Call function" sid="911805321347446" type="Function">
                                     <param id="0" name="Name">&quot;removeFromFood&quot;</param>
                                     <param id="1" name="Parameter {n}"></param>
                                 </action>
-                                <action id="-9" name="Set value" sid="782416403329697" type="System">
+                                <action disabled="1" id="-9" name="Set value" sid="782416403329697" type="System">
                                     <param id="0" name="Variable">HumansOnFood</param>
                                     <param id="1" name="Value">HumansOnFood - 1</param>
                                 </action>
@@ -1238,11 +1256,11 @@
                                 </condition>
                             </conditions>
                             <actions>
-                                <action disabled="1" id="0" name="Call function" sid="219599445344835" type="Function">
+                                <action id="0" name="Call function" sid="219599445344835" type="Function">
                                     <param id="0" name="Name">&quot;removeFromIncubator&quot;</param>
                                     <param id="1" name="Parameter {n}"></param>
                                 </action>
-                                <action id="-9" name="Set value" sid="740631171216060" type="System">
+                                <action disabled="1" id="-9" name="Set value" sid="740631171216060" type="System">
                                     <param id="0" name="Variable">HumansInIncubator</param>
                                     <param id="1" name="Value">HumansInIncubator - 1</param>
                                 </action>
@@ -1409,11 +1427,11 @@
                                 </condition>
                             </conditions>
                             <actions>
-                                <action disabled="1" id="0" name="Call function" sid="639772496398263" type="Function">
+                                <action id="0" name="Call function" sid="639772496398263" type="Function">
                                     <param id="0" name="Name">&quot;removeFromFood&quot;</param>
                                     <param id="1" name="Parameter {n}"></param>
                                 </action>
-                                <action id="-9" name="Set value" sid="606001236455352" type="System">
+                                <action disabled="1" id="-9" name="Set value" sid="606001236455352" type="System">
                                     <param id="0" name="Variable">HumansOnFood</param>
                                     <param id="1" name="Value">HumansOnFood - 1</param>
                                 </action>
@@ -2154,6 +2172,10 @@
                         <action id="3" name="Start" sid="649909887344075" type="Manipulator">
                             <param id="0" name="From">0</param>
                         </action>
+                        <action id="-4" name="Set layer visible" sid="183285647053443" type="System">
+                            <param id="0" name="Layer">&quot;Modal&quot;</param>
+                            <param id="1" name="Visibility">0</param>
+                        </action>
                     </actions>
                 </event-block>
             </sub-events>
@@ -2232,11 +2254,11 @@
                                 </condition>
                             </conditions>
                             <actions>
-                                <action disabled="1" id="0" name="Call function" sid="525143881625050" type="Function">
+                                <action id="0" name="Call function" sid="525143881625050" type="Function">
                                     <param id="0" name="Name">&quot;removeFromIncubator&quot;</param>
                                     <param id="1" name="Parameter {n}"></param>
                                 </action>
-                                <action id="-9" name="Set value" sid="700201313946186" type="System">
+                                <action disabled="1" id="-9" name="Set value" sid="700201313946186" type="System">
                                     <param id="0" name="Variable">HumansInIncubator</param>
                                     <param id="1" name="Value">HumansInIncubator - 1</param>
                                 </action>
@@ -2634,7 +2656,7 @@
                         </action>
                     </actions>
                 </event-block>
-                <event-block sid="960353191586522">
+                <event-block disabled="1" sid="960353191586522">
                     <conditions>
                         <condition id="-7" name="Compare instance variable" sid="397871614524119" type="Manipulator">
                             <param id="0" name="Instance variable">type</param>
@@ -2653,7 +2675,7 @@
                         </action>
                     </actions>
                 </event-block>
-                <event-block sid="356573472173170">
+                <event-block disabled="1" sid="356573472173170">
                     <conditions>
                         <condition id="-7" name="Compare instance variable" sid="599325046975929" type="Manipulator">
                             <param id="0" name="Instance variable">type</param>
@@ -2676,7 +2698,7 @@
                         </action>
                     </actions>
                 </event-block>
-                <event-block sid="304934156773911">
+                <event-block disabled="1" sid="304934156773911">
                     <conditions>
                         <condition id="-7" name="Compare instance variable" sid="856506776292102" type="Manipulator">
                             <param id="0" name="Instance variable">type</param>
@@ -2703,6 +2725,50 @@
                 </event-block>
             </sub-events>
         </event-block>
+        <event-block sid="423283871294236">
+            <conditions>
+                <condition id="3" name="Compare frame" sid="484967899979176" type="Manipulator">
+                    <param id="0" name="Comparison">0</param>
+                    <param id="1" name="Number">5</param>
+                </condition>
+                <condition id="-7" name="Compare instance variable" sid="187129984692408" type="Manipulator">
+                    <param id="0" name="Instance variable">created</param>
+                    <param id="1" name="Comparison">0</param>
+                    <param id="2" name="Value">0</param>
+                </condition>
+                <condition id="2" name="Is playing" sid="955334174305260" type="Manipulator">
+                    <param id="0" name="Animation">&quot;drop&quot;</param>
+                </condition>
+            </conditions>
+            <actions />
+            <sub-events>
+                <event-block any="1" sid="698151470724582">
+                    <conditions>
+                        <condition id="-7" name="Compare instance variable" sid="687216805466043" type="Manipulator">
+                            <param id="0" name="Instance variable">type</param>
+                            <param id="1" name="Comparison">0</param>
+                            <param id="2" name="Value">&quot;poolReactor&quot;</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-10" name="Set value" sid="210066697643532" type="Manipulator">
+                            <param id="0" name="Instance variable">created</param>
+                            <param id="1" name="Value">1</param>
+                        </action>
+                        <action id="-3" name="Create object" sid="838291654166120" type="System">
+                            <param id="0" name="Object to create">ReactorIn</param>
+                            <param id="1" name="Layer">&quot;BackgroundAnimations&quot;</param>
+                            <param id="2" name="X">1156</param>
+                            <param id="3" name="Y">256</param>
+                        </action>
+                        <action id="4" name="Set animation" sid="193134187185665" type="PoolOut">
+                            <param id="0" name="Animation">&quot;default&quot;</param>
+                            <param id="1" name="From">1</param>
+                        </action>
+                    </actions>
+                </event-block>
+            </sub-events>
+        </event-block>
         <event-block sid="614877869478460">
             <conditions>
                 <condition id="3" name="Compare frame" sid="950939229730311" type="Manipulator">
@@ -2718,12 +2784,7 @@
                     <param id="0" name="Animation">&quot;drop&quot;</param>
                 </condition>
             </conditions>
-            <actions>
-                <action id="-10" name="Set value" sid="897329544936657" type="Manipulator">
-                    <param id="0" name="Instance variable">created</param>
-                    <param id="1" name="Value">1</param>
-                </action>
-            </actions>
+            <actions />
             <sub-events>
                 <event-block any="1" sid="628181894284856">
                     <conditions>
@@ -2744,6 +2805,10 @@
                         </condition>
                     </conditions>
                     <actions>
+                        <action id="-10" name="Set value" sid="897329544936657" type="Manipulator">
+                            <param id="0" name="Instance variable">created</param>
+                            <param id="1" name="Value">1</param>
+                        </action>
                         <action id="-3" name="Create object" sid="574138632159174" type="System">
                             <param id="0" name="Object to create">PoolIn</param>
                             <param id="1" name="Layer">&quot;BackgroundAnimations&quot;</param>
@@ -2828,6 +2893,11 @@
                             <param id="1" name="Comparison">0</param>
                             <param id="2" name="Value">&quot;poolFood&quot;</param>
                         </condition>
+                        <condition id="-7" name="Compare instance variable" sid="752784516366244" type="PoolOut">
+                            <param id="0" name="Instance variable">type</param>
+                            <param id="1" name="Comparison">0</param>
+                            <param id="2" name="Value">&quot;poolReactor&quot;</param>
+                        </condition>
                     </conditions>
                     <actions>
                         <action id="-3" name="Create object" sid="581427333077392" type="System">
@@ -2866,6 +2936,16 @@
             </conditions>
             <actions>
                 <action id="-9" name="Destroy" sid="678644381238891" type="PoolIn" />
+            </actions>
+        </event-block>
+        <event-block sid="430395802243576">
+            <conditions>
+                <condition id="4" name="On finished" sid="238524276687448" type="ReactorIn">
+                    <param id="0" name="Animation">&quot;default&quot;</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="-9" name="Destroy" sid="626733253325671" type="ReactorIn" />
             </actions>
         </event-block>
         <event-block sid="159738775562736">
@@ -3001,7 +3081,7 @@
                                     <param id="0" name="Instance variable">group</param>
                                     <param id="1" name="Value">&quot;pool&quot;</param>
                                 </action>
-                                <action disabled="1" id="-9" name="Set value" sid="431104204537557" type="System">
+                                <action id="-9" name="Set value" sid="431104204537557" type="System">
                                     <param id="0" name="Variable">HumansOnPower</param>
                                     <param id="1" name="Value">HumansOnPower - 1</param>
                                 </action>
@@ -3029,15 +3109,15 @@
                 </condition>
             </conditions>
             <actions>
-                <action disabled="1" id="0" name="Call function" sid="307524564378584" type="Function">
+                <action id="0" name="Call function" sid="307524564378584" type="Function">
                     <param id="0" name="Name">&quot;removeFromPower&quot;</param>
                     <param id="1" name="Parameter {n}"></param>
                 </action>
-                <action disabled="1" id="0" name="Call function" sid="722017598803842" type="Function">
+                <action id="0" name="Call function" sid="722017598803842" type="Function">
                     <param id="0" name="Name">&quot;refreshInterface&quot;</param>
                     <param id="1" name="Parameter {n}"></param>
                 </action>
-                <action id="-9" name="Set value" sid="326814254822387" type="System">
+                <action disabled="1" id="-9" name="Set value" sid="326814254822387" type="System">
                     <param id="0" name="Variable">HumansOnPower</param>
                     <param id="1" name="Value">HumansOnPower - 1</param>
                 </action>
@@ -3208,7 +3288,7 @@
                                     <param id="0" name="Instance variable">group</param>
                                     <param id="1" name="Value">&quot;pool&quot;</param>
                                 </action>
-                                <action disabled="1" id="-9" name="Set value" sid="726571096462929" type="System">
+                                <action id="-9" name="Set value" sid="726571096462929" type="System">
                                     <param id="0" name="Variable">HumansInIncubator</param>
                                     <param id="1" name="Value">HumansInIncubator - 1</param>
                                 </action>
@@ -3236,19 +3316,19 @@
                 </condition>
             </conditions>
             <actions>
-                <action disabled="1" id="0" name="Call function" sid="772822685988571" type="Function">
+                <action id="0" name="Call function" sid="772822685988571" type="Function">
                     <param id="0" name="Name">&quot;removeFromIncubator&quot;</param>
                     <param id="1" name="Parameter {n}"></param>
                 </action>
-                <action disabled="1" id="0" name="Call function" sid="403420682101901" type="Function">
+                <action id="0" name="Call function" sid="403420682101901" type="Function">
                     <param id="0" name="Name">&quot;removeFromIncubator&quot;</param>
                     <param id="1" name="Parameter {n}"></param>
                 </action>
-                <action disabled="1" id="0" name="Call function" sid="184103039347718" type="Function">
+                <action id="0" name="Call function" sid="184103039347718" type="Function">
                     <param id="0" name="Name">&quot;refreshInterface&quot;</param>
                     <param id="1" name="Parameter {n}"></param>
                 </action>
-                <action id="-9" name="Set value" sid="320847149513923" type="System">
+                <action disabled="1" id="-9" name="Set value" sid="320847149513923" type="System">
                     <param id="0" name="Variable">HumansInIncubator</param>
                     <param id="1" name="Value">HumansInIncubator - 2</param>
                 </action>
@@ -3415,7 +3495,7 @@
                                     <param id="0" name="Instance variable">group</param>
                                     <param id="1" name="Value">&quot;pool&quot;</param>
                                 </action>
-                                <action disabled="1" id="-9" name="Set value" sid="597925707236125" type="System">
+                                <action id="-9" name="Set value" sid="597925707236125" type="System">
                                     <param id="0" name="Variable">HumansOnFood</param>
                                     <param id="1" name="Value">HumansOnFood - 1</param>
                                 </action>
@@ -3443,15 +3523,15 @@
                 </condition>
             </conditions>
             <actions>
-                <action disabled="1" id="0" name="Call function" sid="819923659749758" type="Function">
+                <action id="0" name="Call function" sid="819923659749758" type="Function">
                     <param id="0" name="Name">&quot;removeFromFood&quot;</param>
                     <param id="1" name="Parameter {n}"></param>
                 </action>
-                <action disabled="1" id="0" name="Call function" sid="765359919754023" type="Function">
+                <action id="0" name="Call function" sid="765359919754023" type="Function">
                     <param id="0" name="Name">&quot;refreshInterface&quot;</param>
                     <param id="1" name="Parameter {n}"></param>
                 </action>
-                <action id="-9" name="Set value" sid="115824331790334" type="System">
+                <action disabled="1" id="-9" name="Set value" sid="115824331790334" type="System">
                     <param id="0" name="Variable">HumansOnFood</param>
                     <param id="1" name="Value">HumansOnFood - 1</param>
                 </action>
@@ -3558,17 +3638,17 @@
                     <param id="0" name="Variable">HumansInPool</param>
                     <param id="1" name="Value">HumansInPool - 1</param>
                 </action>
-                <action id="-3" name="Create object" sid="276925796690038" type="System">
-                    <param id="0" name="Object to create">Manipulator</param>
+                <action id="-3" name="Create object" sid="726642770951552" type="System">
+                    <param id="0" name="Object to create">PoolOut</param>
                     <param id="1" name="Layer">&quot;BackgroundAnimations&quot;</param>
-                    <param id="2" name="X">252</param>
-                    <param id="3" name="Y">20</param>
+                    <param id="2" name="X">264</param>
+                    <param id="3" name="Y">256</param>
                 </action>
-                <action id="4" name="Set animation" sid="535810685710262" type="Manipulator">
-                    <param id="0" name="Animation">&quot;grab&quot;</param>
+                <action id="4" name="Set animation" sid="813500730057299" type="PoolOut">
+                    <param id="0" name="Animation">&quot;default&quot;</param>
                     <param id="1" name="From">1</param>
                 </action>
-                <action id="-10" name="Set value" sid="927231364530435" type="Manipulator">
+                <action id="-10" name="Set value" sid="789033099279330" type="PoolOut">
                     <param id="0" name="Instance variable">type</param>
                     <param id="1" name="Value">&quot;poolReactor&quot;</param>
                 </action>
@@ -6110,6 +6190,62 @@
                             </actions>
                         </event-block>
                     </sub-events>
+                </event-block>
+            </sub-events>
+        </event-block>
+        <event-block sid="192325443769974">
+            <conditions>
+                <condition id="2" name="Is playing" sid="821908532481872" type="Reactor">
+                    <param id="0" name="Animation">&quot;active&quot;</param>
+                </condition>
+            </conditions>
+            <actions />
+            <sub-events>
+                <event-block sid="564340629896476">
+                    <conditions>
+                        <condition id="-14" name="Compare variable" sid="933864012556500" type="System">
+                            <param id="0" name="Variable">HumansOnMeat</param>
+                            <param id="1" name="Comparison">0</param>
+                            <param id="2" name="Value">0</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="1" name="Append text" sid="542093660734734" type="console">
+                            <param id="0" name="Text">&quot;q&quot;</param>
+                        </action>
+                        <action id="4" name="Set animation" sid="753092038241217" type="Reactor">
+                            <param id="0" name="Animation">&quot;idle&quot;</param>
+                            <param id="1" name="From">1</param>
+                        </action>
+                    </actions>
+                </event-block>
+            </sub-events>
+        </event-block>
+        <event-block sid="749346284392721">
+            <conditions>
+                <condition id="2" name="Is playing" sid="526704060331412" type="Reactor">
+                    <param id="0" name="Animation">&quot;idle&quot;</param>
+                </condition>
+            </conditions>
+            <actions />
+            <sub-events>
+                <event-block sid="430767211513455">
+                    <conditions>
+                        <condition id="-14" name="Compare variable" sid="863497680892908" type="System">
+                            <param id="0" name="Variable">HumansOnMeat</param>
+                            <param id="1" name="Comparison">4</param>
+                            <param id="2" name="Value">0</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="1" name="Append text" sid="991755242349677" type="console">
+                            <param id="0" name="Text">&quot;w&quot;</param>
+                        </action>
+                        <action id="4" name="Set animation" sid="919728016340490" type="Reactor">
+                            <param id="0" name="Animation">&quot;active&quot;</param>
+                            <param id="1" name="From">1</param>
+                        </action>
+                    </actions>
                 </event-block>
             </sub-events>
         </event-block>
