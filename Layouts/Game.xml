@@ -1245,6 +1245,7 @@
                 <energy>0</energy>
                 <recycleProgress>0</recycleProgress>
                 <oldGroup></oldGroup>
+                <transit>0</transit>
             </instance-variables>
         </instance>
         <instance type="Array" uid="36">

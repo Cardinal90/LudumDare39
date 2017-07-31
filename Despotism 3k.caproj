@@ -61,6 +61,7 @@
                 <instance-variable name="energy" sid="403669927392286" type="number" />
                 <instance-variable name="recycleProgress" sid="846642416655289" type="number" />
                 <instance-variable name="oldGroup" sid="940439731415951" type="string" />
+                <instance-variable name="transit" sid="399877410543844" type="number" />
             </instance-variables>
         </object-type>
         <object-type name="Function" sid="494952190933108">
