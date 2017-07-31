@@ -2764,40 +2764,85 @@
                     <param id="0" name="Comparison">0</param>
                     <param id="1" name="Number">4</param>
                 </condition>
+                <condition id="-7" name="Compare instance variable" sid="920688150393934" type="PoolOut">
+                    <param id="0" name="Instance variable">created</param>
+                    <param id="1" name="Comparison">0</param>
+                    <param id="2" name="Value">0</param>
+                </condition>
             </conditions>
-            <actions />
+            <actions>
+                <action id="-10" name="Set value" sid="464812374413639" type="PoolOut">
+                    <param id="0" name="Instance variable">created</param>
+                    <param id="1" name="Value">1</param>
+                </action>
+            </actions>
             <sub-events>
-                <event-block sid="237344626339574">
+                <event-block sid="961844204554355">
+                    <conditions>
+                        <condition id="-7" name="Compare instance variable" sid="796486575524353" type="PoolOut">
+                            <param id="0" name="Instance variable">type</param>
+                            <param id="1" name="Comparison">0</param>
+                            <param id="2" name="Value">&quot;poolIncubator&quot;</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-3" name="Create object" sid="335027931215224" type="System">
+                            <param id="0" name="Object to create">Manipulator</param>
+                            <param id="1" name="Layer">&quot;BackgroundAnimations&quot;</param>
+                            <param id="2" name="X">252</param>
+                            <param id="3" name="Y">20</param>
+                        </action>
+                        <action id="4" name="Set animation" sid="509588890593264" type="Manipulator">
+                            <param id="0" name="Animation">&quot;grab&quot;</param>
+                            <param id="1" name="From">1</param>
+                        </action>
+                        <action id="-10" name="Set value" sid="912243108393661" type="Manipulator">
+                            <param id="0" name="Instance variable">type</param>
+                            <param id="1" name="Value">PoolOut.type</param>
+                        </action>
+                        <action id="-3" name="Create object" sid="578420541516332" type="System">
+                            <param id="0" name="Object to create">Manipulator</param>
+                            <param id="1" name="Layer">&quot;BackgroundAnimations&quot;</param>
+                            <param id="2" name="X">252</param>
+                            <param id="3" name="Y">20</param>
+                        </action>
+                        <action id="4" name="Set animation" sid="192841871818263" type="Manipulator">
+                            <param id="0" name="Animation">&quot;grab&quot;</param>
+                            <param id="1" name="From">1</param>
+                        </action>
+                        <action id="-10" name="Set value" sid="653631730109757" type="Manipulator">
+                            <param id="0" name="Instance variable">type</param>
+                            <param id="1" name="Value">PoolOut.type</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block any="1" sid="237344626339574">
                     <conditions>
                         <condition id="-7" name="Compare instance variable" sid="201978606643627" type="PoolOut">
                             <param id="0" name="Instance variable">type</param>
                             <param id="1" name="Comparison">0</param>
                             <param id="2" name="Value">&quot;poolPower&quot;</param>
                         </condition>
-                        <condition id="-7" name="Compare instance variable" sid="920688150393934" type="PoolOut">
-                            <param id="0" name="Instance variable">created</param>
+                        <condition id="-7" name="Compare instance variable" sid="429090267475796" type="PoolOut">
+                            <param id="0" name="Instance variable">type</param>
                             <param id="1" name="Comparison">0</param>
-                            <param id="2" name="Value">0</param>
+                            <param id="2" name="Value">&quot;poolFood&quot;</param>
                         </condition>
                     </conditions>
                     <actions>
-                        <action id="-10" name="Set value" sid="464812374413639" type="PoolOut">
-                            <param id="0" name="Instance variable">created</param>
-                            <param id="1" name="Value">1</param>
-                        </action>
-                        <action id="-3" name="Create object" sid="486285782081331" type="System">
+                        <action id="-3" name="Create object" sid="581427333077392" type="System">
                             <param id="0" name="Object to create">Manipulator</param>
                             <param id="1" name="Layer">&quot;BackgroundAnimations&quot;</param>
                             <param id="2" name="X">252</param>
                             <param id="3" name="Y">20</param>
                         </action>
-                        <action id="4" name="Set animation" sid="599112123094357" type="Manipulator">
+                        <action id="4" name="Set animation" sid="142439039071972" type="Manipulator">
                             <param id="0" name="Animation">&quot;grab&quot;</param>
                             <param id="1" name="From">1</param>
                         </action>
-                        <action id="-10" name="Set value" sid="418572107702185" type="Manipulator">
+                        <action id="-10" name="Set value" sid="453465705456042" type="Manipulator">
                             <param id="0" name="Instance variable">type</param>
-                            <param id="1" name="Value">&quot;poolPower&quot;</param>
+                            <param id="1" name="Value">PoolOut.type</param>
                         </action>
                     </actions>
                 </event-block>
@@ -3103,31 +3148,31 @@
                     <param id="0" name="Variable">HumansInPool</param>
                     <param id="1" name="Value">HumansInPool - 2</param>
                 </action>
-                <action id="-3" name="Create object" sid="291849822222920" type="System">
-                    <param id="0" name="Object to create">Manipulator</param>
+                <action id="-3" name="Create object" sid="349736837350083" type="System">
+                    <param id="0" name="Object to create">PoolOut</param>
                     <param id="1" name="Layer">&quot;BackgroundAnimations&quot;</param>
-                    <param id="2" name="X">252</param>
-                    <param id="3" name="Y">20</param>
+                    <param id="2" name="X">264</param>
+                    <param id="3" name="Y">256</param>
                 </action>
-                <action id="4" name="Set animation" sid="867071042779422" type="Manipulator">
-                    <param id="0" name="Animation">&quot;grab&quot;</param>
+                <action id="4" name="Set animation" sid="575409412562686" type="PoolOut">
+                    <param id="0" name="Animation">&quot;default&quot;</param>
                     <param id="1" name="From">1</param>
                 </action>
-                <action id="-10" name="Set value" sid="735527638131990" type="Manipulator">
+                <action id="-10" name="Set value" sid="236743347275772" type="PoolOut">
                     <param id="0" name="Instance variable">type</param>
                     <param id="1" name="Value">&quot;poolIncubator&quot;</param>
                 </action>
-                <action id="-3" name="Create object" sid="980333862833882" type="System">
-                    <param id="0" name="Object to create">Manipulator</param>
+                <action id="-3" name="Create object" sid="607936687108712" type="System">
+                    <param id="0" name="Object to create">PoolOut</param>
                     <param id="1" name="Layer">&quot;BackgroundAnimations&quot;</param>
-                    <param id="2" name="X">252</param>
-                    <param id="3" name="Y">20</param>
+                    <param id="2" name="X">264</param>
+                    <param id="3" name="Y">256</param>
                 </action>
-                <action id="4" name="Set animation" sid="523865913793736" type="Manipulator">
-                    <param id="0" name="Animation">&quot;grab&quot;</param>
+                <action id="4" name="Set animation" sid="697697741220454" type="PoolOut">
+                    <param id="0" name="Animation">&quot;default&quot;</param>
                     <param id="1" name="From">1</param>
                 </action>
-                <action id="-10" name="Set value" sid="536708516932069" type="Manipulator">
+                <action id="-10" name="Set value" sid="953181862183267" type="PoolOut">
                     <param id="0" name="Instance variable">type</param>
                     <param id="1" name="Value">&quot;poolIncubator&quot;</param>
                 </action>
@@ -3324,17 +3369,17 @@
                     <param id="0" name="Variable">HumansInPool</param>
                     <param id="1" name="Value">HumansInPool - 1</param>
                 </action>
-                <action id="-3" name="Create object" sid="905849524438804" type="System">
-                    <param id="0" name="Object to create">Manipulator</param>
+                <action id="-3" name="Create object" sid="467329449958253" type="System">
+                    <param id="0" name="Object to create">PoolOut</param>
                     <param id="1" name="Layer">&quot;BackgroundAnimations&quot;</param>
-                    <param id="2" name="X">252</param>
-                    <param id="3" name="Y">20</param>
+                    <param id="2" name="X">264</param>
+                    <param id="3" name="Y">256</param>
                 </action>
-                <action id="4" name="Set animation" sid="230256566493083" type="Manipulator">
-                    <param id="0" name="Animation">&quot;grab&quot;</param>
+                <action id="4" name="Set animation" sid="658836762815818" type="PoolOut">
+                    <param id="0" name="Animation">&quot;default&quot;</param>
                     <param id="1" name="From">1</param>
                 </action>
-                <action id="-10" name="Set value" sid="100658243144077" type="Manipulator">
+                <action id="-10" name="Set value" sid="602307140867629" type="PoolOut">
                     <param id="0" name="Instance variable">type</param>
                     <param id="1" name="Value">&quot;poolFood&quot;</param>
                 </action>
