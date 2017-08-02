@@ -3,6 +3,7 @@
     <!--All the 'name' attributes are ignored by Construct 2 - they are there for readability only.-->
     <name>GameES</name>
     <events>
+        <variable constant="0" name="pauseDisabled" sid="186407504835800" static="0" type="number">1</variable>
         <variable constant="0" name="q3" sid="671753645654856" static="0" type="number">0</variable>
         <variable constant="0" name="q4" sid="662527659486568" static="0" type="number">0</variable>
         <variable constant="0" name="q5" sid="967123032360008" static="0" type="number">0</variable>
@@ -12,13 +13,13 @@
         <variable constant="0" name="q1" sid="851374614335036" static="0" type="number">0</variable>
         <variable constant="0" name="victory" sid="595423336154801" static="0" type="number">0</variable>
         <variable constant="0" name="loss" sid="432982384204420" static="0" type="number">0</variable>
-        <variable constant="0" name="MinusPowerDisabled" sid="857466433854752" static="0" type="number">0</variable>
-        <variable constant="0" name="MinusFoodDisabled" sid="578685237868688" static="0" type="number">0</variable>
-        <variable constant="0" name="MinusIncubatorDisabled" sid="200919934111578" static="0" type="number">0</variable>
-        <variable constant="0" name="PlusPowerDisabled" sid="422395553633131" static="0" type="number">0</variable>
-        <variable constant="0" name="PlusFoodDisabled" sid="472578209672065" static="0" type="number">0</variable>
-        <variable constant="0" name="PlusIncubatorDisabled" sid="336818899759371" static="0" type="number">0</variable>
-        <variable constant="0" name="PlusReactorDisabled" sid="416408134085067" static="0" type="number">0</variable>
+        <variable constant="0" name="MinusPowerDisabled" sid="857466433854752" static="0" type="number">1</variable>
+        <variable constant="0" name="MinusFoodDisabled" sid="578685237868688" static="0" type="number">1</variable>
+        <variable constant="0" name="MinusIncubatorDisabled" sid="200919934111578" static="0" type="number">1</variable>
+        <variable constant="0" name="PlusPowerDisabled" sid="422395553633131" static="0" type="number">1</variable>
+        <variable constant="0" name="PlusFoodDisabled" sid="472578209672065" static="0" type="number">1</variable>
+        <variable constant="0" name="PlusIncubatorDisabled" sid="336818899759371" static="0" type="number">1</variable>
+        <variable constant="0" name="PlusReactorDisabled" sid="416408134085067" static="0" type="number">1</variable>
         <variable constant="0" name="LevelStartTime" sid="103055519668562" static="0" type="number">0</variable>
         <variable constant="0" name="TotalTime" sid="897253730388986" static="0" type="number">0</variable>
         <variable constant="0" name="const_e7_lessEnergy" sid="252962220196944" static="0" type="number">2</variable>
@@ -73,6 +74,9 @@
                 <action disabled="1" id="-4" name="Set layer visible" sid="231844947648718" type="System">
                     <param id="0" name="Layer">&quot;Modal&quot;</param>
                     <param id="1" name="Visibility">0</param>
+                </action>
+                <action disabled="1" id="-1" name="Set X" sid="264829061396208" type="OkBtn">
+                    <param id="0" name="X">747</param>
                 </action>
                 <action id="-9" name="Destroy" sid="527108790618781" type="Human" />
                 <action id="0" name="Call function" sid="654123490702290" type="Function">
@@ -6067,6 +6071,11 @@
                 <condition id="7" name="Cursor is over object" sid="747054086974198" type="Mouse">
                     <param id="0" name="Object">PauseButton</param>
                 </condition>
+                <condition id="-14" name="Compare variable" sid="529565846849663" type="System">
+                    <param id="0" name="Variable">pauseDisabled</param>
+                    <param id="1" name="Comparison">0</param>
+                    <param id="2" name="Value">0</param>
+                </condition>
             </conditions>
             <actions>
                 <action id="0" name="Set cursor style" sid="288940191825597" type="Mouse">
@@ -6546,13 +6555,20 @@
                 </condition>
             </conditions>
             <actions>
-                <action id="-9" name="Set value" sid="569167456612812" type="System">
-                    <param id="0" name="Variable">Paused</param>
-                    <param id="1" name="Value">1</param>
-                </action>
                 <action id="-4" name="Set layer visible" sid="742482462226945" type="System">
                     <param id="0" name="Layer">&quot;Modal&quot;</param>
                     <param id="1" name="Visibility">1</param>
+                </action>
+                <action id="-9" name="Set value" sid="450225542917799" type="System">
+                    <param id="0" name="Variable">pauseDisabled</param>
+                    <param id="1" name="Value">1</param>
+                </action>
+                <action id="0" name="Call function" sid="778824387272466" type="Function">
+                    <param id="0" name="Name">&quot;pause&quot;</param>
+                    <param id="1" name="Parameter {n}"></param>
+                </action>
+                <action id="-1" name="Set X" sid="516704311924663" type="OkBtn">
+                    <param id="0" name="X">747</param>
                 </action>
             </actions>
             <sub-events>
@@ -6974,38 +6990,19 @@
                     <param id="0" name="Layer">&quot;Modal&quot;</param>
                     <param id="1" name="Visibility">0</param>
                 </action>
-                <action id="-9" name="Set value" sid="806323317259510" type="System">
-                    <param id="0" name="Variable">Paused</param>
+                <action id="-9" name="Set value" sid="542242434036364" type="System">
+                    <param id="0" name="Variable">pauseDisabled</param>
                     <param id="1" name="Value">0</param>
+                </action>
+                <action id="0" name="Call function" sid="820479529400901" type="Function">
+                    <param id="0" name="Name">&quot;unpause&quot;</param>
+                    <param id="1" name="Parameter {n}"></param>
+                </action>
+                <action id="-1" name="Set X" sid="550804596324666" type="OkBtn">
+                    <param id="0" name="X">-1000</param>
                 </action>
             </actions>
             <sub-events>
-                <event-block any="1" sid="914690241683089">
-                    <conditions>
-                        <condition id="-14" name="Compare variable" sid="995909902957889" type="System">
-                            <param id="0" name="Variable">victory</param>
-                            <param id="1" name="Comparison">0</param>
-                            <param id="2" name="Value">1</param>
-                        </condition>
-                        <condition id="-14" name="Compare variable" sid="258833175798470" type="System">
-                            <param id="0" name="Variable">loss</param>
-                            <param id="1" name="Comparison">0</param>
-                            <param id="2" name="Value">1</param>
-                        </condition>
-                    </conditions>
-                    <actions>
-                        <action id="-21" name="Reset global variables" sid="602370687123444" type="System" />
-                        <action id="-26" name="Restart layout" sid="412402856521662" type="System" />
-                        <action id="-9" name="Set value" sid="205303140509012" type="System">
-                            <param id="0" name="Variable">loss</param>
-                            <param id="1" name="Value">0</param>
-                        </action>
-                        <action id="-9" name="Set value" sid="511581988972544" type="System">
-                            <param id="0" name="Variable">victory</param>
-                            <param id="1" name="Value">0</param>
-                        </action>
-                    </actions>
-                </event-block>
                 <event-block sid="998433943332827">
                     <conditions>
                         <condition id="-14" name="Pick by unique ID" sid="291197024888314" type="SpriteFont">
@@ -7054,6 +7051,50 @@
                     </conditions>
                     <actions>
                         <action id="-9" name="Destroy" sid="689900381065860" type="SpriteFont" />
+                    </actions>
+                </event-block>
+                <event-block any="1" sid="914690241683089">
+                    <conditions>
+                        <condition id="-14" name="Compare variable" sid="995909902957889" type="System">
+                            <param id="0" name="Variable">victory</param>
+                            <param id="1" name="Comparison">0</param>
+                            <param id="2" name="Value">1</param>
+                        </condition>
+                        <condition id="-14" name="Compare variable" sid="258833175798470" type="System">
+                            <param id="0" name="Variable">loss</param>
+                            <param id="1" name="Comparison">0</param>
+                            <param id="2" name="Value">1</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-21" name="Reset global variables" sid="602370687123444" type="System" />
+                        <action id="-26" name="Restart layout" sid="412402856521662" type="System" />
+                        <action disabled="1" id="-9" name="Set value" sid="205303140509012" type="System">
+                            <param id="0" name="Variable">loss</param>
+                            <param id="1" name="Value">0</param>
+                        </action>
+                        <action disabled="1" id="-9" name="Set value" sid="511581988972544" type="System">
+                            <param id="0" name="Variable">victory</param>
+                            <param id="1" name="Value">0</param>
+                        </action>
+                        <action id="-4" name="Set layer visible" sid="182465674437200" type="System">
+                            <param id="0" name="Layer">&quot;Modal&quot;</param>
+                            <param id="1" name="Visibility">1</param>
+                        </action>
+                        <action id="-1" name="Set X" sid="834712548653081" type="OkBtn">
+                            <param id="0" name="X">747</param>
+                        </action>
+                        <action disabled="1" id="-9" name="Set value" sid="735892869378688" type="System">
+                            <param id="0" name="Variable">pauseDisabled</param>
+                            <param id="1" name="Value">0</param>
+                        </action>
+                        <action disabled="1" id="0" name="Call function" sid="368698855362327" type="Function">
+                            <param id="0" name="Name">&quot;unpause&quot;</param>
+                            <param id="1" name="Parameter {n}"></param>
+                        </action>
+                        <action disabled="1" id="-1" name="Set X" sid="108721993009755" type="OkBtn">
+                            <param id="0" name="X">-1000</param>
+                        </action>
                     </actions>
                 </event-block>
             </sub-events>
@@ -7836,6 +7877,11 @@
         <event-block sid="567248048928427">
             <conditions>
                 <condition id="-22" name="Else" sid="328464380448541" type="System" />
+                <condition id="-14" name="Compare variable" sid="965457566838694" type="System">
+                    <param id="0" name="Variable">pauseDisabled</param>
+                    <param id="1" name="Comparison">0</param>
+                    <param id="2" name="Value">0</param>
+                </condition>
             </conditions>
             <actions>
                 <action id="5" name="Set frame" sid="431194558646782" type="PauseButton">
@@ -7850,6 +7896,11 @@
                     <param id="1" name="Click type">0</param>
                     <param id="2" name="Object clicked">PauseButton</param>
                 </condition>
+                <condition id="-14" name="Compare variable" sid="326222353505283" type="System">
+                    <param id="0" name="Variable">pauseDisabled</param>
+                    <param id="1" name="Comparison">0</param>
+                    <param id="2" name="Value">0</param>
+                </condition>
             </conditions>
             <actions />
             <sub-events>
@@ -7862,53 +7913,10 @@
                         </condition>
                     </conditions>
                     <actions>
-                        <action id="-9" name="Set value" sid="260752729474633" type="System">
-                            <param id="0" name="Variable">Paused</param>
-                            <param id="1" name="Value">1</param>
+                        <action id="0" name="Call function" sid="783633901512954" type="Function">
+                            <param id="0" name="Name">&quot;pause&quot;</param>
+                            <param id="1" name="Parameter {n}"></param>
                         </action>
-                        <action id="-9" name="Set value" sid="517405901969961" type="System">
-                            <param id="0" name="Variable">PlusPowerDisabled</param>
-                            <param id="1" name="Value">1</param>
-                        </action>
-                        <action id="-9" name="Set value" sid="714166544195780" type="System">
-                            <param id="0" name="Variable">PlusFoodDisabled</param>
-                            <param id="1" name="Value">1</param>
-                        </action>
-                        <action id="-9" name="Set value" sid="696844203478984" type="System">
-                            <param id="0" name="Variable">PlusIncubatorDisabled</param>
-                            <param id="1" name="Value">1</param>
-                        </action>
-                        <action id="-9" name="Set value" sid="513827476203047" type="System">
-                            <param id="0" name="Variable">PlusReactorDisabled</param>
-                            <param id="1" name="Value">1</param>
-                        </action>
-                        <action id="-9" name="Set value" sid="334635036057362" type="System">
-                            <param id="0" name="Variable">MinusFoodDisabled</param>
-                            <param id="1" name="Value">1</param>
-                        </action>
-                        <action id="-9" name="Set value" sid="381843300432810" type="System">
-                            <param id="0" name="Variable">MinusPowerDisabled</param>
-                            <param id="1" name="Value">1</param>
-                        </action>
-                        <action id="-9" name="Set value" sid="576393519649820" type="System">
-                            <param id="0" name="Variable">MinusIncubatorDisabled</param>
-                            <param id="1" name="Value">1</param>
-                        </action>
-                        <action id="2" name="Stop" sid="562169072781015" type="PoolIn" />
-                        <action id="2" name="Stop" sid="209742682543268" type="PoolOut" />
-                        <action id="2" name="Stop" sid="916957565108270" type="Manipulator" />
-                        <action id="2" name="Stop" sid="795794083881547" type="ReactorIn" />
-                        <action id="2" name="Stop" sid="127858048461949" type="FoodIn" />
-                        <action id="2" name="Stop" sid="164244303928987" type="FoodOut" />
-                        <action id="2" name="Stop" sid="593426100023015" type="GeneratorIn" />
-                        <action id="2" name="Stop" sid="212219321187450" type="GeneratorOut" />
-                        <action id="2" name="Stop" sid="740377101282526" type="Pool" />
-                        <action id="2" name="Stop" sid="780864838027066" type="Reactor" />
-                        <action id="2" name="Stop" sid="142954320894041" type="Reproductor" />
-                        <action id="2" name="Stop" sid="655765279802456" type="ReproIn" />
-                        <action id="2" name="Stop" sid="312447619250600" type="ReproOut" />
-                        <action id="2" name="Stop" sid="185970300777970" type="FoodProducer" />
-                        <action id="2" name="Stop" sid="755675556450267" type="Generator" />
                     </actions>
                 </event-block>
                 <event-block sid="193440190707315">
@@ -7921,86 +7929,9 @@
                         </condition>
                     </conditions>
                     <actions>
-                        <action id="-9" name="Set value" sid="752713870506054" type="System">
-                            <param id="0" name="Variable">Paused</param>
-                            <param id="1" name="Value">0</param>
-                        </action>
-                        <action id="-9" name="Set value" sid="573626009859792" type="System">
-                            <param id="0" name="Variable">PlusPowerDisabled</param>
-                            <param id="1" name="Value">0</param>
-                        </action>
-                        <action id="-9" name="Set value" sid="985436664218641" type="System">
-                            <param id="0" name="Variable">PlusFoodDisabled</param>
-                            <param id="1" name="Value">0</param>
-                        </action>
-                        <action id="-9" name="Set value" sid="793881660388703" type="System">
-                            <param id="0" name="Variable">PlusIncubatorDisabled</param>
-                            <param id="1" name="Value">0</param>
-                        </action>
-                        <action id="-9" name="Set value" sid="410104304332136" type="System">
-                            <param id="0" name="Variable">PlusReactorDisabled</param>
-                            <param id="1" name="Value">0</param>
-                        </action>
-                        <action id="-9" name="Set value" sid="484922387519795" type="System">
-                            <param id="0" name="Variable">MinusFoodDisabled</param>
-                            <param id="1" name="Value">0</param>
-                        </action>
-                        <action id="-9" name="Set value" sid="282581830616955" type="System">
-                            <param id="0" name="Variable">MinusPowerDisabled</param>
-                            <param id="1" name="Value">0</param>
-                        </action>
-                        <action id="-9" name="Set value" sid="172689790955613" type="System">
-                            <param id="0" name="Variable">MinusIncubatorDisabled</param>
-                            <param id="1" name="Value">0</param>
-                        </action>
-                        <action id="3" name="Start" sid="794530285359907" type="PoolIn">
-                            <param id="0" name="From">0</param>
-                        </action>
-                        <action id="3" name="Start" sid="180717124764397" type="PoolOut">
-                            <param id="0" name="From">0</param>
-                        </action>
-                        <action id="3" name="Start" sid="659211688221149" type="Manipulator">
-                            <param id="0" name="From">0</param>
-                        </action>
-                        <action id="3" name="Start" sid="891382394480746" type="ReactorIn">
-                            <param id="0" name="From">0</param>
-                        </action>
-                        <action id="3" name="Start" sid="881430144285470" type="FoodIn">
-                            <param id="0" name="From">0</param>
-                        </action>
-                        <action id="3" name="Start" sid="295634683433518" type="FoodOut">
-                            <param id="0" name="From">0</param>
-                        </action>
-                        <action id="3" name="Start" sid="649941802854257" type="GeneratorIn">
-                            <param id="0" name="From">0</param>
-                        </action>
-                        <action id="3" name="Start" sid="953887183660079" type="GeneratorOut">
-                            <param id="0" name="From">0</param>
-                        </action>
-                        <action id="3" name="Start" sid="998230743756576" type="Pool">
-                            <param id="0" name="From">0</param>
-                        </action>
-                        <action id="3" name="Start" sid="182679641842149" type="Reactor">
-                            <param id="0" name="From">0</param>
-                        </action>
-                        <action id="3" name="Start" sid="165355012744142" type="Reproductor">
-                            <param id="0" name="From">0</param>
-                        </action>
-                        <action id="3" name="Start" sid="927190557217564" type="ReproIn">
-                            <param id="0" name="From">0</param>
-                        </action>
-                        <action id="3" name="Start" sid="454155193721006" type="ReproOut">
-                            <param id="0" name="From">0</param>
-                        </action>
-                        <action id="-4" name="Set layer visible" sid="141255012672864" type="System">
-                            <param id="0" name="Layer">&quot;Modal&quot;</param>
-                            <param id="1" name="Visibility">0</param>
-                        </action>
-                        <action id="3" name="Start" sid="465009429165233" type="FoodProducer">
-                            <param id="0" name="From">0</param>
-                        </action>
-                        <action id="3" name="Start" sid="174725450187384" type="Generator">
-                            <param id="0" name="From">0</param>
+                        <action id="0" name="Call function" sid="391812562939536" type="Function">
+                            <param id="0" name="Name">&quot;unpause&quot;</param>
+                            <param id="1" name="Parameter {n}"></param>
                         </action>
                     </actions>
                 </event-block>
@@ -8011,6 +7942,176 @@
                 <condition id="-18" name="On created" sid="442906949544377" type="Manipulator" />
             </conditions>
             <actions />
+        </event-block>
+        <event-block sid="167020338673596">
+            <conditions>
+                <condition id="0" name="On function" sid="779061957119278" type="Function">
+                    <param id="0" name="Name">&quot;pause&quot;</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="-9" name="Set value" sid="260752729474633" type="System">
+                    <param id="0" name="Variable">Paused</param>
+                    <param id="1" name="Value">1</param>
+                </action>
+                <action id="-9" name="Set value" sid="517405901969961" type="System">
+                    <param id="0" name="Variable">PlusPowerDisabled</param>
+                    <param id="1" name="Value">1</param>
+                </action>
+                <action id="-9" name="Set value" sid="714166544195780" type="System">
+                    <param id="0" name="Variable">PlusFoodDisabled</param>
+                    <param id="1" name="Value">1</param>
+                </action>
+                <action id="-9" name="Set value" sid="696844203478984" type="System">
+                    <param id="0" name="Variable">PlusIncubatorDisabled</param>
+                    <param id="1" name="Value">1</param>
+                </action>
+                <action id="-9" name="Set value" sid="513827476203047" type="System">
+                    <param id="0" name="Variable">PlusReactorDisabled</param>
+                    <param id="1" name="Value">1</param>
+                </action>
+                <action id="-9" name="Set value" sid="334635036057362" type="System">
+                    <param id="0" name="Variable">MinusFoodDisabled</param>
+                    <param id="1" name="Value">1</param>
+                </action>
+                <action id="-9" name="Set value" sid="381843300432810" type="System">
+                    <param id="0" name="Variable">MinusPowerDisabled</param>
+                    <param id="1" name="Value">1</param>
+                </action>
+                <action id="-9" name="Set value" sid="576393519649820" type="System">
+                    <param id="0" name="Variable">MinusIncubatorDisabled</param>
+                    <param id="1" name="Value">1</param>
+                </action>
+                <action id="2" name="Stop" sid="562169072781015" type="PoolIn" />
+                <action id="2" name="Stop" sid="209742682543268" type="PoolOut" />
+                <action id="2" name="Stop" sid="916957565108270" type="Manipulator" />
+                <action id="2" name="Stop" sid="795794083881547" type="ReactorIn" />
+                <action id="2" name="Stop" sid="127858048461949" type="FoodIn" />
+                <action id="2" name="Stop" sid="164244303928987" type="FoodOut" />
+                <action id="2" name="Stop" sid="593426100023015" type="GeneratorIn" />
+                <action id="2" name="Stop" sid="212219321187450" type="GeneratorOut" />
+                <action id="2" name="Stop" sid="740377101282526" type="Pool" />
+                <action id="2" name="Stop" sid="780864838027066" type="Reactor" />
+                <action id="2" name="Stop" sid="142954320894041" type="Reproductor" />
+                <action id="2" name="Stop" sid="655765279802456" type="ReproIn" />
+                <action id="2" name="Stop" sid="312447619250600" type="ReproOut" />
+                <action id="2" name="Stop" sid="185970300777970" type="FoodProducer" />
+                <action id="2" name="Stop" sid="755675556450267" type="Generator" />
+            </actions>
+        </event-block>
+        <event-block sid="147715099303309">
+            <conditions>
+                <condition id="0" name="On function" sid="108794545576818" type="Function">
+                    <param id="0" name="Name">&quot;unpause&quot;</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="-9" name="Set value" sid="752713870506054" type="System">
+                    <param id="0" name="Variable">Paused</param>
+                    <param id="1" name="Value">0</param>
+                </action>
+                <action id="-9" name="Set value" sid="573626009859792" type="System">
+                    <param id="0" name="Variable">PlusPowerDisabled</param>
+                    <param id="1" name="Value">0</param>
+                </action>
+                <action id="-9" name="Set value" sid="985436664218641" type="System">
+                    <param id="0" name="Variable">PlusFoodDisabled</param>
+                    <param id="1" name="Value">0</param>
+                </action>
+                <action id="-9" name="Set value" sid="793881660388703" type="System">
+                    <param id="0" name="Variable">PlusIncubatorDisabled</param>
+                    <param id="1" name="Value">0</param>
+                </action>
+                <action id="-9" name="Set value" sid="410104304332136" type="System">
+                    <param id="0" name="Variable">PlusReactorDisabled</param>
+                    <param id="1" name="Value">0</param>
+                </action>
+                <action id="-9" name="Set value" sid="484922387519795" type="System">
+                    <param id="0" name="Variable">MinusFoodDisabled</param>
+                    <param id="1" name="Value">0</param>
+                </action>
+                <action id="-9" name="Set value" sid="282581830616955" type="System">
+                    <param id="0" name="Variable">MinusPowerDisabled</param>
+                    <param id="1" name="Value">0</param>
+                </action>
+                <action id="-9" name="Set value" sid="172689790955613" type="System">
+                    <param id="0" name="Variable">MinusIncubatorDisabled</param>
+                    <param id="1" name="Value">0</param>
+                </action>
+                <action id="3" name="Start" sid="794530285359907" type="PoolIn">
+                    <param id="0" name="From">0</param>
+                </action>
+                <action id="3" name="Start" sid="180717124764397" type="PoolOut">
+                    <param id="0" name="From">0</param>
+                </action>
+                <action id="3" name="Start" sid="659211688221149" type="Manipulator">
+                    <param id="0" name="From">0</param>
+                </action>
+                <action id="3" name="Start" sid="891382394480746" type="ReactorIn">
+                    <param id="0" name="From">0</param>
+                </action>
+                <action id="3" name="Start" sid="881430144285470" type="FoodIn">
+                    <param id="0" name="From">0</param>
+                </action>
+                <action id="3" name="Start" sid="295634683433518" type="FoodOut">
+                    <param id="0" name="From">0</param>
+                </action>
+                <action id="3" name="Start" sid="649941802854257" type="GeneratorIn">
+                    <param id="0" name="From">0</param>
+                </action>
+                <action id="3" name="Start" sid="953887183660079" type="GeneratorOut">
+                    <param id="0" name="From">0</param>
+                </action>
+                <action id="3" name="Start" sid="998230743756576" type="Pool">
+                    <param id="0" name="From">0</param>
+                </action>
+                <action id="3" name="Start" sid="182679641842149" type="Reactor">
+                    <param id="0" name="From">0</param>
+                </action>
+                <action id="3" name="Start" sid="165355012744142" type="Reproductor">
+                    <param id="0" name="From">0</param>
+                </action>
+                <action id="3" name="Start" sid="927190557217564" type="ReproIn">
+                    <param id="0" name="From">0</param>
+                </action>
+                <action id="3" name="Start" sid="454155193721006" type="ReproOut">
+                    <param id="0" name="From">0</param>
+                </action>
+                <action id="-4" name="Set layer visible" sid="141255012672864" type="System">
+                    <param id="0" name="Layer">&quot;Modal&quot;</param>
+                    <param id="1" name="Visibility">0</param>
+                </action>
+                <action id="3" name="Start" sid="465009429165233" type="FoodProducer">
+                    <param id="0" name="From">0</param>
+                </action>
+                <action id="3" name="Start" sid="174725450187384" type="Generator">
+                    <param id="0" name="From">0</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="377043695886954">
+            <conditions>
+                <condition id="-14" name="Compare variable" sid="807134379222635" type="System">
+                    <param id="0" name="Variable">pauseDisabled</param>
+                    <param id="1" name="Comparison">0</param>
+                    <param id="2" name="Value">1</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="-1" name="Set X" sid="182069110435952" type="OkBtn">
+                    <param id="0" name="X">747</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="664289583582058">
+            <conditions>
+                <condition id="-22" name="Else" sid="306643539168465" type="System" />
+            </conditions>
+            <actions>
+                <action id="-1" name="Set X" sid="179281186833764" type="OkBtn">
+                    <param id="0" name="X">-1000</param>
+                </action>
+            </actions>
         </event-block>
     </events>
 </c2eventsheet>
